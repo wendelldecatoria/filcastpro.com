@@ -1,0 +1,129 @@
+subscribers page
+	-> show subscribers - ok
+	-> add subscribers - ok
+	-> update subscribers - ok
+	-> delete subscribers - ok
+	-> associate shops to subscriber - ok
+	-> un-associate shops to subscriber - ok
+
+subscriptions page
+	-> show subscription - ok
+	-> add subscription to subscriber - ok
+	-> remove subscription from subscriber - ok
+
+users page
+	-> show users - ok
+	-> add users - ok
+	-> update users - ok
+	-> delete users - ok
+	-> add roles to users - will be part of update users - ok
+	-> associate subscribers to user - ok
+	-> unassociate subscribers to user - ok
+	-> associate malls to user - ok
+	-> unassociate malls to user -ok
+	-> approve users - ok
+
+category page
+	-> show categories - ok
+	-> add category  - ok
+	-> update category  - ok
+	-> delete category  - ok
+
+shops page
+	-> show shops  - ok
+	-> add shops - ok 
+	-> add category to shops - ok 
+	-> update shops - ok
+	-> update category to shops  - ok 
+	-> delete shops - ok
+
+mall shops page - associate shop to malls
+	-> show mall shops
+	-> add
+	-> update
+	-> delete
+
+kiosk page
+	-> show kiosks - ok
+	-> delete kiosks - ok
+	-> update kiosks - ok
+	-> add kiosks - ok
+
+products page
+	-> show products - ok
+	-> add products
+	-> update products
+	-> delete products
+
+promo page
+	-> show promos
+	-> add promo
+	-> update promo
+	-> delete promo
+
+service
+	-> show
+	-> add
+	-> update
+	-> delete
+
+tags
+	-> show
+	-> add
+	-> update
+	-> delete 
+
+accounts 
+	-> show
+	-> add
+	-> update
+	-> delete
+
+contract page
+	-> show contract
+	-> create contract
+	-> update contract
+	-> delete contract
+
+
+	->Users
+		->view user privileges
+			->subscribers
+			->malls
+			->shops
+
+
+
+
+
+TODO: add user_id column to all tables with CRUD. This is for transaction history
+TODO: add table subscription_history -> id, subscriber_subscription_id, days_consumed, foreign key subscriber_subscription_id on subscribers_subscriptions table
+
+TODO: add subscription_id in all table 
+
+Workflow ->
+	add user
+	associate user with subscriber
+	associate user with mall
+	associate subscriber with shops
+	add subscription to subscriber. 1 item per subscription type
+
+
+
+CDN
+
+ <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/billboard.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css') }}" rel="stylesheet">
+
+    {{--added js--}}
+    <script src="{{asset('js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{asset('js/tether.min.js') }}"></script>
+    <script src="{{asset('js/moment-with-locales.min.js') }}"></script>
+    <script src="{{asset('js/bootstrap/transition.js') }}"></script>
+    <script src="{{asset('js/bootstrap/collapse.js') }}"></script>
+    <script src="{{asset('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') }}"></script>
+    <script src="{{asset('js/bootstrap-datetimepicker.js') }}"></script>
+    <script src="{{asset('https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js') }}"></script>
