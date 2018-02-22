@@ -13,7 +13,7 @@
         @include('partials.menu')
         
         <div class="col-md-12 content-body">
-           Actors Page
+           News Room Page
         </div>
 
         @include('partials.footer')
@@ -24,9 +24,7 @@
 @section('js')
 <script>
     $('document').ready(function(){
-        $('.nav-actors').addClass('active');
+        $('.nav-news-room').addClass('active');
     });
-
-    
 </script>
 @endsection

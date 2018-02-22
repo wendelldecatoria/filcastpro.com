@@ -13,10 +13,10 @@
       <a class="navbar-brand" href="#"></a>
     </div> -->
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">HOME</a></li>
-      <li><a href="#">ACTORS</a></li>
-      <li><a href="#">NEWS ROOM</a></li>
-      <li><a href="#">CONTACT</a></li>
+      <li class="nav-home"><a href="{{route('web.home')}}">HOME</a></li>
+      <li class="nav-actors"><a href="{{route('web.actors')}}">ACTORS</a></li>
+      <li class="nav-news-room"><a href="{{route('web.news-room')}}">NEWS ROOM</a></li>
+      <li class="nav-contact"><a href="{{route('web.contact')}}">CONTACT</a></li>
     </ul>
   </div>
 </nav>

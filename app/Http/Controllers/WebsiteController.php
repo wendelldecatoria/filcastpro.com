@@ -33,7 +33,7 @@ class WebsiteController extends Controller
     * 
     */
     public function actors(){
-        return "actors";
+        return view('actors');
     }
 
     /* 
@@ -43,7 +43,7 @@ class WebsiteController extends Controller
     * 
     */
     public function contact(){
-        return "contact";
+        return view('contact');
     }
 
     /* 
@@ -53,7 +53,7 @@ class WebsiteController extends Controller
     * 
     */
     public function newsRoom(){
-        return "News Room";
+        return view('news-room');
     }
 
 
