@@ -1,0 +1,67 @@
+html { 
+	background-color: #000;
+    background: url(/images/default-background.png);
+	background-repeat:no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+    background-size: cover;
+    background-attachment: fixed;
+    overflow-x:hidden;
+    height: 100%;
+}
+
+body {
+    background-color: transparent;
+    height: 100%;
+}
+
+.container {
+    height: calc(100% - 73pt);
+    width: 60%;
+}
+
+.header {
+    height: 73pt;
+    background-color: #000;
+    background: url(/images/filcastpro-header.png);
+	background-repeat:no-repeat;
+}
+
+.content {
+    background-color: rgba(255,255,255,0.2);
+    height: 100%;
+    border-radius: 10pt 10pt 0pt 0pt;
+}
+
+.menu {
+    border-radius: 10pt 10pt 0pt 0pt;
+}
+
+.button {
+    padding: 10pt;
+    text-align: right;
+}
+
+.btn-fcp {
+    color: #fff;
+    background-color: #000000;
+    border-color: #ffffff;
+    margin: 5pt;
+    /* width: 15%; */
+    text-align: right;
+}
+
+.btn-fcp:hover, .btn-fcp:focus, .btn-fcp:active, .btn-fcp.active, .open>.dropdown-toggle.btn-fcp {
+    color: rgb(0, 0, 0);
+    background-color: #ffffff;
+    border-color: #7d8b97; /*set the color you want here*/
+}
+
+.footer {
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 60%;
+    padding: 5pt;
+}

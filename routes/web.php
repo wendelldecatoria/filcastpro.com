@@ -30,7 +30,7 @@ Route::group(['middleware' => 'web'], function () {
     ], function() {
         Route::get('', 'WebsiteController@index')->name('web.index');
         Route::get('index', 'WebsiteController@index')->name('web.index');
-        Route::get('home', 'WebsiteController@home')->name('home');
+        Route::get('home', 'WebsiteController@home')->name('web.home');
         Route::get('actors', 'WebsiteController@actors')->name('web.actors');
         Route::get('news-room', 'WebsiteController@newsRoom')->name('web.news-room');
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
