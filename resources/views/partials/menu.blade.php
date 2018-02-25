@@ -1,12 +1,3 @@
-<!-- <div class="menu">
-    <div class="button">
-        <a class="btn btn-primary btn-lg btn-fcp" href="#" role="button">home</a>
-        <a class="btn btn-primary btn-lg btn-fcp" href="#" role="button">actors</a>
-        <a class="btn btn-primary btn-lg btn-fcp" href="#" role="button">news room</a>
-        <a class="btn btn-primary btn-lg btn-fcp" href="#" role="button">contact</a>
-    </div>
-</div> -->
-
 <nav class="navbar navbar-inverse menu">
   <div class="container-fluid">
     <!-- <div class="navbar-header">
