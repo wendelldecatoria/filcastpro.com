@@ -76,11 +76,7 @@ body {
     text-shadow: -2px -1px rgba(0,0,0,0.2);
 }
 
-table.dataTable tbody tr {
-    background-color:transparent;
-    color: #FFF;
-    text-shadow: -2px -1px rgba(0,0,0,0.2);
-}
+
 
 .dataTables_filter label, .dataTables_length label {
     color: #FFF;
@@ -93,6 +89,31 @@ table.dataTable tbody tr {
 }
 
 .dataTable row {
+     color: #FFF;
+    text-shadow: -2px -1px rgba(0,0,0,0.2);
+}
+
+table.dataTable tbody tr {
+    background-color:transparent;
     color: #FFF;
     text-shadow: -2px -1px rgba(0,0,0,0.2);
+}
+
+.dataTables_length select, .dataTables_filter input {
+    color: #000000;
+}
+
+.dataTable thead {
+    background-color:rgba(255,255,255,0.3);
+}
+
+#DataTables_Table_0_info {
+    color:white;
+}
+
+#DataTables_Table_0_paginate {
+    background-color:rgba(255,255,255,0.5);
+    padding: 5pt;
+    margin-top: 10pt;
+    border-radius: 5pt;
 }

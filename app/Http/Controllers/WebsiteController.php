@@ -12,7 +12,7 @@ class WebsiteController extends Controller
 {
 
     /**
-	 * @var TlsScript
+	 * @var Actor
 	 */
 	protected $actor;
     
@@ -21,7 +21,7 @@ class WebsiteController extends Controller
 	 *
 	 * @param Actor $actor
 	 */
-	public function __construct(TlsScript $tlsScript)
+	public function __construct(Actor $actor)
 	{
 		$this->actor = $actor;
 	}
@@ -53,21 +53,21 @@ class WebsiteController extends Controller
     * 
     */
 
-    public function actors(Request $request){
-        // $actors = Actor::all();
-        // return Datatables::of($actors)->make();
+    public function getactors(Request $request){
+        $actors = Actor::all();
+        return Datatables::of($actors)->make();
 
-        if ($request->ajax()) {
-			$actors = $this->actor->select();
-			return Datatables::of($actors)->make();
-		}
+        // if ($request->ajax()) {
+		// 	$actors = $this->actor->select();
+		// 	return Datatables::of($actors)->make();
+		// }
 
-		return view('actors');
+		// return view('actors');
     }
 
-    // public function actors(){
-    //     return view('actors');
-    // }
+    public function actors(){
+        return view('actors');
+    }
 
     /* 
     * Display contact page
