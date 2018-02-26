@@ -10,6 +10,22 @@ use Yajra\Datatables\Datatables;
 
 class WebsiteController extends Controller
 {
+
+    /**
+	 * @var TlsScript
+	 */
+	protected $actor;
+    
+    /**
+	 * Constructor
+	 *
+	 * @param Actor $actor
+	 */
+	public function __construct(TlsScript $tlsScript)
+	{
+		$this->actor = $actor;
+	}
+    
     /* 
     * Display enter page
     *
@@ -36,14 +52,22 @@ class WebsiteController extends Controller
     * @return Response
     * 
     */
-    public function getactors(){
-        $actors = Actor::all();
-        return Datatables::of($actors)->make();
+
+    public function actors(Request $request){
+        // $actors = Actor::all();
+        // return Datatables::of($actors)->make();
+
+        if ($request->ajax()) {
+			$actors = $this->actor->select();
+			return Datatables::of($actors)->make();
+		}
+
+		return view('actors');
     }
 
-    public function actors(){
-        return view('actors');
-    }
+    // public function actors(){
+    //     return view('actors');
+    // }
 
     /* 
     * Display contact page
