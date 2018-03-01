@@ -1,6 +1,6 @@
 html { 
 	background-color: #000;
-    background: url(/images/default-background.png);
+    background: url('../images/default-background.png');
 	background-repeat:no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -17,15 +17,30 @@ body {
 }
 
 .container {
-    height: calc(100% - 73pt);
+    /* height: calc(100% - 73pt); */
     width: 60%;
 }
 
 .header {
     height: 73pt;
     background-color: #000;
-    background: url(/images/filcastpro-header.png);
-	background-repeat:no-repeat;
+    /* background: url(/images/filcastpro-header.png); */
+	/* background-repeat:no-repeat; */
+}
+
+.header h1 {
+    color: gold;
+    font-family: Futura;
+    font-weight: bold;
+}
+
+.header p {
+    color: #FFF;
+    font-family: Futura;
+    font-size: 10pt;
+    padding: 0pt;
+    margin-top: -5pt;
+    margin-left: 1pt;
 }
 
 .content {
@@ -64,11 +79,9 @@ body {
 
 .footer {
     text-align: center;
-    /* position: fixed; */
-    /* bottom: 0; */
-    /* width: 60%; */
-    padding: 5pt;
-    /* background-color: green; */
+    bottom: 0;
+    padding: 15pt;
+    background-color: #000;
 }
 
 .control-label {
@@ -104,7 +117,8 @@ table.dataTable tbody tr {
 }
 
 .dataTable thead {
-    background-color:rgba(255,255,255,0.3);
+    color: #FFF;
+    background-color: #222;
 }
 
 #DataTables_Table_0_info {
@@ -115,5 +129,54 @@ table.dataTable tbody tr {
     background-color:rgba(255,255,255,0.5);
     padding: 5pt;
     margin-top: 10pt;
+    margin-bottom: 10pt;
     border-radius: 5pt;
+}
+
+.showactor {
+    color:#FFF;
+}
+
+.prf-img {
+    
+    text-align: right;
+}
+
+.sub-img {
+    margin: 1pt;
+}
+
+.ac-title {
+    color: gold;
+    font-size: 33px;
+    font-family: sans-serif;
+    margin-left: 10pt;
+    padding: 0pt 0pt 10pt 5pt;
+}
+
+.ac-tbl thead {
+    background-color: #222;
+}
+
+a:link {
+    color:#FFF;
+}
+
+/* visited link */
+a:visited {
+    color:#FFF;
+}
+
+/* mouse over link */
+a:hover {
+    color:gold;
+}
+
+/* selected link */
+a:active {
+    color:#FFF;
+}
+
+#myNavbar {
+    font-family: Futura;
 }

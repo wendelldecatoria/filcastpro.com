@@ -8,10 +8,8 @@
 @endsection
 
 @section('content')
-
-@include('partials.header')
 <div class="container">
-
+    @include('partials.header')
     <div class="row content">
         @include('partials.menu')
         
@@ -33,9 +31,8 @@
                 </tbody>
             </table>
         </div>
-
-        @include('partials.footer')
     </div>
+    @include('partials.footer')
 </div>
 @endsection
 

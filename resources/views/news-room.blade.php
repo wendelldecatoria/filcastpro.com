@@ -5,19 +5,16 @@
 @endsection
 
 @section('content')
-
-@include('partials.header')
 <div class="container">
-
+    @include('partials.header')
     <div class="row content">
         @include('partials.menu')
         
         <div class="col-md-12 content-body">
            News Room Page
         </div>
-
-        @include('partials.footer')
     </div>
+    @include('partials.footer')
 </div>
 @endsection
 

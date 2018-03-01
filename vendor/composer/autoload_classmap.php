@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Actor' => $baseDir . '/app/Actor.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\Contact' => $baseDir . '/app/Contact.php',
     'App\\Exceptions\\Handler' => $baseDir . '/app/Exceptions/Handler.php',
@@ -52,6 +53,7 @@ return array(
     'CreateRolesTable' => $baseDir . '/database/migrations/2017_08_13_134855_create_roles_table.php',
     'CreateUsersRolesTable' => $baseDir . '/database/migrations/2017_08_13_142016_create_users_roles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2018_02_20_234602_create_users_table.php',
+    'CreateWorksTable' => $baseDir . '/database/migrations/2018_03_01_032832_create_works_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
     'Cron\\DayOfMonthField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',

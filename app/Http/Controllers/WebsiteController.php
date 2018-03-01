@@ -23,7 +23,7 @@ class WebsiteController extends Controller
 	 */
 	public function __construct(Actor $actor)
 	{
-		$this->actor = $actor;
+		$this->Actor = $actor;
 	}
     
     /* 
@@ -125,7 +125,8 @@ class WebsiteController extends Controller
     */
 
     public function showactor($id){
-        Actor::where('id','=',$id);
+        $actor = Actor::where('id','=',$id)->get(); //return $actor;
+        return view('show-actor', compact('actor') );
     }
 
 }

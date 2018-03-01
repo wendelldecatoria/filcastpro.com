@@ -16,7 +16,6 @@ USE `filcastpro`;
 
 
 -- Dumping structure for table filcastpro.actors
-DROP TABLE IF EXISTS `actors`;
 CREATE TABLE IF NOT EXISTS `actors` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -89,100 +88,6 @@ INSERT INTO `actors` (`id`, `name`, `first_name`, `last_name`, `contact`, `age`,
 	(41, 'Charee Pineda', 'Charee', 'Pineda', '(Agent) Neil Estel', 25, 'Female', '5 ft 5 in', '', 'Manny Ballester', 'neilestel2010@gmail.com', '', '<br>TELEVISION WORKS<br><br>\r\n\r\nMagpakailanman 2014<br>\r\nWagas 2013<br>\r\nGenesis 2013<br>\r\nAkin pa rin ang bukas  2009-2013<br>\r\nMaalaala mo kaya  2013<br>\r\nAngelito: Batang ama  2012<br>\r\nPinoy Big Brother Teen Edition 2011<br>\r\nMula sa puso 2011<br>\r\nWansapanataym  2011<br>\r\nAlyna  2011<br>\r\nKatorse 2009<br>\r\nLove Spell  2007<br>\r\nImpostora 2007-2006<br>\r\nLet\'s Go 2004<br>\r\nIkaw sa puso ko 2004<br>\r\n\r\n\r\n<br>\r\n\r\n\r\n\r\n\r\nFEATURE FILMS<br><br>\r\n\r\nStarting Over Again 2014 <br>\r\nBingoleras 2013<br>\r\nNever Say Goodbye  2011-2012<br>\r\nCatch Me... I\'m in Love 2010-2011<br>\r\nBianong Bulag 2010<br>\r\nMidnight Phantom  2010<br>\r\nKroko (Takas sa Zoo) 2009<br>\r\nIliw  2009<br>\r\nParekoy  2008<br>\r\nAlon  2008<br>\r\nSisa  2007<br>\r\nGreen Paradise  2007<br>\r\nA Love Story  2007<br><br>\r\n\r\n', 'ChareePineda1.jpg', 'ChareePinedaThumb.jpg', 'ChareePineda2.jpg', 'ChareePineda3.jpg', 'ChareePineda4.jpg', 'ChareePineda5.jpg', '2018-02-25 21:10:45', '2018-02-25 21:10:55'),
 	(42, 'Derrick Monasterio', 'Derrick', 'Monasterio', '(Agent) Neil Estel', 17, 'Male', '5 ft 10 in', '', 'Manny Ballester', 'neilestel2010@gmail.com', '', '<br><br>TELEVISION <br><br>\r\nWagas 2014 <br>\r\nGenesis 2013<br>\r\nAnna KareNina 2013<br>\r\nVampire ang daddy ko 2012<br>\r\nMagpakailanman 2012<br>\r\nParoa: Ang kwento ni mariposa 2012<br>\r\nAlice Bungisngis and her Wonder Walis 2011<br>\r\nMy Househusband: Ikaw na!  2011/III<br>\r\nTween Academy: Class of 2012 <br>\r\nDwarfina 2010<br>\r\nTween Hearts 2011<br>\r\nSinner or Saint 2013<br>\r\nThe Ryzza Mae Show 2013<br>\r\nSunday All Stars 2014<br><br>\r\n\r\n\r\n\r\n\r\nFEATURE FILMS<br><br>\r\n\r\nSi Agimat si Enteng Kabisote at si ako  2012<br>\r\nThe Road  2011<br>\r\nMaximo<br>\r\nSinner or Saint Santi 2011<br>\r\n', 'DA1.jpg', 'DerrickMonasterioThumb.jpg', 'DerrickMonasterio1.jpg', 'DerrickMonasterio2.jpg', 'DerrickMonasterio3.jpg', 'DerrickMonasterio4.jpg', '2018-02-25 21:10:45', '2018-02-25 21:10:55');
 /*!40000 ALTER TABLE `actors` ENABLE KEYS */;
-
-
--- Dumping structure for table filcastpro.contacts
-DROP TABLE IF EXISTS `contacts`;
-CREATE TABLE IF NOT EXISTS `contacts` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `contact` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `message` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table filcastpro.contacts: ~0 rows (approximately)
-DELETE FROM `contacts`;
-/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
-
-
--- Dumping structure for table filcastpro.migrations
-DROP TABLE IF EXISTS `migrations`;
-CREATE TABLE IF NOT EXISTS `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table filcastpro.migrations: ~5 rows (approximately)
-DELETE FROM `migrations`;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-	(1, '2017_08_13_134855_create_roles_table', 1),
-	(2, '2017_08_13_142016_create_users_roles_table', 1),
-	(3, '2018_02_20_234602_create_users_table', 1),
-	(8, '2018_02_25_021024_create_contacts_table', 2),
-	(9, '2018_02_25_105951_create_actors_table', 2);
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
-
-
--- Dumping structure for table filcastpro.roles
-DROP TABLE IF EXISTS `roles`;
-CREATE TABLE IF NOT EXISTS `roles` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table filcastpro.roles: ~0 rows (approximately)
-DELETE FROM `roles`;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
-
-
--- Dumping structure for table filcastpro.role_user
-DROP TABLE IF EXISTS `role_user`;
-CREATE TABLE IF NOT EXISTS `role_user` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `user_id` int(11) NOT NULL,
-  `role_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table filcastpro.role_user: ~0 rows (approximately)
-DELETE FROM `role_user`;
-/*!40000 ALTER TABLE `role_user` DISABLE KEYS */;
-/*!40000 ALTER TABLE `role_user` ENABLE KEYS */;
-
-
--- Dumping structure for table filcastpro.users
-DROP TABLE IF EXISTS `users`;
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- Dumping data for table filcastpro.users: ~0 rows (approximately)
-DELETE FROM `users`;
-/*!40000 ALTER TABLE `users` DISABLE KEYS */;
-/*!40000 ALTER TABLE `users` ENABLE KEYS */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

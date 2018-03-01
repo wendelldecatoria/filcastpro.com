@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('css')
-    <link href="{{ asset('css/filcastpro-default.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/filcastpro-index.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

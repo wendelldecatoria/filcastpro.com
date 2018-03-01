@@ -5,10 +5,8 @@
 @endsection
 
 @section('content')
-
-@include('partials.header')
 <div class="container">
-
+    @include('partials.header')
     <div class="row content">
         @include('partials.menu')
         
@@ -47,11 +45,11 @@
                 </div>
 
                <button type="submit" class="btn btn-default">Submit</button>
+               <br><br>
             {!! Form::close() !!}
-        </div>
-
-        @include('partials.footer')
+            </div>
     </div>
+    @include('partials.footer')
 </div>
 @endsection
 
