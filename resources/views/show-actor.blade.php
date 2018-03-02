@@ -62,7 +62,7 @@
                                 <tbody>
                                 <tr>
                                     <td colspan="2">
-                                        <div>{{$actr->works}}</div>
+                                        <div>{{ html_entity_decode($actr->works) }}</div>
                                     </td>
                                 </tr>
                             </tbody>
