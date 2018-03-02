@@ -23,7 +23,6 @@
                         <th>Name</th>
                         <th>Gender</th>
                         <th>Age</th>
-                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,7 +60,11 @@
                                 'sortable': false,
                                 'render': function (data, type, row) {
                                     return [
-                                        `<img class="thumb_img" src="{{ asset('/storage/images/actors/` + row.thumb_image + `') }}" >`
+                                        `<a href="show-actor/` 
+                                        + row.id 
+                                        + `" title="View" data-confirm="Are you sure you want to view this item?"><img class="thumb_img" src="{{ asset('/storage/images/actors/` 
+                                        + row.thumb_image 
+                                        + `') }}" ></a>`
                                     ];
                                 },
                             },
@@ -79,16 +82,6 @@
                                 targets: 4, 
                                 data: 'age',
                                 name: 'age'
-                            },
-                            {   
-                                targets: 5,
-                                'searchable': false,
-                                'sortable': false,
-                                'render': function (data, type, row) {
-                                    return [
-                                        '<a href="show-actor/' + row.id + '" title="View" class="btn btn-primary glyphicon glyphicon-search" data-confirm="Are you sure you want to view this item?"> </a>'
-                                    ];
-                                },
                             },
                         ],
         }); // end of datatable

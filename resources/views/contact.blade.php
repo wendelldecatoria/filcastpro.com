@@ -9,8 +9,8 @@
     @include('partials.header')
     <div class="row content">
         @include('partials.menu')
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
            
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -27,28 +27,28 @@
                 
                 <div class="form-group">
                     <label class="control-label">Name:</label>
-                    {{ Form::text('name', null ,array('class' => 'form-control')) }}
+                    {{ Form::text('name', null ,array('class' => 'form-control', 'placeholder' => 'Enter Name')) }}
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Email:</label>
-                    {{ Form::text('email', null, array('class' => 'form-control')) }}
+                    {{ Form::text('email', null, array('class' => 'form-control', 'placeholder' => 'Enter Email')) }}
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Contact:</label>
-                    {{ Form::text('contact', null, array('class' => 'form-control')) }}
+                    {{ Form::text('contact', null, array('class' => 'form-control', 'placeholder' => 'Enter Contact')) }}
                 </div>
 
                 <div class="form-group">
                     <label class="control-label">Message:</label>
-                    {{ Form::textarea('message', null, array('class' => 'form-control')) }}
+                    {{ Form::textarea('message', null, array('class' => 'form-control', 'placeholder' => 'Enter Message')) }}
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             {!! Form::close() !!}
             <br><br>
         </div>
-        <div class="col-md-3"></div>
+        <div class="col-md-4"></div>
     </div>
     @include('partials.footer')
 </div>

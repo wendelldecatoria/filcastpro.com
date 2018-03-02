@@ -25,6 +25,8 @@ body {
     color: red;
     font-family: Futura;
     font-weight: bold;
+    margin-left: 15pt;
+
 }
 
 .header p {
@@ -33,7 +35,7 @@ body {
     font-size: 10pt;
     padding: 0pt;
     margin-top: -5pt;
-    margin-left: 1pt;
+    margin-left: 16pt;
 }
 
 .content {
@@ -133,4 +135,37 @@ a:active {
 
 #myNavbar {
     font-family: Futura;
+}
+
+.item-vid-thumb {
+    width:200px;
+    padding: 0pt;
+    margin: 0pt;
+}
+
+.item-vid-container {
+    width: 100%;
+    /* background-color: red; */
+    text-align: left;
+    margin-bottom: 5pt;
+}
+
+.item-vid {
+    margin-bottom: 10pt;
+}
+/* .item-vid-play{
+    width: 250px;
+    height: 20pt;
+    position: fixed;
+    margin-left: 30pt;
+    margin-top: 15pt;
+    background-color: rgba(255,255,255,0.5);
+    font-size: large;
+    font-weight: bold;
+    font-family: Futura;
+    display: none;
+} */
+
+.item-vid-title {
+    font-weight: bold;
 }
