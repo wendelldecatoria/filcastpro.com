@@ -34,7 +34,9 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('get-actors','WebsiteController@getactors')->name('web.get-actors');
         Route::get('actors', 'WebsiteController@actors')->name('web.actors');
         Route::get('show-actor/{id}','WebsiteController@showactor')->name('web.actor-show');
-        Route::get('news-room', 'WebsiteController@newsRoom')->name('web.news-room');
+        //Route::get('news-room', 'WebsiteController@newsRoom')->name('web.news-room');
+        Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
+        Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
     });

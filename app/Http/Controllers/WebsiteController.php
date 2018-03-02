@@ -90,6 +90,26 @@ class WebsiteController extends Controller
     }
 
     /* 
+    * Display whats up page
+    *
+    * @return Response
+    * 
+    */
+    public function whatsUp(){
+        return view('whats-up');
+    }
+
+    /* 
+    * Display whats on page
+    *
+    * @return Response
+    * 
+    */
+    public function whatsOn(){
+        return view('whats-on');
+    }
+
+    /* 
     * Store contact details
     *
     * @return Response

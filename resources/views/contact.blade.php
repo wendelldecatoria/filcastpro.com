@@ -9,8 +9,9 @@
     @include('partials.header')
     <div class="row content">
         @include('partials.menu')
-        
-        <div class="col-md-12 content-body">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+           
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -43,11 +44,11 @@
                     <label class="control-label">Message:</label>
                     {{ Form::textarea('message', null, array('class' => 'form-control')) }}
                 </div>
-
-               <button type="submit" class="btn btn-default">Submit</button>
-               <br><br>
+                <button type="submit" class="btn btn-default">Submit</button>
             {!! Form::close() !!}
-            </div>
+            <br><br>
+        </div>
+        <div class="col-md-3"></div>
     </div>
     @include('partials.footer')
 </div>

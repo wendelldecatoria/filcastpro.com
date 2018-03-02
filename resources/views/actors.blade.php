@@ -12,10 +12,10 @@
     @include('partials.header')
     <div class="row content">
         @include('partials.menu')
-        
-        <div class="col-md-12 content-body">
-            
-            <table class="table table-inverse table-bordered table-sm dataTable" width="100%" role="grid" style="width: 80%;">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <!-- <table class="table table-inverse table-bordered table-sm dataTable" width="100%" role="grid"> -->
+            <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" width="100%" role="grid" style="width: 100%;">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -30,7 +30,9 @@
 
                 </tbody>
             </table>
+            <br><br>
         </div>
+        <div class="col-md-3"></div>
     </div>
     @include('partials.footer')
 </div>

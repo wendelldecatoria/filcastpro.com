@@ -1,35 +1,28 @@
 html { 
-	background-color: #000;
-    background: url('../images/default-background.png');
-	background-repeat:no-repeat;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
-    background-size: cover;
-    background-attachment: fixed;
+
     overflow-x:hidden;
     height: 100%;
 }
 
 body {
-    background-color: transparent;
+    /* background-color: transparent; */
     height: 100%;
 }
 
 .container {
-    /* height: calc(100% - 73pt); */
-    width: 60%;
+    width: 100%;
+    height: 100%;
 }
 
 .header {
-    height: 73pt;
+    height: 13%;
     background-color: #000;
     /* background: url(/images/filcastpro-header.png); */
 	/* background-repeat:no-repeat; */
 }
 
 .header h1 {
-    color: gold;
+    color: red;
     font-family: Futura;
     font-weight: bold;
 }
@@ -44,16 +37,8 @@ body {
 }
 
 .content {
-    background-color: rgba(255,255,255,0.2);
-    /* height: 100%; */
-    border-radius: 10pt 10pt 0pt 0pt;
-}
-
-.content-body {
-    height: 100%;
-}
-
-.menu {
+    /* calculate height subtracting header and footer height*/
+    /* height: calc(100% - 13% - 7%);  */
     border-radius: 10pt 10pt 0pt 0pt;
 }
 
@@ -82,99 +67,68 @@ body {
     bottom: 0;
     padding: 15pt;
     background-color: #000;
-}
-
-.control-label {
-    color: #FFF;
-    text-shadow: -2px -1px rgba(0,0,0,0.2);
-}
-
-
-
-.dataTables_filter label, .dataTables_length label {
-    color: #FFF;
-    text-shadow: -2px -1px rgba(0,0,0,0.2);
-}
-
-.thumb img {
-    width: 170px;
-    height: 120px;
-}
-
-.dataTable row {
-     color: #FFF;
-    text-shadow: -2px -1px rgba(0,0,0,0.2);
-}
-
-table.dataTable tbody tr {
-    background-color:transparent;
-    color: #FFF;
-    text-shadow: -2px -1px rgba(0,0,0,0.2);
-}
-
-.dataTables_length select, .dataTables_filter input {
-    color: #000000;
-}
-
-.dataTable thead {
-    color: #FFF;
-    background-color: #222;
-}
-
-#DataTables_Table_0_info {
-    color:white;
-}
-
-#DataTables_Table_0_paginate {
-    background-color:rgba(255,255,255,0.5);
-    padding: 5pt;
-    margin-top: 10pt;
-    margin-bottom: 10pt;
-    border-radius: 5pt;
-}
-
-.showactor {
-    color:#FFF;
+    height: 7%;
 }
 
 .prf-img {
-    
-    text-align: right;
+    width:270px;
 }
 
 .sub-img {
     margin: 1pt;
+    width:150px;
+    height:200px;
+}
+
+.row-ac-title {
+    background-color: #222;
+    color:#FFF;
+    height: 40pt;
+}
+
+.row-ac-img {
+    padding:10pt;
 }
 
 .ac-title {
-    color: gold;
-    font-size: 33px;
-    font-family: sans-serif;
+    /* color: red;  */
+    font-size: 25px;
+    font-family: Futura;
     margin-left: 10pt;
+    margin-top: 10pt;
     padding: 0pt 0pt 10pt 5pt;
+    font-weight: bold;
 }
 
 .ac-tbl thead {
     background-color: #222;
+    color: #FFF;
+    font-size:large;
+}
+
+.ac-dtl {
+    font-size: medium;
+    font-family: Futura;
+    margin-top: -35pt;
 }
 
 a:link {
-    color:#FFF;
+    color:#000;
 }
 
 /* visited link */
 a:visited {
-    color:#FFF;
+    color:#000;
 }
 
 /* mouse over link */
 a:hover {
-    color:gold;
+    color:red;
 }
 
 /* selected link */
 a:active {
-    color:#FFF;
+    color:#000;
 }
 
 #myNavbar {
