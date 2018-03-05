@@ -387,7 +387,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_13_134855_create_roles_table.php',
         'CreateUsersRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_13_142016_create_users_roles_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_20_234602_create_users_table.php',
-        'CreateWorksTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_01_032832_create_works_table.php',
+        'CreateVideosTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_144502_create_videos_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/DayOfMonthField.php',
