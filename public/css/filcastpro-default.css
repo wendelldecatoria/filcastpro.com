@@ -17,8 +17,9 @@ body {
 .header {
     height: 13%;
     background-color: #000;
-    /* background: url(/images/filcastpro-header.png); */
-	/* background-repeat:no-repeat; */
+    background: url('../images/h3.png'); 
+    background-size: 1920px 112px;
+	background-repeat:no-repeat;
 }
 
 .header h1 {
@@ -169,3 +170,23 @@ a:active {
 .item-vid-title {
     font-weight: bold;
 }
+
+.actor-tile{
+    display: inline-block;
+    padding: 10pt 3pt 10pt 5pt;
+}
+
+.image-thumbnail {
+    width: 215px;
+    height: 170px;
+}
+
+.header-credit {
+    position: absolute;
+    top: 64pt;
+    right: 5pt;
+    font-size: 7pt;
+    font-family: Helvetica;
+    color: #fff;
+}
+

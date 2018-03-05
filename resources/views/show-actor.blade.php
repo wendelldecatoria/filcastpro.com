@@ -11,17 +11,18 @@
         @include('partials.menu')
         <div class="col-md-3"></div>
         <div class="col-md-6 showactor">
+            <a href="{{route('web.actors')}}"><button type="button" class="btn btn-link"><< Go back</button></a>
             @foreach ($actor as $actr)
                 <div class="row row-ac-title">
                     <h3 class="ac-title">{{$actr->name}}</h3>
                 </div>
                 <div class="row row-ac-img">
-                    <div class="col-sm-6" style="text-align:right;"><img class="prf-img" src="{{asset('/storage/images/actors/'. $actr->profile_image)}}"></div>
+                    <div class="col-sm-6" style="text-align:right;"><img class="prf-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->profile_image)}}"></div>
                     <div class="col-sm-6" style="text-align:left;">
-                        <img class="sub-img" src="{{asset('/storage/images/actors/'. $actr->sub_image_1 )}}">
-                        <img class="sub-img" src="{{asset('/storage/images/actors/'. $actr->sub_image_2 )}}">
-                        <img class="sub-img" src="{{asset('/storage/images/actors/'. $actr->sub_image_3 )}}">
-                        <img class="sub-img" src="{{asset('/storage/images/actors/'. $actr->sub_image_4 )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_1 )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_2 )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_3 )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_4 )}}">
                     </div>
                 </div>
                 <div class="row">

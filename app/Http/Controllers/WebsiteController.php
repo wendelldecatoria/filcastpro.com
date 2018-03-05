@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Actor;
 use App\Contact;
+use App\Register;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
 
@@ -27,7 +28,7 @@ class WebsiteController extends Controller
 	}
     
     /* 
-    * Display enter page
+    * Display index page
     *
     * @return Response
     * 
@@ -56,17 +57,15 @@ class WebsiteController extends Controller
     public function getactors(Request $request){
         $actors = Actor::all();
         return Datatables::of($actors)->make();
-
-        // if ($request->ajax()) {
-		// 	$actors = $this->actor->select();
-		// 	return Datatables::of($actors)->make();
-		// }
-
-		// return view('actors');
     }
 
     public function actors(){
         return view('actors');
+    }
+
+    public function artist(){
+        $actors = Actor::orderBy('name')->get();
+        return view('artist', compact('actors'));
     }
 
     /* 
@@ -80,13 +79,13 @@ class WebsiteController extends Controller
     }
 
     /* 
-    * Display news room page
+    * Display contact page
     *
     * @return Response
     * 
     */
-    public function newsRoom(){
-        return view('news-room');
+    public function register(){
+        return view('register');
     }
 
     /* 
@@ -133,6 +132,32 @@ class WebsiteController extends Controller
         ];
     
         Contact::insert($dataSet);
+       
+        return redirect()->route('web.home'); 
+    }
+
+    /* 
+    * Store register details
+    *
+    * @return Response
+    * 
+    */
+    public function storeRegister(Request $request){
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+        ]);
+
+        $dataSet = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ];
+    
+        Register::insert($dataSet);
        
         return redirect()->route('web.home'); 
     }
