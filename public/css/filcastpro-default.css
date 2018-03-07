@@ -93,6 +93,10 @@ body {
     padding:10pt;
 }
 
+.ac-cont {
+    text-align: center;
+}
+
 .ac-title {
     /* color: red;  */
     font-size: 25px;
@@ -176,9 +180,13 @@ a:active {
     padding: 10pt 3pt 10pt 5pt;
 }
 
+.actor-tile p {
+    text-align: left;
+}
+
 .image-thumbnail {
-    width: 215px;
-    height: 170px;
+    width: 200px;
+    height: 158px;
 }
 
 .header-credit {
