@@ -174,4 +174,45 @@ class WebsiteController extends Controller
         return view('show-actor', compact('actor') );
     }
 
+     /* 
+    * Search for actor
+    *
+    * @return Response
+    * 
+    */
+    public function search(Request $request){
+        //array('0' => 'All Ages', '1' => '10 and below', '2' => '11 to 20', '3' => '21 to 30', '4' => '31 to 40', '5' => '41 and above')
+        if($request->input('age') == 0){
+            $val1 = 0;
+            $val2 = 100;
+        }else if($request->input('age') == 1){
+            $val1 = 1;
+            $val2 = 10;
+        }else if($request->input('age') == 2){
+            $val1 = 11;
+            $val2 = 20;
+        }else if($request->input('age') == 3){
+            $val1 = 21;
+            $val2 = 30;
+        }else if($request->input('age') == 4){
+            $val1 = 31;
+            $val2 = 40;
+        }else if($request->input('age') == 5){
+            $val1 = 41;
+            $val2 = 100;
+        } else {
+
+        }
+
+        $gender = $request->input('gender');
+        
+        if($gender)
+            $actors = Actor::whereBetween('age', [$val1, $val2])->where('gender','=', $gender)->get();
+        else {
+            $actors = Actor::whereBetween('age', [$val1, $val2])->get();
+        }
+       
+        return view('artist', compact('actors'));
+    }
+
 }

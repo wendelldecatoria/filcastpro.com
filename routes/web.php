@@ -40,6 +40,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('register', 'WebsiteController@register')->name('web.register');
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
+        Route::post('search', 'WebsiteController@search')->name('web.search');
     });
   
     

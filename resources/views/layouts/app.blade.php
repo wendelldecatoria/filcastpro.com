@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
     <!-- DatePicker -->
     <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
-    
+
     @yield('css')
 
 </head>

@@ -198,3 +198,10 @@ a:active {
     color: #fff;
 }
 
+.refined-search {
+    background-color: #e7e7e7;
+    padding: 10pt 25pt 0pt 25pt;
+    border-radius: 5pt;
+    width: 50%;
+}
+
