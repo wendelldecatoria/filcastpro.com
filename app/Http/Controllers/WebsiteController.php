@@ -207,9 +207,9 @@ class WebsiteController extends Controller
         $gender = $request->input('gender');
         
         if($gender)
-            $actors = Actor::whereBetween('age', [$val1, $val2])->where('gender','=', $gender)->get();
+            $actors = Actor::whereBetween('age', [$val1, $val2])->where('gender','=', $gender)->orderBy('name')->get();
         else {
-            $actors = Actor::whereBetween('age', [$val1, $val2])->get();
+            $actors = Actor::whereBetween('age', [$val1, $val2])->orderBy('name')->get();
         }
        
         return view('artist', compact('actors'));

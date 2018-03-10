@@ -34,7 +34,7 @@
                             {{ Form::select('age', array('0' => 'All Ages', '1' => '10 and below', '2' => '11 to 20', '3' => '21 to 30', '4' => '31 to 40', '5' => '41 and above') , array('class' => 'form-control', 'id' => 'selectAge')) }}
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-default">Send</button>
+                            <button type="submit" class="btn btn-default">Search</button>
                         </div>
                     </div>
                 </form>
