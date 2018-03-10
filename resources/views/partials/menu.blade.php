@@ -14,8 +14,9 @@
           <li class="nav-actors"><a href="{{route('web.actors')}}">ARTIST</a></li>
           <li class="nav-whats-up"><a href="{{route('web.whats-up')}}">WHAT'S UP</a></li>
           <li class="nav-whats-on"><a href="{{route('web.whats-on')}}">WHAT'S ON</a></li>
-          <li class="nav-contact"><a href="{{route('web.contact')}}">CONTACT US</a></li>
           <li class="nav-register"><a href="{{route('web.register')}}">REGISTER</a></li>
+          <li class="nav-contact"><a href="{{route('web.contact')}}">CONTACT US</a></li>
+         
         </ul>
     </div>
   </div>
