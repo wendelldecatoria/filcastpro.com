@@ -11,18 +11,23 @@
 |
 */
 
-Route::group(['middleware' => 'web'], function () {
 
+
+Route::group(['middleware' => 'web'], function () {
+   
+    Auth::routes();
+    Route::post('login', 'Auth\AuthController@authenticate')->name('login');
+    Route::get('LoginFailed','Auth\AuthController@LoginFailed')->name('LoginFailed');
+    
     Route::group([
         'prefix' => 'admin',
         //'middleware' => ['ability:s2s.*,view_module,true']
         'middleware' => ['auth', 'admin']
     ], function () {
-            // Route::post('login', 'Auth\AuthController@authenticate')->name('login');
+           
         }
     );
 
-    //Route::get('LoginFailed','Auth\AuthController@LoginFailed')->name('LoginFailed');
     
     Route::get('', 'WebsiteController@index')->name('web.index');
     Route::group([
