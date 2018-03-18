@@ -47,14 +47,14 @@
                                     <td>HEIGHT:</td>
                                     <td>{{$actr->height}}</td>
                                 </tr>
-                                <tr>
+                                <!-- <tr>
                                     <td>EMAIL:</td>
                                     <td>{{$actr->email}}</td>
                                 </tr>
                                 <tr>
                                     <td>CONTACT:</td>
                                     <td>{{$actr->contact}}</td>
-                                </tr>
+                                </tr> -->
                                 </tbody>
                                 <thead>
                                     <tr>
@@ -64,7 +64,7 @@
                                 <tbody>
                                 <tr>
                                     <td colspan="2">
-                                        <div>{{ html_entity_decode($actr->works) }}</div>
+                                        <div>{!! htmlspecialchars_decode($actr->works) !!}</div>
                                     </td>
                                 </tr>
                             </tbody>

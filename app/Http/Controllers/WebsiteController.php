@@ -216,7 +216,7 @@ class WebsiteController extends Controller
     }
 
      /* 
-    * Show selected actor
+    * Show creatives page
     *
     * @return Response
     * 
@@ -224,6 +224,17 @@ class WebsiteController extends Controller
 
     public function creatives(){
         return view('creatives');
+    }
+
+    /* 
+    * Show what's in page
+    *
+    * @return Response
+    * 
+    */
+
+    public function whatsIn(){
+        return view('whats-in');
     }
 
 }
