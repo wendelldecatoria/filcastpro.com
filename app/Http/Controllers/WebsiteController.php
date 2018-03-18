@@ -215,4 +215,15 @@ class WebsiteController extends Controller
         return view('artist', compact('actors'));
     }
 
+     /* 
+    * Show selected actor
+    *
+    * @return Response
+    * 
+    */
+
+    public function creatives(){
+        return view('creatives');
+    }
+
 }

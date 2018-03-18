@@ -41,6 +41,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
         Route::post('search', 'WebsiteController@search')->name('web.search');
+        Route::get('creatives','WebsiteController@creatives')->name('web.creatives');
     });
   
     

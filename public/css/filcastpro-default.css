@@ -17,9 +17,11 @@ body {
 .header {
     height: 13%;
     background-color: #000;
-    background: url('../images/h3.png'); 
-    background-size: 1920px 112px;
-	background-repeat:no-repeat;
+    background: url('../images/header.jpg'); 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .header h1 {
@@ -66,15 +68,18 @@ body {
 }
 
 .footer {
-    /* background-image:url('../images/footernologo.jpg');
-    background-repeat:no-repeat;
-    background-size: 1366px 768px; */
+    background-image: url(../images/footernologo.jpg);
+    background-repeat: no-repeat;
+    background-size: 15%;
     text-align: center;
     bottom: 0;
     padding: 15pt;
     background-color: rgb(255, 255, 255);
-    height: 10%;
+    height: 11%;
     color: #000;
+    border-top: 1pt solid #7d7d7d;
+    border-bottom: 1pt solid #7d7d7d;
+    vertical-align: middle;
 }
 
 .footer-logo {
@@ -83,6 +88,12 @@ body {
     margin-top: -14pt;
     left: 0pt;
     height: 10%;
+}
+
+.footer a {
+    color: #000;
+    position: relative;
+    top: 10pt;
 }
 
 .prf-img {
