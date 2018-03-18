@@ -11,7 +11,7 @@
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h3>What's In Page</h3>
+            <h3>Watch out! We are building something awesome.</h3>
         </div>
         <div class="col-md-2"></div>
     </div>
