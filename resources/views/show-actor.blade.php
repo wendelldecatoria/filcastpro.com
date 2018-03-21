@@ -17,12 +17,12 @@
                     <h3 class="ac-title">{{$actr->name}}</h3>
                 </div>
                 <div class="row row-ac-img">
-                    <div class="col-sm-6" style="text-align:right;"><img class="prf-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->profile_image)}}"></div>
+                    <div class="col-sm-6" style="text-align:right;"><img class="prf-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[0]->file_name)}}"></div>
                     <div class="col-sm-6" style="text-align:left;">
-                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_1 )}}">
-                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_2 )}}">
-                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_3 )}}">
-                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->sub_image_4 )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[1]->file_name )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[2]->file_name )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[3]->file_name )}}">
+                        <img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[4]->file_name )}}">
                     </div>
                 </div>
                 <div class="row">
