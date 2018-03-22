@@ -115,11 +115,22 @@ return [
             'url'         => 'admin/home',
             'icon'        => 'home',
         ],  
-        'ARTISTS',
+        'ADMINISTRATION',
         [
             'text' => 'Artists',
             'icon' => 'address-book',
             'url' => 'admin/artists',
+        ],
+        'FORMS',
+        [
+            'text' => 'Contacts',
+            'icon' => 'address-book',
+            'url' => 'admin/contact',
+        ],
+        [
+            'text' => 'Registers',
+            'icon' => 'address-book',
+            'url' => 'admin/register',
         ],
     ],
 

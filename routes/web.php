@@ -30,6 +30,16 @@ Route::group(['middleware' => 'web'], function () {
                     Route::resource('artists', 'AdminController', [
                         'parameters' => 'singular'
                     ]);
+
+                    Route::resource('contact', 'ContactController', [
+                        'parameters' => 'singular',
+                        'except' => ['show','edit','store','update','create','destroy'],
+                    ]);
+
+                    Route::resource('register', 'RegisterController', [
+                        'parameters' => 'singular',
+                        'except' => ['show','edit','store','update','create','destroy'],
+                    ]);
                 }
             );
         }
@@ -50,6 +60,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
         Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
+        
         Route::get('register', 'WebsiteController@register')->name('web.register');
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
