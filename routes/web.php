@@ -14,21 +14,28 @@
 
 
 Route::group(['middleware' => 'web'], function () {
-   
-    Auth::routes();
-    Route::post('login', 'Auth\AuthController@authenticate')->name('login');
-    Route::get('LoginFailed','Auth\AuthController@LoginFailed')->name('LoginFailed');
-    
+
     Route::group([
         'prefix' => 'admin',
         //'middleware' => ['ability:s2s.*,view_module,true']
-        'middleware' => ['auth', 'admin']
+        //'middleware' => ['auth', 'admin']
     ], function () {
-           
+            Auth::routes();    
+            
+            Route::group([
+                'prefix' => '',
+                'middleware' => ['auth']
+            ], function() {
+                    Route::get('home', 'AdminController@home')->name('admin.home');
+                    Route::resource('artists', 'AdminController', [
+                        'except' => 'show',
+                        'parameters' => 'singular'
+                    ]);
+                }
+            );
         }
     );
 
-    
     Route::get('', 'WebsiteController@index')->name('web.index');
     Route::group([
         'prefix'     => 'web',
@@ -37,12 +44,15 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('index', 'WebsiteController@index')->name('web.index');
         Route::get('home', 'WebsiteController@home')->name('web.home');
         Route::get('get-actors','WebsiteController@getactors')->name('web.get-actors');
-        Route::get('actors', 'WebsiteController@actors')->name('web.actors');
+        Route::get('actors', 'WebsiteController@artist')->name('web.actors');
         Route::get('show-actor/{id}','WebsiteController@showactor')->name('web.actor-show');
-        Route::get('news-room', 'WebsiteController@newsRoom')->name('web.news-room');
+        Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
+        Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
+        Route::get('register', 'WebsiteController@register')->name('web.register');
+        Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
+        Route::post('search', 'WebsiteController@search')->name('web.search');
     });
-  
     
 });

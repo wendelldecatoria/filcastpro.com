@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'iBillboard',
+    'title' => 'Filartpro',
 
     'title_prefix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>iBillboard</b>',
+    'logo' => '<b>Filartpro</b>',
 
     'logo_mini' => '',
 
@@ -85,15 +85,17 @@ return [
     |
     */
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin/home',
 
-    'logout_url' => 'logout',
+    'logout_url' => 'admin/logout',
 
     'logout_method' => null,
 
-    'login_url' => 'login',
+    'login_url' => 'admin/login',
 
-    'register_url' => 'register',
+    'register_url' => 'admin/register',
+
+    'password_reset_url' => 'admin/password/reset',
 
     /*
     |--------------------------------------------------------------------------
@@ -110,221 +112,15 @@ return [
     'menu' => [
         [
             'text'        => 'Home',
-            'url'         => '',
+            'url'         => 'admin/home',
             'icon'        => 'home',
-            //'label'       => 4,
-            //'label_color' => 'success',
-            // 'can'  => 'manage-blog',
         ],  
-        'ACCOUNT MANAGEMENT',
+        'ARTISTS',
         [
-            'text'        => 'Subscriber',
-            'url'         => 'manage/subscriber',
-            'icon'        => 'users',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/subscriber',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/subscriber/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],  
-        [
-            'text'        => 'Subscription',
-            'url'         => 'manage/subscription',
-            'icon'        => 'list',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/subscription',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/subscription/add',
-                    'icon' => 'plus'
-                ],
-            ],
-            
-        ],  
-        [
-            'text'        => 'User',
-            'url'         => 'manage/user',
-            'icon'        => 'user',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/user',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/user/add',
-                    'icon' => 'plus'
-                ],
-            ],
+            'text' => 'Artists',
+            'icon' => 'heartbeat',
+            'url' => 'admin/artists',
         ],
-        'ADMINISTRATION',
-        [
-            'text' => 'Category',
-            'icon' => 'th-large',
-             'submenu' => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/category',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/category/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],
-        [
-            'text'        => 'Event',
-            'url'         => 'manage/event',
-            'icon'        => 'calendar',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/event',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/event/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],  
-        [
-            'text'        => 'Kiosk',
-            'url'         => 'manage/kiosk',
-            'icon'        => 'info-circle',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/kiosk',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/kiosk/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],  
-        [
-            'text'        => 'Mall-Shop',
-            'url'         => 'manage/mallshop',
-            'icon'        => 'building',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/mallshop',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/mallshop/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],  
-        [
-            'text'        => 'Map',
-            'url'         => 'manage/map',
-            'icon'        => 'map',
-        ],   
-        [
-            'text'        => 'Shop',
-            'url'         => 'manage/shop',
-            'icon'        => 'shopping-bag',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/shop',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/shop/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],    
-        [
-            'text'        => 'Kiosk Status',
-            'url'         => 'kioskStatus',
-            'icon'        => 'heartbeat',
-            //'label'       => 4,
-            //'label_color' => 'success',
-        ],  
-        [
-            'text'        => 'Approvals',
-            'url'         => 'approvals',
-            'icon'        => 'check-circle',
-            //'label'       => 4,
-            //'label_color' => 'success',
-        ],  
-        [
-            'text'        => 'Reports',
-            'url'         => 'reports',
-            'icon'        => 'file',
-            //'label'       => 4,
-            //'label_color' => 'success',
-        ],
-        'ADVERTISEMENT', 
-        [
-            'text'        => 'Banner Ad/Fullscreen ',
-            'url'         => 'manage/multirotator',
-            'icon'        => 'mobile',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/multirotator',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/multirotator/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],  
-        [
-            'text'        => 'Products',
-            'url'         => 'manage/product',
-            'icon'        => 'product-hunt',
-            'submenu'     => [
-                [
-                    'text' => 'View',
-                    'url'  => 'manage/product',
-                    'icon' => 'th-list'
-                ],
-                [
-                    'text' => 'Add',
-                    'url'  => 'manage/product/add',
-                    'icon' => 'plus'
-                ],
-            ],
-        ],  
-        [
-            'text'        => 'Promo',
-            'url'         => 'manage/promo',
-            'icon'        => 'money',
-        ],  
-         [
-            'text'        => 'Tags',
-            'url'         => 'manage/tag',
-            'icon'        => 'tags',
-        ],  
     ],
 
     /*
