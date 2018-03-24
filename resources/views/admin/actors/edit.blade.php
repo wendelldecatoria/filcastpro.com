@@ -3,7 +3,7 @@
 @section('title', 'Edit Artist')
 
 @section('content_header')
-	<h1>FilCaspro<small> Update Artist Information</small></h1>
+	<h1>Filcaspro<small> Update Artist Information</small></h1>
 @endsection
 
 @section('ibillboard_css')
@@ -12,12 +12,28 @@
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_style.min.css')}}">
 
+  <link rel="stylesheet"
+          href="{{ asset('vendor/dhtmlxSuite/codebase/dhtmlx.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ asset('vendor/dhtmlxSuite/codebase/fonts/font_roboto/roboto.css') }}">
+
   <link href="{{ asset('css/billboard.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
 	<div class="box box-default">
 		<div class="box-body">
+            <!-- Images used to open the lightbox -->
+            <div class="row image-container" style="text-align:center">
+                @foreach($images as $image)
+                    <div class="column image-{{$image->id}}">
+                        <!-- <img  src="{{asset('/storage/images/actors/'. $image->file_name )}}" width="170" onclick="openModal();currentSlide({{$loop->iteration}})" class="hover-shadow"> -->
+                        <span class="glyphicon glyphicon-remove icon-remove delete-btn" data-id="{{$image->id}}"></span>
+                        <img  src="{{asset('/storage/images/actors/'. $image->file_name )}}" class="img-thumbnail img-responsive edit-image">
+                    </div>
+                @endforeach
+            </div>
 			<div class="row">
 				<div class="col-md-12">
                     @foreach($actor as $act)
@@ -111,6 +127,9 @@
 
 @section('ibillboard_js')
 
+<script src="{{ asset('vendor/dhtmlxSuite/codebase/dhtmlx.js') }}"></script>
+<script src="{{ asset('js/helpers.js') }}"></script>
+<script src="{{ asset('js/ajax-interceptor.js') }}"></script>
 <script type='text/javascript' src="{{ asset('vendor/froala/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript">
 				
@@ -119,5 +138,51 @@
             iframe: true,
         })
     });
+
+    $(document).ready(function() {
+        /**
+        * Delete the record.
+        */
+        $(document).on("click", ".delete-btn", function () {
+            var self = this;
+            var id = $(this).attr('data-id');
+            var url = '{{ route('images.destroy', ':id') }}'.replace(':id', id);
+            console.log(url);
+            console.log(id);
+
+            dhtmlx.confirm({
+                title:"Confirm Deletion",
+                type:"confirm-warning",
+                text:"Do you really want to delete this image?",
+                callback: function (res) {
+
+                    if(!res) {
+                        return;
+                    }
+            
+                    $.ajax({
+                        type: "DELETE",
+                        url: url,
+                        success: function (response) {
+
+                            dhtmlx.alert({
+                                title: 'Image Deleted',
+                                text: 'The image has been successfully deleted',
+                                callback: function () {
+                                    $('.image-' +id).remove();
+                                }
+                            });
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+            });
+        });
+    });
+        
+        
 </script>
 @endsection

@@ -37,7 +37,7 @@
                             <button type="submit" class="btn btn-default">Search</button>
                         </div>
                     </div>
-                </form>
+                {!! Form::close() !!}
             </div>
             <br>
             <div class="ac-cont">

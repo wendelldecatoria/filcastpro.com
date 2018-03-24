@@ -1,3 +1,33 @@
 .btn-submit-container {
     padding: 5pt 5pt 20pt 20pt;
 }
+
+.row > .column {
+    padding: 10pt 10pt 20pt 10pt;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Create four equal columns that floats next to eachother */
+  .column {
+    display: -webkit-inline-box;
+  }
+
+  .icon-remove {
+    left: 165px;
+    top: -105px;
+    position: relative;
+  }
+
+  .icon-remove:hover {
+      color: red;
+  }
+
+  .edit-image {
+      width:170px;
+      height:250px;
+  }

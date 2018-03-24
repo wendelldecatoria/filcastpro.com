@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWhatsUpTable extends Migration
+class CreateSkillsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateWhatsUpTable extends Migration
      */
     public function up()
     {
-        Schema::create('whats_up', function (Blueprint $table) {
+        Schema::create('skills', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('image');
-            $table->string('title');
-            $table->string('headline');
-            $table->longText('content');
-            $table->integer('status'); //0 => deactivated, 1 => active, 2 => archived
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateWhatsUpTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('whats_up');
+        Schema::dropIfExists('skills');
     }
 }

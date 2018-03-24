@@ -3,7 +3,7 @@
 @section('title', 'Filcaspro')
 
 @section('content_header')
-	<h1>FilCaspro<small> Artist Administration</small></h1>
+	<h1>Filcaspro<small> Artist Administration</small></h1>
 @endsection
 
 @section('css')

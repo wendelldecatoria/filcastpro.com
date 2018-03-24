@@ -26,9 +26,14 @@ Route::group(['middleware' => 'web'], function () {
                 'prefix' => '',
                 'middleware' => ['auth']
             ], function() {
-                    Route::get('home', 'AdminController@home')->name('admin.home');
-                    Route::resource('artists', 'AdminController', [
+                    Route::get('home', 'ActorController@home')->name('admin.home');
+                    Route::resource('artists', 'ActorController', [
                         'parameters' => 'singular'
+                    ]);
+
+                    Route::resource('images', 'ImageController', [
+                        'parameters' => 'singular',
+                        'except' => ['index','edit','store','update','create'],
                     ]);
 
                     Route::resource('contact', 'ContactController', [

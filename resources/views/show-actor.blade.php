@@ -11,7 +11,8 @@
         @include('partials.menu')
         <div class="col-md-3"></div>
         <div class="col-md-6 showactor">
-            <a href="{{route('web.actors')}}"><button type="button" class="btn btn-link"><< Go back</button></a>
+            <a href="{{route('web.actors')}}"><button type="button" class="btn btn-default">back to search</button></a>
+            <br><br>
             @foreach ($actor as $actr)
                 <div class="row row-ac-title">
                     <h3 class="ac-title">{{$actr->name}}</h3>

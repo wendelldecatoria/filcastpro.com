@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'title' => 'FilCaspro',
+    'title' => 'Filcaspro',
 
     'title_prefix' => '',
 
@@ -30,7 +30,7 @@ return [
     |
     */
 
-    'logo' => '<b>FilCaspro</b>',
+    'logo' => '<b>Filcaspro</b>',
 
     'logo_mini' => '',
 
