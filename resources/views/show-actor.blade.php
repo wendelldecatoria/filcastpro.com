@@ -18,6 +18,7 @@
                     <h3 class="ac-title">{{$actr->name}}</h3>
                 </div>
                 <div class="row row-ac-img">
+                   @if(count($actr->Image) == 5)
                     <div class="col-sm-6" style="text-align:right;">
                         @if(count($actr->Image) > 0)
                             <img class="prf-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[0]->file_name)}}">
@@ -29,6 +30,7 @@
                         @if(count($actr->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[3]->file_name )}}">@endif
                         @if(count($actr->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[4]->file_name )}}">@endif
                     </div>
+                    @endif
                 </div>
                 <div class="row">
                         <div class="col-sm-12 ac-dtl">
