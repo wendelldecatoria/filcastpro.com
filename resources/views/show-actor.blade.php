@@ -19,15 +19,15 @@
                 </div>
                 <div class="row row-ac-img">
                     <div class="col-sm-6" style="text-align:right;">
-                    @if(array_key_exists(0,$actr->Image))
+                        @if(count($actr->Image) > 0)
                             <img class="prf-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[0]->file_name)}}">
                         @endif
                     </div>
                     <div class="col-sm-6" style="text-align:left;">
-                        @if(array_key_exists(1,$actr->Image))<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[1]->file_name )}}">@endif
-                        @if(array_key_exists(2,$actr->Image))<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[2]->file_name )}}">@endif
-                        @if(array_key_exists(3,$actr->Image))<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[3]->file_name )}}">@endif
-                        @if(array_key_exists(4,$actr->Image))<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[4]->file_name )}}">@endif
+                        @if(count($actr->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[1]->file_name )}}">@endif
+                        @if(count($actr->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[2]->file_name )}}">@endif
+                        @if(count($actr->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[3]->file_name )}}">@endif
+                        @if(count($actr->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actr->Image[4]->file_name )}}">@endif
                     </div>
                 </div>
                 <div class="row">
