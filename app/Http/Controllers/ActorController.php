@@ -63,7 +63,7 @@ class ActorController extends Controller
         $path = 'public/images/actors/';
         $allowedfileExtension=['jpg','png'];
         
-        if($request->has('thumb')){
+        if($request->hasFile('thumb')){
 
             $file = $request->file('thumb');
             $filename = md5_file($file->getRealPath() );
@@ -103,18 +103,19 @@ class ActorController extends Controller
                 'online_profile' => $input['online_profile'],
                 'works' => $input['works'],
                 'is_active' => $input['is_active'],
+                'updated_at' => Carbon::now()
             ];
         }
 		
         Actor::where('id', '=', $id)->update($actordata);
         
-        if($request->has('photos')){
+        if($request->hasFile('photos')){
             
             $photos = $request->file('photos');
             foreach ($photos as $photo) {
                 $photoname = md5_file($photo->getRealPath() );
                 $ext = $photo->guessExtension();
-                $file = $request->file('thumb')->storeAs($path, $filename.'.'.$ext);
+                $file = $photo->storeAs($path, $photoname.'.'.$ext);
 
                 $data = [
                     'actor_id' => $id,
@@ -177,30 +178,19 @@ class ActorController extends Controller
             'online_profile' => $request->input('online_profile'),
             'works' => $request->input('works'),
             'thumb_image' => $filename.'.'.$extension,
+            'is_active' =>  $request->input('is_active'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
         ]);
 
         foreach ($photos as $photo) {
-           // TODO: count photos. should be 4, hash filename
-           // $validator = Validator::make(array('file'=> $file), $rules);
-
-            // if($validator->passes()) {
-                $photoname = $photo->getClientOriginalName(); 
-                $ext = $photo->getClientOriginalExtension();
-                //$file = $photo->storeAs($path, $photoname.'.'.$ext);
-                $file = $photo->move($path, $photoname);
-                
-
-            //     // Flash a message and return the user back to a page...
-            // } else {
-            //     // redirect back with errors.
-            //     return Redirect::to('upload')->withInput()->withErrors($validator);
-            // }
+            $photoname = md5_file($photo->getRealPath() );
+            $ext = $photo->guessExtension();
+            $file = $photo->storeAs($path, $photoname.'.'.$ext);
 
             $data = [
                 'actor_id' => $actor_id,
-                'file_name' => $photoname,
+                'file_name' => $photoname.'.'.$ext,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ];
