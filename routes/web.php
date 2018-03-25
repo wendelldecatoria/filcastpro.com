@@ -26,7 +26,7 @@ Route::group(['middleware' => 'web'], function () {
                 'prefix' => '',
                 'middleware' => ['auth']
             ], function() {
-                    Route::get('home', 'ActorController@home')->name('admin.home');
+                    Route::get('home', 'AdminController@home')->name('admin.home');
                     Route::resource('artists', 'ActorController', [
                         'parameters' => 'singular'
                     ]);
@@ -45,7 +45,13 @@ Route::group(['middleware' => 'web'], function () {
                         'parameters' => 'singular',
                         'except' => ['show','edit','store','update','create','destroy'],
                     ]);
-                }
+
+                    Route::get('archived', 'WhatsUpController@archived')->name('whats-up.archived');
+                    Route::resource('whats-up', 'WhatsUpController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
+                } 
             );
         }
     );

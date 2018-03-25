@@ -121,6 +121,11 @@ return [
             'icon' => 'address-book',
             'url' => 'admin/artists',
         ],
+        [
+            'text' => "What's Up",
+            'icon' => 'address-book',
+            'url' => 'admin/whats-up ',
+        ],
         'FORMS',
         [
             'text' => 'Contacts',

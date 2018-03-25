@@ -12,16 +12,6 @@ use Carbon\Carbon;
 class ActorController extends Controller
 {
     /*
-    * 
-    *
-    *
-    */
-
-    public function home(){
-        return view('admin.home');
-    }
-
-    /*
     * display listing of the resource
     *
     *
