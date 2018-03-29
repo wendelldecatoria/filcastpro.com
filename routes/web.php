@@ -51,6 +51,22 @@ Route::group(['middleware' => 'web'], function () {
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);
+
+                    Route::resource('inquiry', 'InquiryController', [
+                        'parameters' => 'singular',
+                        'except' => ['show','edit','store','update','create','destroy'],
+                    ]);
+
+                    // Cannot be accessed directly via url
+                    // Route for sending email
+                    Route::get('sparkpost', function () {
+                        Mail::send('admin.email.artist', [], function ($message) {
+                        $message
+                            ->from('marketing@filcaspro.com', 'Filcaspro')
+                            ->to('wendell.t.decatoria@gmail.com', 'Wendell Decatoria')
+                            ->subject('Test Email');
+                        });
+                    });
                 } 
             );
         }
@@ -76,6 +92,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
         Route::post('search', 'WebsiteController@search')->name('web.search');
+        Route::post('inquire','WebsiteController@inquire')->name('web.inquire');
     });
     
 });

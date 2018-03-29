@@ -8,6 +8,8 @@ use App\Contact;
 use App\Register;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
+use App\Inquiry;
+use Mail;
 
 class WebsiteController extends Controller
 {
@@ -235,6 +237,35 @@ class WebsiteController extends Controller
 
     public function whatsIn(){
         return view('whats-in');
+    }
+
+    /*
+    * store newly created inquiry resource
+    *
+    *
+    */
+    public function inquire(Request $request){
+        
+        $email = 'wendell.t.decatoria@gmail.com'; //$request->input('email');
+        $name = 'Wendell'; //$request->input('name');
+        $actor_id = $request->input('actor_id');
+        $dataSet = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ];
+    
+        Inquiry::insert($dataSet);
+
+        $actor = Actor::find($actor_id);
+        Mail::send('admin.email.artist', compact('actor'), function ($message) use($email, $name) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $email , $name)
+                ->subject('Filcaspro - Request Artist Information');
+        });
     }
 
 }

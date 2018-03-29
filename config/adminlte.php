@@ -133,6 +133,11 @@ return [
             'url' => 'admin/contact',
         ],
         [
+            'text' => 'Artist Inquiries',
+            'icon' => 'address-book',
+            'url' => 'admin/inquiry',
+        ],
+        [
             'text' => 'Registers',
             'icon' => 'address-book',
             'url' => 'admin/register',
