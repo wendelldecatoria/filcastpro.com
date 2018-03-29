@@ -28,6 +28,7 @@
 					<table class="table table-striped" id="dataTable">
 						<thead>
 							<tr>
+								<th>Artist</th>
 								<th>Name</th>
 								<th>Email</th>
 								<th>Contact</th>   
@@ -59,21 +60,26 @@
 				columnDefs: [
 					{
 						'targets': 0,
+						'data': 'artist',
+						'name': 'artist',
+					},
+					{
+						'targets': 1,
 						'data': 'name',
 						'name': 'name',
 					},
 					{
-						'targets': 1,
+						'targets': 2,
 						'data': 'email',
 						'name': 'email',
 					},
 					{
-						'targets': 2,
+						'targets': 3,
 						'data': 'contact',
 						'name': 'contact',
 					},
 					{
-						'targets': 3,
+						'targets': 4,
 						'data': 'created_at',
 						'name': 'created_at',
 						

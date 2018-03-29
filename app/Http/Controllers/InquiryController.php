@@ -16,7 +16,9 @@ class InquiryController extends Controller
     public function index(Request $request)
 	{
 		if ($request->ajax()) {
-			$inquiries = Inquiry::all(); //return $inquiries;
+            $inquiries = Inquiry::join('actors', 'actors.id', '=', 'inquiries.actor_id')
+                                ->select('actors.name as artist','inquiries.name','inquiries.email','inquiries.contact', 'inquiries.created_at')
+                                ->get(); // return $inquiries;
 			return Datatables::of($inquiries)->make(true);
 		}
 
