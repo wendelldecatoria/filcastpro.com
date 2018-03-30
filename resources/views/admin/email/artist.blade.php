@@ -1,5 +1,1 @@
-<strong>Filcaspro</strong>
-<p>{{ $actor->name}}</p>
-<p>{{ $actor->manager}}</p>
-<p>{{ $actor->email}}</p>
-<p>{{ $actor->contact}}</p>
+<p>Great day there to you, {{ $actor->name}} is getting in touch with you from your FilCASPro page. Kindly email back on {{ $actor->email}} or get in contact on {{ $actor->contact}} </p>

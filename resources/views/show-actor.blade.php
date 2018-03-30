@@ -54,7 +54,7 @@
                                     <td><a class="ac-olp" target="_blank" href="{{asset($actor[0]->online_profile)}}" >{{$actor[0]->online_profile}}</a></td>
                                 </tr>
                                 <tr>
-                                    <td>MANAGER:</td>
+                                    <td>MANAGEMENT:</td>
                                     <td>{{$actor[0]->manager}}</td>
                                 </tr>
                                 <tr>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label" for="inputContact" >Contact</label>
+                            <label class="col-sm-2 control-label" for="inputContact" >Contact Number</label>
                             <div class="col-sm-10">
                                 <input type="contact" class="form-control"
                                     id="inputContact" placeholder="Contact"/>

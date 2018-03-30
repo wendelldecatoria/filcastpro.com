@@ -246,8 +246,8 @@ class WebsiteController extends Controller
     */
     public function inquire(Request $request){
         
-        $email = 'wendell.t.decatoria@gmail.com'; //$request->input('email');
-        $name = 'Wendell'; //$request->input('name');
+        $email = $request->input('email');
+        $name = $request->input('name');
         $actor_id = $request->input('actor_id');
         $dataSet = [
             'actor_id' => $request->input('actor_id'),
@@ -261,6 +261,7 @@ class WebsiteController extends Controller
         Inquiry::insert($dataSet);
 
         $actor = Actor::find($actor_id);
+        
         Mail::send('admin.email.artist', compact('actor'), function ($message) use($email, $name) {
             $message
                 ->from('marketing@filcaspro.com', 'Filcaspro')
