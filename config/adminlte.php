@@ -13,7 +13,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'title' => 'Filartpro',
+=======
+    'title' => 'FilCaspro',
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
 
     'title_prefix' => '',
 
@@ -30,7 +34,11 @@ return [
     |
     */
 
+<<<<<<< HEAD
     'logo' => '<b>Filartpro</b>',
+=======
+    'logo' => '<b>FilCaspro</b>',
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
 
     'logo_mini' => '',
 
@@ -118,7 +126,11 @@ return [
         'ARTISTS',
         [
             'text' => 'Artists',
+<<<<<<< HEAD
             'icon' => 'heartbeat',
+=======
+            'icon' => 'address-book',
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
             'url' => 'admin/artists',
         ],
     ],

@@ -5,8 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Actor;
+<<<<<<< HEAD
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\UploadedFile;
+=======
+use App\Image;
+use Yajra\Datatables\Datatables;
+use Illuminate\Http\UploadedFile;
+use Carbon\Carbon;
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
 
 class AdminController extends Controller
 {
@@ -64,7 +71,11 @@ class AdminController extends Controller
 			'last_name' => $input['last_name'],
 			'contact' => $input['contact'],
 			'age' => $input['age'],
+<<<<<<< HEAD
             'gender' => $input['gender'],
+=======
+            'gender' =>$input['gender'],
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
             'height' => $input['height'],
             'vital' => $input['vital'],
             'manager' => $input['manager'],
@@ -95,6 +106,7 @@ class AdminController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required',
+<<<<<<< HEAD
             'profile_image' => 'required',
             // 'thumb_image' => 'required',
             // 'sub_image_1' => 'required',
@@ -159,6 +171,84 @@ class AdminController extends Controller
 
     /*
     *  delete the selected created resource
+=======
+            'thumb' => 'required',  // 'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            'photos' => 'required',    
+            'is_active' => 'required'
+        ]);
+        
+        $path = 'public/images/actors/';
+        $id = $request->input('id');
+ 
+        $allowedfileExtension=['jpg','png'];
+        $file = $request->file('thumb');
+        $photos = $request->file('photos');
+        
+        $filename = md5_file($file->getRealPath() );
+        $extension = $file->guessExtension();
+        $file = $request->file('thumb')->storeAs($path, $filename.'.'.$extension);
+         
+        $actor_id = Actor::insertGetId([
+            'name' => $request->input('name'),
+            'first_name' => $request->input('first_name'),
+            'last_name' => $request->input('last_name'),
+            'contact' => $request->input('contact'),
+            'age' => $request->input('age'),
+            'gender' => $request->input('gender'),
+            'height' => $request->input('height'),
+            'vital' => $request->input('vital'),
+            'manager' => $request->input('manager'),
+            'email' => $request->input('email'),
+            'online_profile' => $request->input('online_profile'),
+            'works' => $request->input('works'),
+            'thumb_image' => $filename.'.'.$extension,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ]);
+
+        foreach ($photos as $photo) {
+           // TODO: count photos. should be 4, hash filename
+           // $validator = Validator::make(array('file'=> $file), $rules);
+
+            // if($validator->passes()) {
+                $photoname = $photo->getClientOriginalName(); 
+                $ext = $photo->getClientOriginalExtension();
+                //$file = $photo->storeAs($path, $photoname.'.'.$ext);
+                $file = $photo->move($path, $photoname);
+                
+
+            //     // Flash a message and return the user back to a page...
+            // } else {
+            //     // redirect back with errors.
+            //     return Redirect::to('upload')->withInput()->withErrors($validator);
+            // }
+
+            $data = [
+                'actor_id' => $actor_id,
+                'file_name' => $photoname,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ];
+
+            Image::insert($data);
+        }
+	
+		return redirect()->route('artists.index');
+    }
+
+     /*
+    *  show the selected resource
+    *
+    *
+    */
+    public function show($id){
+        $actor = Actor::find($id);
+        return view('admin.artists.index');
+    }
+
+    /*
+    *  delete the selected resource
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
     *
     *
     */

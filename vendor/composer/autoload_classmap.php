@@ -52,12 +52,16 @@ return array(
     'Collective\\Html\\HtmlServiceProvider' => $vendorDir . '/laravelcollective/html/src/HtmlServiceProvider.php',
     'CreateActorsTable' => $baseDir . '/database/migrations/2018_02_25_105951_create_actors_table.php',
     'CreateContactsTable' => $baseDir . '/database/migrations/2018_02_25_021024_create_contacts_table.php',
+    'CreateImagesTable' => $baseDir . '/database/migrations/2018_03_19_133737_create_images_table.php',
     'CreateRegistersTable' => $baseDir . '/database/migrations/2018_03_05_135321_create_registers_table.php',
     'CreateRolesTable' => $baseDir . '/database/migrations/2017_08_13_134855_create_roles_table.php',
     'CreateUsersRolesTable' => $baseDir . '/database/migrations/2017_08_13_142016_create_users_roles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2018_02_20_234602_create_users_table.php',
     'CreateVideosTable' => $baseDir . '/database/migrations/2018_03_05_144502_create_videos_table.php',
+<<<<<<< HEAD
     'CreateWhatsOnTable' => $baseDir . '/database/migrations/2018_03_13_025336_create_whats_on_table.php',
+=======
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
     'CreateWhatsUpTable' => $baseDir . '/database/migrations/2018_03_13_025320_create_whats_up_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
     'Cron\\CronExpression' => $vendorDir . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

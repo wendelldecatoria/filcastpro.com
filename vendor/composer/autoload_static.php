@@ -383,12 +383,16 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'CreateActorsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_25_105951_create_actors_table.php',
         'CreateContactsTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_25_021024_create_contacts_table.php',
+        'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_19_133737_create_images_table.php',
         'CreateRegistersTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_135321_create_registers_table.php',
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_13_134855_create_roles_table.php',
         'CreateUsersRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_13_142016_create_users_roles_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_20_234602_create_users_table.php',
         'CreateVideosTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_144502_create_videos_table.php',
+<<<<<<< HEAD
         'CreateWhatsOnTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_13_025336_create_whats_on_table.php',
+=======
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
         'CreateWhatsUpTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_13_025320_create_whats_up_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',

@@ -64,7 +64,7 @@ class WebsiteController extends Controller
     }
 
     public function artist(){
-        $actors = Actor::orderBy('name')->get();
+        $actors = Actor::where('is_active','=', 1)->orderBy('name')->get();
         return view('artist', compact('actors'));
     }
 
@@ -170,7 +170,7 @@ class WebsiteController extends Controller
     */
 
     public function showactor($id){
-        $actor = Actor::where('id','=',$id)->get(); //return $actor;
+        $actor = Actor::with('Image')->where('id','=',$id)->get(); //return $actor;
         return view('show-actor', compact('actor') );
     }
 
@@ -213,6 +213,28 @@ class WebsiteController extends Controller
         }
        
         return view('artist', compact('actors'));
+    }
+
+     /* 
+    * Show creatives page
+    *
+    * @return Response
+    * 
+    */
+
+    public function creatives(){
+        return view('creatives');
+    }
+
+    /* 
+    * Show what's in page
+    *
+    * @return Response
+    * 
+    */
+
+    public function whatsIn(){
+        return view('whats-in');
     }
 
 }

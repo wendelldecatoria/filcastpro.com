@@ -28,7 +28,10 @@ Route::group(['middleware' => 'web'], function () {
             ], function() {
                     Route::get('home', 'AdminController@home')->name('admin.home');
                     Route::resource('artists', 'AdminController', [
+<<<<<<< HEAD
                         'except' => 'show',
+=======
+>>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
                         'parameters' => 'singular'
                     ]);
                 }
@@ -45,9 +48,11 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('home', 'WebsiteController@home')->name('web.home');
         Route::get('get-actors','WebsiteController@getactors')->name('web.get-actors');
         Route::get('actors', 'WebsiteController@artist')->name('web.actors');
+        Route::get('creatives', 'WebsiteController@creatives')->name('web.creatives');
         Route::get('show-actor/{id}','WebsiteController@showactor')->name('web.actor-show');
         Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
         Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
+        Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
         Route::get('register', 'WebsiteController@register')->name('web.register');
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
