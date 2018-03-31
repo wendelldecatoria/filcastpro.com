@@ -11,12 +11,12 @@
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div style="text-align:center">
-                <h3>Coming Soon</h3>
-                <h4>Casting Coup by George Vail Kabristante</h4>
-                <h4>Filpro by Boy Villasanta</h4>
-            </div>
-            <br>
+        <a href="{{route('web.whats-up')}}"><button type="button" class="btn btn-default">see all articles</button></a>
+            <!-- <div class="col-md-12"> <img src="{{-- asset('/storage/images/writers/'. $article->writer->image ) --}}" width="250px" /></div> -->
+            <h2>{{$article[0]->writer->title}} by {{$article[0]->writer->name}} </h2>
+            <h3>{{$article[0]->headline}}</h3>
+            <hr class="hr">
+            <p> {!! htmlspecialchars_decode($article[0]->content) !!}</p>
         </div>
         <div class="col-md-2"></div>
     </div>

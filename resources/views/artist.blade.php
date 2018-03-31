@@ -22,9 +22,9 @@
                     <div class="form-group row">
                         <fieldset class="form-group">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" id="checkbox" name="gender" value="both">
+                                <!-- <input class="form-check-input" type="radio" id="checkbox" name="gender" value="both">
                                 <label class="form-check-label" for="inlineCheckbox1">Both</label>
-                                &nbsp;
+                                &nbsp; -->
                                 <input class="form-check-input" type="radio" id="checkbox" name="gender" value="male">
                                 <label class="form-check-label" for="inlineCheckbox1">Male</label>
                                 &nbsp;

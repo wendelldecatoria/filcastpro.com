@@ -45,7 +45,7 @@
                         <table class="table table-condensed ac-tbl" width="100%" role="grid" style="width: 100%;">
                             <thead>
                                 <tr>
-                                    <th colspan="2" style="background-color: #e52d5d;">DETAILS</th>
+                                    <th colspan="2" class="ac-dtl-title">DETAILS</th>
                                 </tr>
                             </thead>
                             <tbody>

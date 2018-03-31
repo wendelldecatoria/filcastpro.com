@@ -1,0 +1,1 @@
+<p>Great day there to you, {{ $inquirer['name']}} is getting in touch with you from your FilCASPro page. Kindly email back on {{ $inquirer['email'] }} or get in contact on {{ $inquirer['contact']}} </p>

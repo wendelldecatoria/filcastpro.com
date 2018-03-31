@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Actor;
 use App\Contact;
 use App\Register;
+use App\WhatsUp;
 use App\Skill;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
@@ -100,7 +101,21 @@ class WebsiteController extends Controller
     * 
     */
     public function whatsUp(){
-        return view('whats-up');
+        
+        $articles = WhatsUp::with('Writer')->where('status','=', 1)->get();
+        return view('whats-up.index', compact('articles') );
+    }
+
+     /* 
+    * Display whats up article
+    *
+    * @return Response
+    * 
+    */
+    public function showWhatsUp($id){
+        
+        $article = WhatsUp::with('Writer')->where('id','=', $id)->get();
+        return view('whats-up.show', compact('article') );
     }
 
     /* 
@@ -210,14 +225,21 @@ class WebsiteController extends Controller
         }
 
         $gender = $request->input('gender');
+        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
+
+        $actors = Actor::
+            // leftJoin('actor_skill','actor_skill.actor_id','=', 'actors.id')
+            // ->join('skills','actor_skill.skill_id','=','skills.id')
+            // filter age bracket
+            whereBetween('age', [$val1, $val2]) 
+            // filter gender
+            ->when($request->input('gender'), function($query) use ($request) {
+                return $query->where('gender','=', $request->input('gender'));
+            })
+            ->orderBy('name')
+            ->get();
         
-        if($gender)
-            $actors = Actor::whereBetween('age', [$val1, $val2])->where('gender','=', $gender)->orderBy('name')->get();
-        else {
-            $actors = Actor::whereBetween('age', [$val1, $val2])->orderBy('name')->get();
-        }
-       
-        return view('artist', compact('actors'));
+        return view('artist', compact('actors', 'skills'));
     }
 
      /* 
@@ -252,7 +274,7 @@ class WebsiteController extends Controller
         $email = $request->input('email');
         $name = $request->input('name');
         $actor_id = $request->input('actor_id');
-        $dataSet = [
+        $inquirer = [
             'actor_id' => $request->input('actor_id'),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
@@ -261,15 +283,26 @@ class WebsiteController extends Controller
             'updated_at' => Carbon::now()
         ];
     
-        Inquiry::insert($dataSet);
+        Inquiry::insert($inquirer);
 
         $actor = Actor::find($actor_id);
-        
-        Mail::send('admin.email.artist-template', compact('actor'), function ($message) use($email, $name) {
+        $actorEmail = 'wendecat.social@gmail.com'; //$actor->email;
+        $actorName = 'Steve Rogers'; //$actor->name;
+
+        // Send email to inquirer
+        Mail::send('admin.email.template-to-inquirer', compact('actor'), function ($message) use($email, $name) {
             $message
                 ->from('marketing@filcaspro.com', 'Filcaspro')
                 ->to( $email , $name)
                 ->subject('Filcaspro - Request Artist Information');
+        });
+
+        // Send email to artist
+        Mail::send('admin.email.template-to-artist', compact('inquirer'), function ($message) use($actorEmail, $actorName) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $actorEmail , $actorName)
+                ->subject('Filcaspro - Artist Inquiry');
         });
     }
 
