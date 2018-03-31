@@ -6,10 +6,12 @@ use Illuminate\Http\Request;
 use App\Actor;
 use App\Contact;
 use App\Register;
+use App\Skill;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
 use App\Inquiry;
 use Mail;
+
 
 class WebsiteController extends Controller
 {
@@ -67,7 +69,8 @@ class WebsiteController extends Controller
 
     public function artist(){
         $actors = Actor::where('is_active','=', 1)->orderBy('name')->get();
-        return view('artist', compact('actors'));
+        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
+        return view('artist', compact('actors', 'skills'));
     }
 
     /* 
@@ -262,7 +265,7 @@ class WebsiteController extends Controller
 
         $actor = Actor::find($actor_id);
         
-        Mail::send('admin.email.artist', compact('actor'), function ($message) use($email, $name) {
+        Mail::send('admin.email.artist-template', compact('actor'), function ($message) use($email, $name) {
             $message
                 ->from('marketing@filcaspro.com', 'Filcaspro')
                 ->to( $email , $name)

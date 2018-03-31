@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddGroupToSkillsTable' => $baseDir . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
     'App\\Actor' => $baseDir . '/app/Actor.php',
     'App\\ActorSkill' => $baseDir . '/app/ActorSkill.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
