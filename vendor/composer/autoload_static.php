@@ -364,6 +364,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
 
     public static $classMap = array (
         'AddGroupToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
+        'AlterTableWhatsUp' => __DIR__ . '/../..' . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
         'App\\Actor' => __DIR__ . '/../..' . '/app/Actor.php',
         'App\\ActorSkill' => __DIR__ . '/../..' . '/app/ActorSkill.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',

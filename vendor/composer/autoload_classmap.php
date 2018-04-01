@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddGroupToSkillsTable' => $baseDir . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
+    'AlterTableWhatsUp' => $baseDir . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
     'App\\Actor' => $baseDir . '/app/Actor.php',
     'App\\ActorSkill' => $baseDir . '/app/ActorSkill.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',

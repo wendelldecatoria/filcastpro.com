@@ -34,11 +34,15 @@
 							<tbody>
                             <tr>
                                 <td>Writer:</td>
-                                <td>{{Form::select('writer', $writers,  null ,['class' => 'form-control'])}}</td>
+                                <td>{{ Form::text('writer', null ,array('class' => 'form-control','placeholder' => 'Enter Article Writer')) }}</td>
                             </tr>
                             <tr>
                                 <td>Headline:</td>
                                 <td>{{ Form::text('headline', null ,array('class' => 'form-control','placeholder' => 'Enter Article Headline')) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Title:</td>
+                                <td>{{ Form::text('title', null ,array('class' => 'form-control','placeholder' => 'Enter Article Title')) }}</td>
                             </tr>
                             <tr>
                                 <td>Content:</td>
@@ -46,7 +50,15 @@
                             </tr>
                             <tr>
                                 <td>Status:</td>
-                                <td>{{Form::select('status', array( '' => '-----', 1 => 'Yes', 0 => 'No', 2 => 'Archive'),  '',['class' => 'form-control'])}}</td>
+                                <td>{{Form::select('status', array( '' => '-----', 1 => 'Yes', 0 => 'No', 2 => 'Archive'), null ,['class' => 'form-control'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Type:</td>
+                                <td>{{Form::select('type', array( '' => '-----', 1 => 'Article', 2 => 'Featured Artist'), null ,['class' => 'form-control'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Image:</td>
+                                <td> {{ Form::file('image') }}</td>
                             </tr>
                         </tbody>
                     </table>

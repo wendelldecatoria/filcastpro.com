@@ -39,6 +39,7 @@
 								<th>Title</th>
 								<th>Headline</th>   
 								<th>Status</th>
+								<th>Type</th>
 								<th>Created At</th>
 								<th>Updated At</th>
                                 <th></th>
@@ -69,8 +70,8 @@
 				columnDefs: [
 					{
 						'targets': 0,
-						'data': 'name',
-						'name': 'name',
+						'data': 'writer',
+						'name': 'writer',
 					},
 					{
 						'targets': 1,
@@ -86,22 +87,46 @@
 						'targets': 3,
 						'data': 'status',
 						'name': 'status',
+						mRender: function ( data, type, row ) {
+							if(data == 0){
+								return data = 'No';
+							}else if(data == 1){
+								return data = 'Yes';
+							}else {
+								return data = 'Archived';
+							}
+						}
 					
 					},
 					{
 						'targets': 4,
+						'data': 'type',
+						'name': 'type',
+						mRender: function ( data, type, row ) {
+							// return data ? "Article" : "Featured Artist";
+							if(data == 1){
+								return data = 'Article';
+							}else if(data == 2){
+								return data = 'Featured Artist';
+							}else {
+								return data = 'Others';
+							}
+						}
+					},
+					{
+						'targets': 5,
 						'data': 'created_at',
 						'name': 'created_at',
 						
 					},
                     {
-						'targets': 5,
+						'targets': 6,
 						'data': 'updated_at',
 						'name': 'updated_at',
 						
 					},
 					{
-						'targets': 6,
+						'targets': 7,
 						'searchable': false,
 						'sortable': false,
 						'render': function (data, type, row) {

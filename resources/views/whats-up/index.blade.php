@@ -14,9 +14,9 @@
             @foreach($articles as $article)
                 <a href="{{route('web.show-whats-up', $article->id)}}">
                     <div class="row article">
-                        <div class="col-md-4"> <img src="{{asset('/storage/images/writers/'. $article->writer->image )}}" width="250px" /></div>
+                        <div class="col-md-4"> <img src="{{asset('/storage/images/writers/'. $article->image )}}" width="250px" /></div>
                         <div class="col-md-8 article-body">
-                            <h2>{{$article->writer->title}} by {{$article->writer->name}} </h2>
+                            <h2>{{$article->title}} by {{$article->writer}} </h2>
                             <h3>{{$article->headline}}</h3>
                             <p> {!! htmlspecialchars_decode(str_limit($article->content, $limit = 100, $end = '...')) !!}</p>
                             <p> {{ date_format($article->created_at, 'M d, Y')}}</p>
