@@ -104,7 +104,7 @@ class WebsiteController extends Controller
         
         $featured = WhatsUp::with('Writer')->where('status','=', 1)->where('type','=', 2)->get();
         $articles = WhatsUp::with('Writer')->where('status','=', 1)->where('type','=', 1)->get();
-        return view('whats-up.index', compact('articles') );
+        return view('whats-up.index', compact('articles','featured') );
     }
 
      /* 

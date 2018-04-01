@@ -58,6 +58,7 @@ class WhatsUpController extends Controller
  
         $data = [
             'writer' => $request->input('writer'),
+            'title' => $request->input('title'),
             'headline' => $request->input('headline'),
             'content' =>  $request->input('content'),
             'status' =>  $request->input('status'),
