@@ -13,16 +13,18 @@
         <div class="col-md-8">
              @foreach($featured as $feature)
                         <div class="row article">
+                            <div class="col-md-3"></div>
                             <div class="col-md-3 article-image" style="text-align: center"> 
                                 <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" width="200" height="200" />
                             </div>
-                            <div class="col-md-9  article-body" >
+                            <div class="col-md-3  article-body" >
                                 <h3 id="headline"><strong>{{$feature->headline}}</strong></h3>
                                 <h5 id="title">{{$feature->title}} by {{$feature->writer}} </h5>
                                 <p> <small>Posted on {{ date_format($feature->created_at, 'M d, Y')}} </small></p>
                                 <p> {!! htmlspecialchars_decode(str_limit($feature->content, $limit = 150, $end = '...')) !!}</p>
                                 <p>   <a href="{{route('web.show-whats-up', $feature->id)}}">Read More...</a></p>
                             </div>
+                            <div class="col-md-3"></div>
                         </div>
                     <hr class="hr">
             @endforeach

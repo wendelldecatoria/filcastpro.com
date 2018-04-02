@@ -1,2 +1,1 @@
-<p>Great day there to you, {{ $actor->name}} is getting in touch with you from your FilCASPro page. Kindly email back on {{ $actor->email}}</p>
-<p>If you have any queries please do not hesitate to contact us on 0917 874 8536 or on 02 3598285. Thank you.<p>
+<p>Great day to you!!! Thank you for your request. filCASpro have sent your message to {{ $actor->name}}. Have a pleasant time.</p>
