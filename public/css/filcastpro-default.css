@@ -236,10 +236,12 @@ a:active {
 .article-body{
     text-align:left;
     padding: 10pt;
+    margin:10pt;
+    background-color: rgba(255,255,255,0.8);
 }
 
 .ac-dtl-title {
-    background-image: url(../images/24e573457cf62c73b72967042d121570.jpg);
+    background-image: url('../images/24e573457cf62c73b72967042d121570.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }

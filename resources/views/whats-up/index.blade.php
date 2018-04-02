@@ -7,17 +7,18 @@
 @section('content')
 <div class="container">
     @include('partials.header')
-    <div class="row content">
+    <div class="row content" style="background-image: url('../images/camcont2.jpg');  background-repeat: no-repeat;background-size: 100% 100%; background-color: rgba(255,255,255,0.5);">
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
+            <div style="width: 100%;text-align: center; margin-bottom: 20pt;"><img src="../images/whats-up-title.png"></div>
              @foreach($featured as $feature)
-                        <div class="row article">
+                        <div class="row article">   
                             <div class="col-md-3"></div>
                             <div class="col-md-3 article-image" style="text-align: center"> 
                                 <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" width="200" height="200" />
                             </div>
-                            <div class="col-md-3  article-body" >
+                            <div class="col-md-3  article-body">
                                 <h3 id="headline"><strong>{{$feature->headline}}</strong></h3>
                                 <h5 id="title">{{$feature->title}} by {{$feature->writer}} </h5>
                                 <p> <small>Posted on {{ date_format($feature->created_at, 'M d, Y')}} </small></p>
