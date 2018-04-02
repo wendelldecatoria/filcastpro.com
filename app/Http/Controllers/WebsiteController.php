@@ -287,8 +287,8 @@ class WebsiteController extends Controller
         Inquiry::insert($inquirer);
 
         $actor = Actor::find($actor_id);
-        $actorEmail = 'wendecat.social@gmail.com'; //$actor->email;
-        $actorName = 'Steve Rogers'; //$actor->name;
+        $actorEmail = $actor->email;
+        $actorName = $actor->name;
 
         // Send email to inquirer
         Mail::send('admin.email.template-to-inquirer', compact('actor'), function ($message) use($email, $name) {
