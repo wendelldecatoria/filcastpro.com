@@ -7,25 +7,27 @@
 @section('content')
 <div class="container">
     @include('partials.header')
-    <div class="row content" style="background-image: url('../images/camcont2.jpg');  background-repeat: no-repeat;background-size: 100% 100%; background-color: rgba(255,255,255,0.5);">
+    <div class="row content">
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div style="width: 100%;text-align: center; margin-bottom: 20pt;"><img src="../images/whats-up-title.png"></div>
+            <div style="width: 100%;text-align: center; margin-bottom: 20pt;"><img src="../images/whats-up-title2.png"></div>
              @foreach($featured as $feature)
                         <div class="row article">   
-                            <div class="col-md-3"></div>
+                            <div class="col-md-2"></div>
                             <div class="col-md-3 article-image" style="text-align: center"> 
                                 <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" width="200" height="200" />
                             </div>
-                            <div class="col-md-3  article-body">
+                            <div class="col-md-5  feature-body">
+                                 <blockquote>
                                 <h3 id="headline"><strong>{{$feature->headline}}</strong></h3>
                                 <h5 id="title">{{$feature->title}} by {{$feature->writer}} </h5>
                                 <p> <small>Posted on {{ date_format($feature->created_at, 'M d, Y')}} </small></p>
                                 <p> {!! htmlspecialchars_decode(str_limit($feature->content, $limit = 150, $end = '...')) !!}</p>
-                                <p>   <a href="{{route('web.show-whats-up', $feature->id)}}">Read More...</a></p>
+                                <p>   <a href="{{route('web.show-whats-up', $feature->id)}}">READ MORE...</a></p>
+                                 </blockquote>
                             </div>
-                            <div class="col-md-3"></div>
+                            <div class="col-md-2"></div>
                         </div>
                     <hr class="hr">
             @endforeach
@@ -51,20 +53,27 @@
                     <div class="col-md-4">
                             <div class="row article">
                                 <div class="article-image" style="text-align: center"> 
-                                    <img src="{{asset('/storage/images/writers/'. $article->image )}}" class="img-thumbnail" width="200" height="200" />
+                                    <img src="{{asset('/storage/images/writers/'. $article->image )}}" class="img-thumbnail" width="150" height="150" />
                                 </div>
                                 <div class="article-body" >
-                                    <h3 id="headline"><strong>{{$article->headline}}</strong></h3>
-                                    <h5 id="title">{{$article->title}} by {{$article->writer}} </h5>
-                                    <p> <small>Posted on {{ date_format($article->created_at, 'M d, Y')}} </small></p>
-                                    <p> {!! htmlspecialchars_decode(str_limit($article->content, $limit = 50, $end = '...')) !!}</p>
-                                    <p>   <a href="{{route('web.show-whats-up', $article->id)}}">Read More...</a></p>
+                                    <blockquote>
+                                        <h4 id="headline"><strong>{{$article->headline}}</strong></h4>
+                                        <h5 id="title">{{$article->title}} by {{$article->writer}} </h5>
+                                        <p> <small>Posted on {{ date_format($article->created_at, 'M d, Y')}} </small></p>
+                                        <p> {!! htmlspecialchars_decode(str_limit($article->content, $limit = 50, $end = '...')) !!}</p>
+                                        <p> <a href="{{route('web.show-whats-up', $article->id)}}">READ MORE...</a></p>
+                                    </blockquote>
                                 </div>
                             </div>
                     </div>
                 @endforeach
+
             </div>
 
+            <hr class="hr">
+            <div class="row">
+                
+            </div>
         </div>
         <div class="col-md-2"></div>
     </div>

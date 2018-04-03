@@ -233,11 +233,15 @@ a:active {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
 }
 
-.article-body{
+.article-body, .feature-body{
     text-align:left;
-    padding: 10pt;
+    padding: 0pt;
     margin:10pt;
-    background-color: rgba(255,255,255,0.8);
+    font-family: "Helvetica";
+}
+
+.article-body {
+
 }
 
 .ac-dtl-title {
@@ -248,4 +252,8 @@ a:active {
 
 .article {
    
+}
+
+#headline {
+    
 }
