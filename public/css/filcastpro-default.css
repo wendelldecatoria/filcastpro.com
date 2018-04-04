@@ -165,7 +165,7 @@ a:active {
 }
 
 .item-vid-thumb {
-    width:200px;
+    /*width:200px;*/
     padding: 0pt;
     margin: 0pt;
 }
@@ -236,7 +236,7 @@ a:active {
     text-align:left;
     padding: 0pt;
     margin:10pt;
-    font-family: "Helvetica";
+   font-family: "Helvetica Neue", Helvetica;
 }
 
 .article-body {

@@ -19,13 +19,11 @@
                                 <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" width="200" height="200" />
                             </div>
                             <div class="col-md-5  feature-body">
-                                 <blockquote>
                                 <h3 id="headline"><strong>{{$feature->headline}}</strong></h3>
                                 <h5 id="title">{{$feature->title}} by {{$feature->writer}} </h5>
                                 <p> <small>Posted on {{ date_format($feature->created_at, 'M d, Y')}} </small></p>
                                 <p> {!! htmlspecialchars_decode(str_limit($feature->content, $limit = 150, $end = '...')) !!}</p>
                                 <p>   <a href="{{route('web.show-whats-up', $feature->id)}}">READ MORE...</a></p>
-                                 </blockquote>
                             </div>
                             <div class="col-md-2"></div>
                         </div>
@@ -56,13 +54,11 @@
                                     <img src="{{asset('/storage/images/writers/'. $article->image )}}" class="img-thumbnail" width="150" height="150" />
                                 </div>
                                 <div class="article-body" >
-                                    <blockquote>
                                         <h4 id="headline"><strong>{{$article->headline}}</strong></h4>
                                         <h5 id="title">{{$article->title}} by {{$article->writer}} </h5>
                                         <p> <small>Posted on {{ date_format($article->created_at, 'M d, Y')}} </small></p>
                                         <p> {!! htmlspecialchars_decode(str_limit($article->content, $limit = 50, $end = '...')) !!}</p>
                                         <p> <a href="{{route('web.show-whats-up', $article->id)}}">READ MORE...</a></p>
-                                    </blockquote>
                                 </div>
                             </div>
                     </div>

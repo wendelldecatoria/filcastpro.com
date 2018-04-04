@@ -122,16 +122,6 @@ class WhatsUpController extends Controller
 		return redirect()->route('whats-up.index');
     }
 
-     /*
-    *  show the selected resource
-    *
-    *
-    */
-    public function show($id){
-        $actor = Actor::find($id);
-        return view('admin.artists.index');
-    }
-
     /*
     *  delete the selected resource
     *

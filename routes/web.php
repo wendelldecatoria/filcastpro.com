@@ -57,16 +57,10 @@ Route::group(['middleware' => 'web'], function () {
                         'except' => ['show','edit','store','update','create','destroy'],
                     ]);
 
-                    // Cannot be accessed directly via url
-                    // Route for sending email
-                    Route::get('sparkpost', function () {
-                        Mail::send('admin.email.artist', [], function ($message) {
-                        $message
-                            ->from('marketing@filcaspro.com', 'Filcaspro')
-                            ->to('wendell.t.decatoria@gmail.com', 'Wendell Decatoria')
-                            ->subject('Test Email');
-                        });
-                    });
+                   Route::resource('video', 'VideoController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
                 } 
             );
         }

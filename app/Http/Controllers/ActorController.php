@@ -191,16 +191,6 @@ class ActorController extends Controller
 		return redirect()->route('artists.index');
     }
 
-     /*
-    *  show the selected resource
-    *
-    *
-    */
-    public function show($id){
-        $actor = Actor::find($id);
-        return view('admin.artists.index');
-    }
-
     /*
     *  delete the selected resource
     *

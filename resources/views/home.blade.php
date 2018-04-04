@@ -12,36 +12,19 @@
         <div class="col-md-8" style="text-align:center">
             <!-- 16:9 aspect ratio -->
             <div class="embed-responsive embed-responsive-16by9">            
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/3yYii5upMwA?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLffqvbWIvMgQST8m_Ao31uBS_MtsWGCMX" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->       
+            
+               {!! htmlspecialchars_decode($default->url) !!}
             </div>
             <br><br>
         </div>
         <div class="col-md-4">
             <div class="item-vid-container">
-                <div class="row item-vid" title="Jowee Morel's Twenty Thirteen Reel" url='<iframe width="560" height="315" src="https://www.youtube.com/embed/3yYii5upMwA?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'>
-                    
-                    <img class="col-md-6 item-vid-thumb" src="{{asset('/storage/images/thumbnails/Twenty_Thirteen_Reel.jpg')}}">
-                    <div class="col-md-6 item-vid-title">Jowee Morel's Twenty Thirteen Reel</div>
+                @foreach($videos as $video)
+                <div class="row item-vid" title="{{$video->title}}" url="{{$video->url}}">
+                    <img class="col-md-6 item-vid-thumb" src="{{asset('/storage/images/thumbnails/' . $video->thumbnail )}}">
+                    <div class="col-md-6 item-vid-title">{{$video->title}}</div>
                 </div>
-
-                <div class="row item-vid" title="Camp Sawi Official Trailer" url='<iframe width="560" height="315" src="https://www.youtube.com/embed/hBgpv1bEvbo?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'>
-                    
-                    <img class="col-md-6 item-vid-thumb" src="{{asset('/storage/images/thumbnails/CampSawi.jpg')}}">
-                    <div class="col-md-6 item-vid-title">Camp Sawi Official Trailer</div>
-                </div>
-                
-                <div class="row item-vid" title="No Erase - James Reid & Nadine Lustre (Diary ng Panget The Movie OST)" url='<iframe width="560" height="315" src="https://www.youtube.com/embed/qCNQyK65omk?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'>
-                   
-                    <img class="col-md-6 item-vid-thumb" src="{{asset('/storage/images/thumbnails/no_erase.jpg')}}">
-                    <div class="col-md-6 item-vid-title">No Erase - James Reid & Nadine Lustre (Diary ng Panget The Movie OST)</div>
-                </div>
-
-                <div class="row item-vid" title="Di ko Alam - Yassi Pressman & Andre Paras (Diary ng Panget The Movie OST)" url='<iframe width="560" height="315" src="https://www.youtube.com/embed/n5dVJjduqg4?rel=0&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>'>
-                    
-                    <img class="col-md-6 item-vid-thumb" src="{{asset('/storage/images/thumbnails/di_ko_alam.jpg')}}">
-                    <div class="col-md-6 item-vid-title">Di ko Alam - Yassi Pressman & Andre Paras (Diary ng Panget The Movie OST)</div>
-                </div>
+                @endforeach
             </div>
             <br>
         </div>

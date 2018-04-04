@@ -57,6 +57,7 @@
 				serverSide: true,
 				deferRender: true,
 				ajax: '{{ route("inquiry.index") }}',
+				 "order": [[ 4, "desc" ]],
 				columnDefs: [
 					{
 						'targets': 0,

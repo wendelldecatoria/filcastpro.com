@@ -122,6 +122,11 @@ return [
             'url' => 'admin/artists',
         ],
         [
+            'text' => 'Videos',
+            'icon' => 'address-book',
+            'url' => 'admin/video',
+        ],
+        [
             'text' => "What's Up",
             'icon' => 'address-book',
             'url' => 'admin/whats-up ',

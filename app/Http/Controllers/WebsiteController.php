@@ -11,6 +11,7 @@ use App\Skill;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
 use App\Inquiry;
+use App\Video;
 use Mail;
 
 
@@ -49,7 +50,10 @@ class WebsiteController extends Controller
     * 
     */
     public function home(){
-        return view('home');
+
+        $videos = Video::where('is_active','=', 1)->orderBy('created_at')->get();
+        $default = Video::where('is_default','=', 1)->first();
+        return view('home', compact('videos','default') );
     }
 
     /* 
