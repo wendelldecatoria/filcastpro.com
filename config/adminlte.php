@@ -127,6 +127,11 @@ return [
             'url' => 'admin/video',
         ],
         [
+            'text' => "What's On",
+            'icon' => 'address-book',
+            'url' => 'admin/whats-on ',
+        ],
+        [
             'text' => "What's Up",
             'icon' => 'address-book',
             'url' => 'admin/whats-up ',
