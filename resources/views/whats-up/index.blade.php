@@ -19,7 +19,7 @@
                                 <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" width="200" height="200" />
                             </div>
                             <div class="col-md-5  feature-body">
-                                <h3 id="headline"><strong>{{$feature->headline}}</strong></h3>
+                                <h3 id="headline">{{$feature->headline}}</h3>
                                 <h5 id="title">{{$feature->title}} by {{$feature->writer}} </h5>
                                 <p> <small>Posted on {{ date_format($feature->created_at, 'M d, Y')}} </small></p>
                                 <p> {!! htmlspecialchars_decode(str_limit($feature->content, $limit = 150, $end = '...')) !!}</p>
@@ -54,7 +54,7 @@
                                     <img src="{{asset('/storage/images/writers/'. $article->image )}}" class="img-thumbnail" width="150" height="150" />
                                 </div>
                                 <div class="article-body" >
-                                        <h4 id="headline"><strong>{{$article->headline}}</strong></h4>
+                                        <h4 id="headline">{{$article->headline}}</h4>
                                         <h5 id="title">{{$article->title}} by {{$article->writer}} </h5>
                                         <p> <small>Posted on {{ date_format($article->created_at, 'M d, Y')}} </small></p>
                                         <p> {!! htmlspecialchars_decode(str_limit($article->content, $limit = 50, $end = '...')) !!}</p>
