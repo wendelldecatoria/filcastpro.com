@@ -364,6 +364,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
 
     public static $classMap = array (
         'AddGroupToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
+        'AddSkillToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_07_102345_add_skill_to_skills_table.php',
         'AlterTableVideos' => __DIR__ . '/../..' . '/database/migrations/2018_04_04_132709_alter_table_videos.php',
         'AlterTableWhatsUp' => __DIR__ . '/../..' . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
         'App\\Actor' => __DIR__ . '/../..' . '/app/Actor.php',
@@ -388,6 +389,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/VideoController.php',
         'App\\Http\\Controllers\\WebsiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebsiteController.php',
+        'App\\Http\\Controllers\\WhatsOnController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsOnController.php',
         'App\\Http\\Controllers\\WhatsUpController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsUpController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
@@ -409,6 +411,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'App\\Skill' => __DIR__ . '/../..' . '/app/Skill.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Video' => __DIR__ . '/../..' . '/app/Video.php',
+        'App\\WhatsOn' => __DIR__ . '/../..' . '/app/WhatsOn.php',
         'App\\WhatsUp' => __DIR__ . '/../..' . '/app/WhatsUp.php',
         'App\\Work' => __DIR__ . '/../..' . '/app/Work.php',
         'App\\Writer' => __DIR__ . '/../..' . '/app/Writer.php',

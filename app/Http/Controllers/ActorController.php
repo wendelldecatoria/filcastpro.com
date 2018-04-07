@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Actor;
+use App\ActorSkill;
 use App\Image;
+use App\Skill;
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\UploadedFile;
 use Carbon\Carbon;
@@ -34,7 +36,10 @@ class ActorController extends Controller
     public function edit($id){
         $actor = Actor::where('id','=', $id)->get();
         $images = Image::where('actor_id','=', $id)->get();
-        return view('admin.actors.edit', array('actor' => $actor, 'images' => $images));
+        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id');
+        $actorSkills = ActorSkill::where('actor_id','=', $id)->pluck('skill_id');
+        //return view('admin.actors.edit', array('actor' => $actor, 'images' => $images, $skills => 'skills'));
+        return view('admin.actors.edit', compact('actor', 'images', 'skills', 'actorSkills') );
     }
 
     /*
@@ -46,8 +51,14 @@ class ActorController extends Controller
         $input = $request->all();
 		$id = $input['id'];
 
-		$this->validate($request, [
-			'name' => 'required',
+        $this->validate($request, [
+            'name' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
+            'skills' => 'required',  
+            'is_active' => 'required'
         ]);
         
         $path = 'public/images/actors/';
@@ -117,6 +128,24 @@ class ActorController extends Controller
                 Image::insert($data);
             }
         }
+
+        if($request->has('skills')){
+            $skills = $request->input('skills');
+            
+            // sanitize skills. remove all before insert
+            ActorSkill::where('actor_id','=', $id)->delete();
+
+            foreach($skills as $skill){
+                $actorSkill = [
+                    'actor_id' => $id,
+                    'skill_id' => $skill,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ];
+
+                ActorSkill::insert($actorSkill);
+            }
+        }
 	
 		return redirect()->route('artists.index');
     }
@@ -127,7 +156,8 @@ class ActorController extends Controller
     *
     */
     public function create(){
-        return view('admin.actors.create');
+        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id');
+        return view('admin.actors.create', compact('skills') );
     }
 
     /*
@@ -138,7 +168,12 @@ class ActorController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required',
+            'age' => 'required',
+            'gender' => 'required',
+            'email' => 'required',
+            'contact' => 'required',
             'thumb' => 'required',  // 'required|mimes:png,gif,jpeg,txt,pdf,doc'
+            'skills' => 'required',
             'photos' => 'required',    
             'is_active' => 'required'
         ]);
@@ -186,6 +221,21 @@ class ActorController extends Controller
             ];
 
             Image::insert($data);
+        }
+
+        if($request->has('skills')){
+            $skills = $request->input('skills');
+            
+            foreach($skills as $skill){
+                $actorSkill = [
+                    'actor_id' => $actor_id,
+                    'skill_id' => $skill,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now()
+                ];
+
+                ActorSkill::insert($actorSkill);
+            }
         }
 	
 		return redirect()->route('artists.index');

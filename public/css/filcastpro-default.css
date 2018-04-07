@@ -112,6 +112,10 @@ body {
     height: 40pt;
 }
 
+.ac-title small {
+    font-size: 65%;
+}
+
 .row-ac-img {
     padding:10pt;
 }
@@ -162,6 +166,10 @@ a:active {
 
 #myNavbar {
     font-family: Futura;
+}
+
+.navbar-default .navbar-nav>li>a {
+    color:#3B5E2B;
 }
 
 .item-vid-thumb {
@@ -254,5 +262,5 @@ a:active {
 }
 
 #headline {
-    color: #ff0000;
+    color: rgba(255,0,0,0.8);
 }

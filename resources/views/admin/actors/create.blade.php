@@ -77,6 +77,10 @@
                                 <td>{{ Form::textarea('works', null ,array('class' => 'form-control','id' => 'froala-editor', 'placeholder' => 'Enter artist works')) }}</td>
                             </tr>
                             <tr>
+                                <td>Skills:</td>
+                                <td>{{Form::select('skills[]', $skills, null ,['class' => 'form-control select2', 'multiple' => 'multiple'])}}</td>
+                            </tr>
+                            <tr>
                                 <td>Is Active(?):</td>
                                 <td>{{Form::select('is_active', array( '' => '-----', 1 => 'Yes', 0 => 'No'),  '',['class' => 'form-control'])}}</td>
                             </tr>
@@ -113,6 +117,10 @@
 
 <script type='text/javascript' src="{{ asset('vendor/froala/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
 				
     $(function() {
         $('textarea#froala-editor').froalaEditor({

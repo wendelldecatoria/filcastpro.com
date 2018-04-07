@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actor;
+use App\ActorSkill;
 use App\Contact;
 use App\Register;
 use App\WhatsUp;
@@ -196,7 +197,8 @@ class WebsiteController extends Controller
 
     public function showactor($id){
         $actor = Actor::with('Image')->where('id','=',$id)->get(); //return $actor;
-        return view('show-actor', compact('actor') );
+        $skills = ActorSkill::with('Skill')->where('actor_id','=', $id)->get(); //return $skills;
+        return view('show-actor', compact('actor', 'skills') );
     }
 
      /* 

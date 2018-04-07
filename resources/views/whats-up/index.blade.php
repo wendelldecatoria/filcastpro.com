@@ -11,12 +11,16 @@
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div style="width: 100%;text-align: center; margin-bottom: 20pt;"><img src="../images/whats-up-title2.png"></div>
+            <div class="row" style="width: 100%;text-align: center; margin-bottom: 20pt;">
+                <div class="col-md-12">
+                    <img class="img-responsive" src="../images/whats-up-title2.png">
+                </div>
+            </div>
              @foreach($featured as $feature)
                         <div class="row article">   
-                            <div class="col-md-2"></div>
-                            <div class="col-md-3 article-image" style="text-align: center"> 
-                                <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" width="200" height="200" />
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4 article-image" style="text-align: center"> 
+                                <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" />
                             </div>
                             <div class="col-md-5  feature-body">
                                 <h3 id="headline">{{$feature->headline}}</h3>

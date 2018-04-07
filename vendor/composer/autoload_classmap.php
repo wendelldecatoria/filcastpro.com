@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddGroupToSkillsTable' => $baseDir . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
+    'AddSkillToSkillsTable' => $baseDir . '/database/migrations/2018_04_07_102345_add_skill_to_skills_table.php',
     'AlterTableVideos' => $baseDir . '/database/migrations/2018_04_04_132709_alter_table_videos.php',
     'AlterTableWhatsUp' => $baseDir . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
     'App\\Actor' => $baseDir . '/app/Actor.php',
@@ -31,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Controllers\\VideoController' => $baseDir . '/app/Http/Controllers/VideoController.php',
     'App\\Http\\Controllers\\WebsiteController' => $baseDir . '/app/Http/Controllers/WebsiteController.php',
+    'App\\Http\\Controllers\\WhatsOnController' => $baseDir . '/app/Http/Controllers/WhatsOnController.php',
     'App\\Http\\Controllers\\WhatsUpController' => $baseDir . '/app/Http/Controllers/WhatsUpController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Admin' => $baseDir . '/app/Http/Middleware/Admin.php',
@@ -52,6 +54,7 @@ return array(
     'App\\Skill' => $baseDir . '/app/Skill.php',
     'App\\User' => $baseDir . '/app/User.php',
     'App\\Video' => $baseDir . '/app/Video.php',
+    'App\\WhatsOn' => $baseDir . '/app/WhatsOn.php',
     'App\\WhatsUp' => $baseDir . '/app/WhatsUp.php',
     'App\\Work' => $baseDir . '/app/Work.php',
     'App\\Writer' => $baseDir . '/app/Writer.php',

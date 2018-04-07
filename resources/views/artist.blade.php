@@ -1,10 +1,9 @@
 @extends('layouts.app')
 
 @section('css')
-    <!-- DataTables -->
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 
     <link href="{{ asset('css/filcastpro-default.css') }}" rel="stylesheet">
+    
 @endsection
 
 @section('content')
@@ -14,8 +13,6 @@
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h3>Search for an Artist</h3>
-            <br>
             <div class="refined-search">
                 {{Form::open(array('action' => 'WebsiteController@search', 'method' => 'post', 'class' => 'form-inline'))}}
                     {{ Form::hidden('_token', csrf_token() ) }}
@@ -52,7 +49,7 @@
                     </div>
                 {!! Form::close() !!}
             </div>
-            <br>
+         
             <div class="ac-cont">
                 @foreach($actors as $actor)
                     <a href="show-actor/{{$actor->id}}" title="View">

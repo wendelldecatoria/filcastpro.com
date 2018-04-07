@@ -21,8 +21,15 @@
             <a href="{{route('web.actors')}}"><button type="button" class="btn btn-default">back to search</button></a>
             <br><br>
             
-                <div class="row row-ac-title">
-                    <h3 class="ac-title">{{$actor[0]->name}}</h3>
+                <div class="row row-ac-title"> 
+                    <p class="ac-title">  
+                        {{$actor[0]->name}}  
+                        @if(!empty($skills)) |  @endif
+                        @foreach($skills as $skill)
+                            <small>{{$skill->skill->name}}, </small>
+                        @endforeach
+                    </p> 
+
                 </div>
                 <div class="row row-ac-img">
                    @if(count($actor[0]->Image) == 5)
