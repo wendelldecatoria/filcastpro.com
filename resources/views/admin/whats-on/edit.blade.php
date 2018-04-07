@@ -28,8 +28,9 @@
 				<div class="col-md-12">
                    
                     @include('layouts/error_box')
-                    {{Form::open(array('route' => array('whats-on.store'), 'method' => 'POST', 'class' =>'form-horizontal', 'files' => true))}}
+                    {{Form::open(array('route' => array('whats-on.update', $whatson->id), 'method' => 'PUT', 'class' =>'form-horizontal', 'files' => true))}}
                     {{ csrf_field() }}
+                    {{ Form::hidden('id', $whatson->id) }}
                     <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" role="grid" style="width: 80%;">
 							<tbody>
                             <tr>
@@ -41,29 +42,33 @@
                                 <td>{{ Form::text('venue', $whatson->venue ,array('class' => 'form-control','placeholder' => 'Enter Event Venue')) }}</td>
                             </tr>
                             <tr>
+                                <td>URL:</td>
+                                <td>{{ Form::text('url', $whatson->url ,array('class' => 'form-control','placeholder' => 'Enter Event URL')) }}</td>
+                            </tr>
+                            <tr>
                                 <td>Date From:</td>
                                 <td>
-                                    <div class="form-group">
+                                  
                                         <div class='input-group date'>
-                                            <input type='text' class="form-control"  name="date_from" id='datetimepicker_from' value="{{$whatson->date_from}}/>
+                                            <input type='text' class="form-control"  name="date_from" id='datetimepicker_from' value="{{$whatson->date_from}}"/>
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                    </div>
+                                   
                                 </td>
                             </tr>
                             <tr>
                                 <td>Date To:</td>
                                 <td>
-                                    <div class="form-group">
+                                   
                                         <div class='input-group date'>
                                             <input type='text' class="form-control"  name="date_to" id='datetimepicker_to' value="{{$whatson->date_to}}" />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                    </div>
+                                   
                                 </td>
                             </tr>
                             <tr>
@@ -98,5 +103,14 @@
             $('#datetimepicker_from').datetimepicker({ format: 'LLL'});
             $('#datetimepicker_to').datetimepicker({ format: 'LLL'});
         });		
+
+        $('#datetimepicker_from').datetimepicker({
+            useCurrent: false, //this is important as the functions sets the default date value to the current value 
+            format: 'YYYY-MM-DD h:mm:ss'
+        });
+       $('#datetimepicker_to').datetimepicker({
+            useCurrent: false, //this is important as the functions sets the default date value to the current value 
+            format: 'YYYY-MM-DD h:mm:ss'
+        });
 </script>
 @endsection

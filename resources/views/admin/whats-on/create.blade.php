@@ -41,29 +41,33 @@
                                 <td>{{ Form::text('venue', null ,array('class' => 'form-control','placeholder' => 'Enter Event Venue')) }}</td>
                             </tr>
                             <tr>
+                                <td>URL:</td>
+                                <td>{{ Form::text('url', null ,array('class' => 'form-control','placeholder' => 'Enter Event URL')) }}</td>
+                            </tr>
+                            <tr>
                                 <td>Date From:</td>
                                 <td>
-                                    <div class="form-group">
+                                    
                                         <div class='input-group date'>
                                             <input type='text' class="form-control"  name="date_from" id='datetimepicker_from' />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                    </div>
+                                   
                                 </td>
                             </tr>
                             <tr>
                                 <td>Date To:</td>
                                 <td>
-                                    <div class="form-group">
+                                    
                                         <div class='input-group date'>
                                             <input type='text' class="form-control"  name="date_to" id='datetimepicker_to' />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                    </div>
+                                    
                                 </td>
                             </tr>
                             <tr>

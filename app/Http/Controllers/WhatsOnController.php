@@ -40,8 +40,6 @@ class WhatsOnController extends Controller
     *
     */
     public function update(Request $request){
-
-        $id = $request->input('id');
         
 		$this->validate($request, [
             'title' => 'required',
@@ -50,12 +48,15 @@ class WhatsOnController extends Controller
             'date_to' => 'required',
             'is_active' => 'required'
         ]);
+
+        $id = $request->input('id');
  
         $data = [
             'title' => $request->input('title'),
             'venue' => $request->input('venue'), 
-            'date_from' => $request->input('date_from'),    
-            'date_to' => $request->input('date_to'),
+            'url' => $request->input('url'), 
+            'date_from' => date('Y-m-d H:i:s', strtotime($request->input('date_from'))),
+            'date_to' => date('Y-m-d H:i:s', strtotime($request->input('date_to'))),
             'is_active' => $request->input('is_active'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -93,8 +94,9 @@ class WhatsOnController extends Controller
         $data = [
             'title' => $request->input('title'),
             'venue' => $request->input('venue'), 
-            'date_from' => $request->input('date_from'),    
-            'date_to' => $request->input('date_to'),
+            'url' => $request->input('url'), 
+            'date_from' => date('Y-m-d H:i:s', strtotime($request->input('date_from'))),
+            'date_to' => date('Y-m-d H:i:s', strtotime($request->input('date_to'))),
             'is_active' => $request->input('is_active'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -103,5 +105,18 @@ class WhatsOnController extends Controller
         WhatsOn::insert($data);
 	
         return redirect()->route('whats-on.index');
+    }
+
+     /*
+    *  delete the selected resource
+    *
+    *
+    */
+    public function destroy($id){
+        WhatsOn::where('id','=', $id)->delete();
+        return response()->json([
+            "success" => "true",
+            "message" => "Event has been deleted.",
+        ]);
     }
 }

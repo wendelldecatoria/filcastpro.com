@@ -17,7 +17,7 @@ body {
 .header {
     height: 13%;
     background-color: #000;
-    background: url('../images/79c0d1f435228a90a808818527ddbae9.jpg'); 
+    background: url('../images/08e4424067191a78f75ab12b65c69bf8.jpg'); 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -68,9 +68,9 @@ body {
 }
 
 .footer {
-    background-image: url(../images/6a5fdff2ede17dd3a7273d0f24175ae9.jpg);
+    background-image: url(../images/7995c9b601ce984733ca5a695ab01a7a.jpg);
     background-repeat: no-repeat;
-    background-size: 85%;
+    background-size: 100%;
     text-align: center;
     bottom: 0;
     padding: 15pt;
