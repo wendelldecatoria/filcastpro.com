@@ -50,7 +50,7 @@
                             </tr>
                             <tr>
                                 <td>Gender:</td>
-                                <td>{{Form::select('is_active', array('' => '-----', 'male' => 'Male', 'female' => 'Female'),  '',['class' => 'form-control'])}}</td>
+                                <td>{{Form::select('gender', array('' => '-----', 'male' => 'Male', 'female' => 'Female'),  '',['class' => 'form-control'])}}</td>
                             </tr>
                             <tr>
                                 <td>Height:</td>
