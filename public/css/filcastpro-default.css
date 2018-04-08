@@ -79,8 +79,6 @@ body {
     background-color: rgb(255, 255, 255);
     height: 11%;
     color: #000;
-    border-top: 1pt solid #7d7d7d;
-    border-bottom: 1pt solid #7d7d7d;
     vertical-align: middle;
 }
 
@@ -259,7 +257,7 @@ a:active {
 }
 
 .refined-search {
-    background-color: #e7e7e7;
+    background-color: rgba(59,94,43,0.15);
     padding: 10pt 25pt 10pt 25pt;
     border-radius: 5pt;
     width: 99%;

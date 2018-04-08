@@ -55,7 +55,7 @@
                     <div class="col-md-4">
                             <div class="row article">
                                 <div class="article-image" style="text-align: center"> 
-                                    <img src="{{asset('/storage/images/writers/'. $article->image )}}" width="150" height="150" />
+                                    <img src="{{asset('/storage/images/writers/'. $article->image )}}" width="250" height="250" />
                                 </div>
                                 <div class="article-body" >
                                         <h4 id="headline">{{$article->headline}}</h4>
