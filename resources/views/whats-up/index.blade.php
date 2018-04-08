@@ -11,8 +11,8 @@
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <div class="row" style="width: 100%;text-align: center; margin-bottom: 20pt;">
-                <div class="col-md-12">
+            <div class="row">
+                <div class="col-md-12" style="width: 100%;text-align: center; margin-bottom: 20pt;">
                     <img class="img-responsive" src="../images/whats-up-title2.png">
                 </div>
             </div>
