@@ -13,14 +13,14 @@
         <div class="col-md-8">
             <div class="row">
                 <div class="col-md-12" style="width: 100%;text-align: center; margin-bottom: 20pt;">
-                    <img class="img-responsive" src="../images/whats-up-title2.png">
+                    <img class="img-responsive" src="../images/whats-up-title2.png" style="display: inline-block;">
                 </div>
             </div>
              @foreach($featured as $feature)
                         <div class="row article">   
                             <div class="col-md-1"></div>
                             <div class="col-md-4 article-image" style="text-align: center"> 
-                                <img src="{{asset('/storage/images/writers/'. $feature->image )}}" class="img-thumbnail" />
+                                <img src="{{asset('/storage/images/writers/'. $feature->image )}}" width="315" />
                             </div>
                             <div class="col-md-5  feature-body">
                                 <h3 id="headline">{{$feature->headline}}</h3>
@@ -55,7 +55,7 @@
                     <div class="col-md-4">
                             <div class="row article">
                                 <div class="article-image" style="text-align: center"> 
-                                    <img src="{{asset('/storage/images/writers/'. $article->image )}}" class="img-thumbnail" width="150" height="150" />
+                                    <img src="{{asset('/storage/images/writers/'. $article->image )}}" width="150" height="150" />
                                 </div>
                                 <div class="article-body" >
                                         <h4 id="headline">{{$article->headline}}</h4>

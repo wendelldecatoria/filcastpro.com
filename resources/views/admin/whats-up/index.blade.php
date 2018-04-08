@@ -96,7 +96,6 @@
 								return data = 'Archived';
 							}
 						}
-					
 					},
 					{
 						'targets': 4,

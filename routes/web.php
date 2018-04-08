@@ -66,6 +66,11 @@ Route::group(['middleware' => 'web'], function () {
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);
+
+                    Route::resource('skill', 'SkillController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
                 } 
             );
         }
