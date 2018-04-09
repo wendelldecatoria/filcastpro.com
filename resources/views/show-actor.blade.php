@@ -35,14 +35,14 @@
                    @if(count($actor[0]->Image) == 5)
                     <div class="col-sm-6" style="text-align:right;">
                         @if(count($actor[0]->Image) > 0)
-                            <img class="prf-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actor[0]->Image[0]->file_name)}}">
+                            <img class="prf-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[0]->file_name)}}">
                         @endif
                     </div>
                     <div class="col-sm-6" style="text-align:left;">
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actor[0]->Image[1]->file_name )}}">@endif
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actor[0]->Image[2]->file_name )}}">@endif
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actor[0]->Image[3]->file_name )}}">@endif
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img img-thumbnail" src="{{asset('/storage/images/actors/'. $actor[0]->Image[4]->file_name )}}">@endif
+                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[1]->file_name )}}">@endif
+                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[2]->file_name )}}">@endif
+                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[3]->file_name )}}">@endif
+                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[4]->file_name )}}">@endif
                     </div>
                     @endif
                 </div>

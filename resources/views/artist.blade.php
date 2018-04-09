@@ -54,7 +54,7 @@
                 @foreach($actors as $actor)
                     <a href="show-actor/{{$actor->id}}" title="View">
                         <div class="actor-tile">
-                            <img class="img-thumbnail image-thumbnail" src="{{ asset('/storage/images/actors/' . $actor->thumb_image) }}" >
+                            <img class="image-thumbnail" src="{{ asset('/storage/images/actors/' . $actor->thumb_image) }}" >
                             <p>{{$actor->name}}</p>
                         </div>
                     </a>

@@ -71,9 +71,29 @@
             </div>
 
             <hr class="hr">
-            <div class="row">
-                
+            
+            <div class="row" style="text-align:center;"> 
+                <h2>Previous Articles</h2>
+                <br>
             </div>
+
+            @foreach($archives as $archive)
+                        <div class="row article">   
+                            <div class="col-md-1"></div>
+                            <div class="col-md-4 article-image" style="text-align: center"> 
+                                <img src="{{asset('/storage/images/writers/'. $archive->image )}}" width="315" />
+                            </div>
+                            <div class="col-md-5  feature-body">
+                                <h3 id="headline">{{$archive->headline}}</h3>
+                                <h5 id="title">{{$archive->title}} by {{$archive->writer}} </h5>
+                                <p> <small>Posted on {{ date_format($archive->created_at, 'M d, Y')}} </small></p>
+                                <p> {!! htmlspecialchars_decode(str_limit($archive->content, $limit = 150, $end = '...')) !!}</p>
+                                <p>   <a href="{{route('web.show-whats-up', $archive->id)}}">READ MORE...</a></p>
+                            </div>
+                            <div class="col-md-2"></div>
+                        </div>
+                    <hr class="hr">
+            @endforeach
         </div>
         <div class="col-md-2"></div>
     </div>

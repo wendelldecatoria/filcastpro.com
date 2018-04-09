@@ -109,7 +109,8 @@ class WebsiteController extends Controller
         
         $featured = WhatsUp::with('Writer')->where('status','=', 1)->where('type','=', 2)->orderBy('created_at', 'desc')->get();
         $articles = WhatsUp::with('Writer')->where('status','=', 1)->where('type','=', 1)->orderBy('created_at', 'desc')->get();
-        return view('whats-up.index', compact('articles','featured') );
+        $archives = WhatsUp::with('Writer')->where('status','=', 2)->orderBy('created_at', 'desc')->get();
+        return view('whats-up.index', compact('articles','featured', 'archives') );
     }
 
      /* 
@@ -234,19 +235,27 @@ class WebsiteController extends Controller
         $gender = $request->input('gender');
         $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
 
-        $actors = Actor::
-            // leftJoin('actor_skill','actor_skill.actor_id','=', 'actors.id')
-            // ->join('skills','actor_skill.skill_id','=','skills.id')
+        $actors = Actor:: leftJoin('actor_skill','actor_skill.actor_id','=', 'actors.id')
+            ->select('actors.*', 'actor_skill.skill_id')
             // filter age bracket
-            whereBetween('age', [$val1, $val2]) 
+            ->whereBetween('age', [$val1, $val2]) 
             // filter gender
             ->when($request->input('gender'), function($query) use ($request) {
                 return $query->where('gender','=', $request->input('gender'));
             })
+            ->when($request->input('name'), function($query) use ($request) {
+                return $query->where('name', 'like', '%' . $request->input('name') . '%' );
+            })
+            ->when($request->input('skill'), function($query) use ($request) {
+                return $query->where('actor_skill.skill_id', '=', $request->input('skill') );
+            })
+            ->groupBy('name')
             ->orderBy('name')
             ->get();
         
         return view('artist', compact('actors', 'skills'));
+        // return $actors;
+
     }
 
      /* 
