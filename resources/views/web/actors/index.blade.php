@@ -14,7 +14,7 @@
         <div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="refined-search">
-                {{Form::open(array('action' => 'WebsiteController@search', 'method' => 'post', 'class' => 'form-inline'))}}
+                {{Form::open(array('action' => 'WebActorController@search', 'method' => 'post', 'class' => 'form-inline'))}}
                     {{ Form::hidden('_token', csrf_token() ) }}
                     <div class="row">
                         <div class="form-group">
@@ -52,7 +52,7 @@
          
             <div class="ac-cont">
                 @foreach($actors as $actor)
-                    <a href="show-actor/{{$actor->id}}" title="View">
+                    <a href="{{ route('artist.show', $actor->id)}}" title="View">
                         <div class="actor-tile">
                             <img class="image-thumbnail" src="{{ asset('/storage/images/actors/' . $actor->thumb_image) }}" >
                             <p>{{$actor->name}}</p>
