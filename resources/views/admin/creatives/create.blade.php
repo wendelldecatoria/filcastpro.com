@@ -49,6 +49,10 @@
                                 <td>{{ Form::text('management', null ,array('class' => 'form-control','placeholder' => 'Enter management')) }}</td>
                             </tr>
                             <tr>
+                                <td>Online Profile:</td>
+                                <td>{{ Form::text('online_profile', null ,array('class' => 'form-control','placeholder' => 'Enter online profile')) }}</td>
+                            </tr>
+                            <tr>
                                 <td>Works:</td>
                                 <td>{{ Form::textarea('works', null ,array('class' => 'form-control','id' => 'froala-editor', 'placeholder' => 'Enter artist works')) }}</td>
                             </tr>

@@ -9,6 +9,7 @@ return array(
     'AddGroupToImagesTable' => $baseDir . '/database/migrations/2018_04_11_130121_add_group_to_images_table.php',
     'AddGroupToSkillsTable' => $baseDir . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
     'AddMusicianToSkillsTable' => $baseDir . '/database/migrations/2018_04_07_102345_add_musician_to_skills_table.php',
+    'AddOnlineProfileToCreativesTable' => $baseDir . '/database/migrations/2018_04_11_145349_add_online_profile_to_creatives_table.php',
     'AlterTableVideos' => $baseDir . '/database/migrations/2018_04_04_132709_alter_table_videos.php',
     'AlterTableWhatsUp' => $baseDir . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
     'App\\Actor' => $baseDir . '/app/Actor.php',

@@ -65,6 +65,10 @@
                                 <td>{{ Form::text('management', $creative[0]->management ,array('class' => 'form-control','placeholder' => 'Enter management')) }}</td>
                             </tr>
                             <tr>
+                                <td>Online Profile:</td>
+                                <td>{{ Form::text('online_profile', $creative[0]->online_profile ,array('class' => 'form-control','placeholder' => 'Enter online profile')) }}</td>
+                            </tr>
+                            <tr>
                                 <td>Works:</td>
                                 <td>{{ Form::textarea('works', $creative[0]->works ,array('class' => 'form-control','id' => 'froala-editor', 'placeholder' => 'Enter artist works')) }}</td>
                             </tr>

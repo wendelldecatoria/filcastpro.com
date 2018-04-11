@@ -366,6 +366,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'AddGroupToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_11_130121_add_group_to_images_table.php',
         'AddGroupToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
         'AddMusicianToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_07_102345_add_musician_to_skills_table.php',
+        'AddOnlineProfileToCreativesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_11_145349_add_online_profile_to_creatives_table.php',
         'AlterTableVideos' => __DIR__ . '/../..' . '/database/migrations/2018_04_04_132709_alter_table_videos.php',
         'AlterTableWhatsUp' => __DIR__ . '/../..' . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
         'App\\Actor' => __DIR__ . '/../..' . '/app/Actor.php',
