@@ -1,17 +1,18 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Actor;
-use App\ActorSkill;
+use App\Creative;
+use App\CreativeSkill;
 use App\Image;
 use App\Skill;
 use Yajra\Datatables\Datatables;
 use Illuminate\Http\UploadedFile;
 use Carbon\Carbon;
 
-class ActorController extends Controller
+class CreativeController extends Controller
 {
     /*
     * display listing of the resource
@@ -21,11 +22,11 @@ class ActorController extends Controller
     public function index(Request $request)
 	{
 		if ($request->ajax()) {
-			$actors = Actor::all();
-			return Datatables::of($actors)->make(true);
+			$creatives = Creative::all();
+			return Datatables::of($creatives)->make(true);
 		}
 
-		return view('admin.actors.index');
+		return view('admin.creatives.index');
     }
     
     /*
@@ -34,12 +35,11 @@ class ActorController extends Controller
     *
     */
     public function edit($id){
-        $actor = Actor::where('id','=', $id)->get();
-        $images = Image::where('actor_id','=', $id)->where('group','=', 'actor')->get();
-        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id');
-        $actorSkills = ActorSkill::where('actor_id','=', $id)->pluck('skill_id');
-        //return view('admin.actors.edit', array('actor' => $actor, 'images' => $images, $skills => 'skills'));
-        return view('admin.actors.edit', compact('actor', 'images', 'skills', 'actorSkills') );
+        $creative = Creative::where('id','=', $id)->get();
+        $images = Image::where('actor_id','=', $id)->where('group','=', 'director')->get(); // used existing column name - actor-id instead of creative_id
+        $skills = Skill::where('group','=', 'director')->orderBy('name')->pluck('name','id');
+        $creativeskills = CreativeSkill::where('creative_id','=', $id)->pluck('skill_id');
+        return view('admin.creatives.edit', compact('creative', 'images', 'skills', 'creativeskills') );
     }
 
     /*
@@ -53,15 +53,14 @@ class ActorController extends Controller
 
         $this->validate($request, [
             'name' => 'required',
-            'age' => 'required',
             'gender' => 'required',
             'email' => 'required',
             'contact' => 'required',
-            'skills' => 'required',  
+            'skills' => 'required',
             'is_active' => 'required'
         ]);
         
-        $path = 'public/images/actors/';
+        $path = 'public/images/creatives/';
         $allowedfileExtension=['jpg','png'];
         
         if($request->hasFile('thumb')){
@@ -71,44 +70,32 @@ class ActorController extends Controller
             $extension = $file->guessExtension();
             $file = $request->file('thumb')->storeAs($path, $filename.'.'.$extension);
 
-            $actordata = [
-                'name' => $input['name'],
-                'first_name' => $input['first_name'],
-                'last_name' => $input['last_name'],
-                'contact' => $input['contact'],
-                'age' => $input['age'],
-                'gender' =>$input['gender'],
-                'height' => $input['height'],
-                'vital' => $input['vital'],
-                'manager' => $input['manager'],
-                'email' => $input['email'],
-                'online_profile' => $input['online_profile'],
-                'works' => $input['works'],
-                'thumb_image' => $filename.'.'.$extension,
-                'is_active' => $input['is_active'],
-                'updated_at' => Carbon::now()
+            $data = [
+                'name' => $request->input('name'),
+	            'contact' => $request->input('contact'),
+	            'gender' => $request->input('gender'),
+	            'management' => $request->input('management'),
+	            'email' => $request->input('email'),
+	            'works' => $request->input('works'),
+	            'thumb_image' => $filename.'.'.$extension,
+	            'is_active' =>  $request->input('is_active'),
+	            'updated_at' => Carbon::now()
             ];
 
         } else{
-            $actordata = [
-                'name' => $input['name'],
-                'first_name' => $input['first_name'],
-                'last_name' => $input['last_name'],
-                'contact' => $input['contact'],
-                'age' => $input['age'],
-                'gender' =>$input['gender'],
-                'height' => $input['height'],
-                'vital' => $input['vital'],
-                'manager' => $input['manager'],
-                'email' => $input['email'],
-                'online_profile' => $input['online_profile'],
-                'works' => $input['works'],
-                'is_active' => $input['is_active'],
-                'updated_at' => Carbon::now()
+            $data = [
+	            'name' => $request->input('name'),
+	            'contact' => $request->input('contact'),
+	            'gender' => $request->input('gender'),
+	            'management' => $request->input('management'),
+	            'email' => $request->input('email'),
+	            'works' => $request->input('works'),
+	            'is_active' =>  $request->input('is_active'),
+	            'updated_at' => Carbon::now()
             ];
         }
 		
-        Actor::where('id', '=', $id)->update($actordata);
+        Creative::where('id', '=', $id)->update($data);
         
         if($request->hasFile('photos')){
             
@@ -119,8 +106,9 @@ class ActorController extends Controller
                 $file = $photo->storeAs($path, $photoname.'.'.$ext);
 
                 $data = [
-                    'actor_id' => $id,
+                    'actor_id' => $id, // used existing column name - actor-id instead of creative_id
                     'file_name' => $photoname.'.'.$ext,
+                    'group' => 'director',
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ];
@@ -133,21 +121,21 @@ class ActorController extends Controller
             $skills = $request->input('skills');
             
             // sanitize skills. remove all before insert
-            ActorSkill::where('actor_id','=', $id)->delete();
+            CreativeSkill::where('creative_id','=', $id)->delete();
 
             foreach($skills as $skill){
-                $actorSkill = [
-                    'actor_id' => $id,
-                    'skill_id' => $skill,
+                $creativeskill = [
+                    'creative_id' => $id, 
+                    'skill_id' => $skill, 
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ];
 
-                ActorSkill::insert($actorSkill);
+                CreativeSkill::insert($creativeskill);
             }
         }
 	
-		return redirect()->route('artists.index');
+		return redirect()->route('creatives.index');
     }
 
     /*
@@ -156,8 +144,8 @@ class ActorController extends Controller
     *
     */
     public function create(){
-        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id');
-        return view('admin.actors.create', compact('skills') );
+        $skills = Skill::where('group','=', 'director')->orderBy('name')->pluck('name','id');
+        return view('admin.creatives.create', compact('skills') );
     }
 
     /*
@@ -168,7 +156,6 @@ class ActorController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'name' => 'required',
-            'age' => 'required',
             'gender' => 'required',
             'email' => 'required',
             'contact' => 'required',
@@ -178,7 +165,7 @@ class ActorController extends Controller
             'is_active' => 'required'
         ]);
         
-        $path = 'public/images/actors/';
+        $path = 'public/images/creatives/';
         $id = $request->input('id');
  
         $allowedfileExtension=['jpg','png'];
@@ -189,18 +176,12 @@ class ActorController extends Controller
         $extension = $file->guessExtension();
         $file = $request->file('thumb')->storeAs($path, $filename.'.'.$extension);
          
-        $actor_id = Actor::insertGetId([
+        $creative_id = Creative::insertGetId([
             'name' => $request->input('name'),
-            'first_name' => $request->input('first_name'),
-            'last_name' => $request->input('last_name'),
             'contact' => $request->input('contact'),
-            'age' => $request->input('age'),
             'gender' => $request->input('gender'),
-            'height' => $request->input('height'),
-            'vital' => $request->input('vital'),
-            'manager' => $request->input('manager'),
+            'management' => $request->input('management'),
             'email' => $request->input('email'),
-            'online_profile' => $request->input('online_profile'),
             'works' => $request->input('works'),
             'thumb_image' => $filename.'.'.$extension,
             'is_active' =>  $request->input('is_active'),
@@ -214,8 +195,9 @@ class ActorController extends Controller
             $file = $photo->storeAs($path, $photoname.'.'.$ext);
 
             $data = [
-                'actor_id' => $actor_id,
+                'actor_id' => $creative_id, // used existing column name - actor-id instead of creative_id
                 'file_name' => $photoname.'.'.$ext,
+                'group' => 'director',
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ];
@@ -227,18 +209,18 @@ class ActorController extends Controller
             $skills = $request->input('skills');
             
             foreach($skills as $skill){
-                $actorSkill = [
-                    'actor_id' => $actor_id,
+                $creativeskill = [
+                    'creative_id' => $creative_id,
                     'skill_id' => $skill,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
                 ];
 
-                ActorSkill::insert($actorSkill);
+                CreativeSkill::insert($creativeskill);
             }
         }
 	
-		return redirect()->route('artists.index');
+		return redirect()->route('creatives.index');
     }
 
     /*
@@ -247,7 +229,7 @@ class ActorController extends Controller
     *
     */
     public function destroy($id){
-        Actor::where('id','=', $id)->delete();
+        Creative::where('id','=', $id)->delete();
         return response()->json([
             "success" => "true",
             "message" => "Artist has been deleted.",

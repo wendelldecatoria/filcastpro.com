@@ -1,0 +1,108 @@
+@extends('adminlte::page')
+
+@section('title', 'Filcaspro')
+
+@section('content_header')
+	<h1>FilCaspro<small> Add Creative</small></h1>
+@endsection
+
+@section('ibillboard_css')
+<!-- Image uploader plugin --> 
+    <link rel="stylesheet" href="{{ asset('vendor/jQuery-File-Upload-master/css/jquery.fileupload.css')}}">
+
+<!-- Froala Editor -->        
+  <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_style.min.css')}}">
+
+  <link href="{{ asset('css/billboard.css') }}" rel="stylesheet">
+  
+@endsection
+
+@section('content')
+	<div class="box box-default">
+		<div class="box-body">
+			<div class="row">
+				<div class="col-md-12">
+				    @include('layouts/error_box')
+                    {{Form::open(array('route' => array('creatives.store'), 'method' => 'POST', 'class' =>'form-horizontal', 'files' => true))}}
+					{{ csrf_field() }}
+                    <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" role="grid" style="width: 80%;">
+						<tbody>
+                            <tr>
+                                <td>Name:</td>
+                                <td>{{ Form::text('name', null ,array('class' => 'form-control','placeholder' => 'Enter name')) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Contact:</td>
+                                <td>{{ Form::text('contact', null ,array('class' => 'form-control','placeholder' => 'Enter contact')) }}</td>
+                            </tr>
+                             <tr>
+                                <td>Email:</td>
+                                <td>{{ Form::text('email', null ,array('class' => 'form-control','placeholder' => 'Enter email')) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Gender:</td>
+                                <td>{{Form::select('gender', array('' => '-----', 'male' => 'Male', 'female' => 'Female'),  '',['class' => 'form-control'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Management:</td>
+                                <td>{{ Form::text('management', null ,array('class' => 'form-control','placeholder' => 'Enter management')) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Works:</td>
+                                <td>{{ Form::textarea('works', null ,array('class' => 'form-control','id' => 'froala-editor', 'placeholder' => 'Enter artist works')) }}</td>
+                            </tr>
+                            <tr>
+                                <td>Skills:</td>
+                                <td>{{Form::select('skills[]', $skills, null ,['class' => 'form-control select2', 'multiple' => 'multiple'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Is Active(?):</td>
+                                <td>{{Form::select('is_active', array( '' => '-----', 1 => 'Yes', 0 => 'No'),  '',['class' => 'form-control'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Thumb Image:</td>
+                                <td> {{ Form::file('thumb') }}</td>
+                            </tr>
+                            <tr>
+                                <td>Profile Images:</td>
+                                <td> <input type="file" name="photos[]" multiple /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>       
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="btn-submit-container">
+                        <button type="submit" class="btn btn-primary" placeholder="Submit"><i class="glyphicon glyphicon-check"></i> Save</button>
+                        &nbsp;
+                        <a href="{{ route('creatives.index') }}" title="Cancel" class="btn btn-primary btn cancel_Btn">
+                            <i class="glyphicon glyphicon-remove-circle"></i> Cancel
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{ Form::close() }}
+        </div>
+    </div>
+@endsection
+
+@section('ibillboard_js')
+
+<script type='text/javascript' src="{{ asset('vendor/froala/js/froala_editor.min.js')}}"></script>
+<script type="text/javascript">
+    
+    $(document).ready(function() {
+        $('.select2').select2();
+    });
+				
+    $(function() {
+        $('textarea#froala-editor').froalaEditor({
+            iframe: true,
+        })
+    });
+
+</script>
+@endsection

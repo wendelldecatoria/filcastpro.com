@@ -3,7 +3,7 @@
 @section('title', 'Filcaspro')
 
 @section('content_header')
-	<h1>Filcaspro<small> Artist Administration</small></h1>
+	<h1>Filcaspro<small> Creatives Administration</small></h1>
 @endsection
 
 @section('css')
@@ -26,8 +26,8 @@
 				<div class="col-xs-12">
 					@include('layouts/error_box')
 					
-						<a href="{{ route('artists.create') }}" title="Add new Artist" class="btn btn-primary btn-xs">
-							<i class="glyphicon glyphicon-plus"></i> Add new Artist
+						<a href="{{ route('creatives.create') }}" title="Add new Creative" class="btn btn-primary btn-xs">
+							<i class="glyphicon glyphicon-plus"></i> Add new Creative
 						</a>
 						<br/><br/>
 					
@@ -65,7 +65,7 @@
 				processing: true,
 				serverSide: true,
 				deferRender: true,
-				ajax: '{{ route("artists.index") }}',
+				ajax: '{{ route("creatives.index") }}',
 				columnDefs: [
 					{
 						'targets': 0,
@@ -79,8 +79,8 @@
 					},
 					{
 						'targets': 2,
-						'data': 'manager',
-						'name': 'manager',
+						'data': 'management',
+						'name': 'management',
 					},
 					{
 						'targets': 3,
@@ -114,7 +114,7 @@
 						'sortable': false,
 						'render': function (data, type, row) {
 							return [
-								'<a href="artists/' + row['id'] + '/edit" title="Edit" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>' + " " +
+								'<a href="creatives/' + row['id'] + '/edit" title="Edit" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>' + " " +
 								'<button data-id="' + row.id + '" type="button" title="Delete" class="btn btn-danger btn-xs delete-btn"><i class="fa fa-trash"></i> Delete</button>'
 							];
 						},
@@ -128,7 +128,7 @@
 			$(document).on("click", ".delete-btn", function () {
 				var self = this;
 				var id = $(this).attr('data-id');
-				var url = '{{ route('artists.destroy', ':id') }}'.replace(':id', id);
+				var url = '{{ route('creatives.destroy', ':id') }}'.replace(':id', id);
 				console.log(url);
 				console.log(id);
 				

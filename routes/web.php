@@ -71,6 +71,11 @@ Route::group(['middleware' => 'web'], function () {
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);
+
+                    Route::resource('creatives', 'CreativeController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
                 } 
             );
         }
