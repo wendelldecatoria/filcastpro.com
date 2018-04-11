@@ -80,13 +80,8 @@
             @foreach($archives as $archive)
                         <div class="row article">   
                             <div class="col-md-1"></div>
-                            <div class="col-md-4 article-image" style="text-align: center"> 
-                                @if($archive->type == 1)
-                                    <img src="{{asset('/storage/images/writers/'. $archive->image )}}" width="250" height="250" />
-                                @else
-                                    <img src="{{asset('/storage/images/writers/'. $archive->image )}}" width="315" />
-                                @endif
-                                
+                            <div class="col-md-4 article-image" style="text-align: center">    
+                                <img src="{{asset('/storage/images/writers/'. $archive->image )}}" width="315" />
                             </div>
                             <div class="col-md-5  feature-body">
                                 <h3 id="headline">{{$archive->headline}}</h3>
