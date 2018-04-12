@@ -81,27 +81,41 @@ Route::group(['middleware' => 'web'], function () {
         }
     );
 
-    Route::get('', 'WebsiteController@index')->name('web.index');
+    // Route::get('', 'WebsiteController@index')->name('web.index');
     Route::group([
-        'prefix'     => 'web',
+        'prefix'     => '',
     ], function() {
+
         Route::get('', 'WebsiteController@index')->name('web.index');
         Route::get('index', 'WebsiteController@index')->name('web.index');
         Route::get('home', 'WebsiteController@home')->name('web.home');
-        Route::get('get-actors','WebsiteController@getactors')->name('web.get-actors');
-        Route::get('actors', 'WebsiteController@artist')->name('web.actors');
-        Route::get('creatives', 'WebsiteController@creatives')->name('web.creatives');
-        Route::get('show-actor/{id}','WebsiteController@showactor')->name('web.actor-show');
+        
+        Route::post('artist/search', 'WebActorController@search')->name('artist.search');
+        Route::resource('artist', 'WebActorController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+       
+       
+        Route::post('creative/search', 'WebCreativeController@search')->name('creative.search');
+        Route::resource('creative', 'WebCreativeController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+        
         Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
         Route::get('whats-up/{id}', 'WebsiteController@showWhatsUp')->name('web.show-whats-up');
+
         Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
+
         Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
+
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
-        
+        Route::post('store', 'WebsiteController@store')->name('web.store-contact');
+
         Route::get('register', 'WebsiteController@register')->name('web.register');
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
-        Route::post('store', 'WebsiteController@store')->name('web.store-contact');
-        Route::post('search', 'WebsiteController@search')->name('web.search');
+        
         Route::post('inquire','WebsiteController@inquire')->name('web.inquire');
     });
     
