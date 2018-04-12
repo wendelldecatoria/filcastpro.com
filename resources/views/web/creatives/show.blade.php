@@ -18,12 +18,12 @@
         @include('partials.menu')
         <div class="col-md-3"></div>
         <div class="col-md-6 showactor">
-            <a href="{{route('artist.index')}}"><button type="button" class="btn btn-default">back to search</button></a>
+            <a href="{{route('creative.index')}}"><button type="button" class="btn btn-default">back to search</button></a>
             <br><br>
             
                 <div class="row row-ac-title"> 
                     <p class="ac-title">  
-                        {{$actor[0]->name}}  
+                        {{$creative[0]->name}}  
                         @if(!empty($skills)) |  @endif
                         @foreach($skills as $skill)
                             <small>{{$skill->skill->name}}, </small>
@@ -32,17 +32,17 @@
 
                 </div>
                 <div class="row row-ac-img">
-                   @if(count($actor[0]->Image) == 5)
+                   @if(count($creative[0]->Image) == 5)
                     <div class="col-sm-6" style="text-align:right;">
-                        @if(count($actor[0]->Image) > 0)
-                            <img class="prf-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[0]->file_name)}}">
+                        @if(count($creative[0]->Image) > 0)
+                            <img class="prf-img" src="{{asset('/storage/images/creatives/'. $creative[0]->Image[0]->file_name)}}">
                         @endif
                     </div>
                     <div class="col-sm-6" style="text-align:left;">
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[1]->file_name )}}">@endif
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[2]->file_name )}}">@endif
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[3]->file_name )}}">@endif
-                        @if(count($actor[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/actors/'. $actor[0]->Image[4]->file_name )}}">@endif
+                        @if(count($creative[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/creatives/'. $creative[0]->Image[1]->file_name )}}">@endif
+                        @if(count($creative[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/creatives/'. $creative[0]->Image[2]->file_name )}}">@endif
+                        @if(count($creative[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/creatives/'. $creative[0]->Image[3]->file_name )}}">@endif
+                        @if(count($creative[0]->Image) > 0)<img class="sub-img" src="{{asset('/storage/images/creatives/'. $creative[0]->Image[4]->file_name )}}">@endif
                     </div>
                     @endif
                 </div>
@@ -58,16 +58,13 @@
                             <tbody>
                                 <tr>
                                     <td>ONLINE PROFILE:</td>
-                                    <td><a class="ac-olp" target="_blank" href="{{asset($actor[0]->online_profile)}}" >{{$actor[0]->online_profile}}</a></td>
+                                    <td><a class="ac-olp" target="_blank" href="{{asset($creative[0]->online_profile)}}" >{{$creative[0]->online_profile}}</a></td>
                                 </tr>
                                 <tr>
                                     <td>MANAGEMENT:</td>
-                                    <td>{{$actor[0]->manager}}</td>
+                                    <td>{{$creative[0]->management}}</td>
                                 </tr>
-                                <tr>
-                                    <td>HEIGHT:</td>
-                                    <td>{{$actor[0]->height}}</td>
-                                </tr>
+                                
                                 <tr>
                                     <td colspan="2" style="text-align:center;"><button type="button" class="btn btn-default" id="myBtn">Request Contact Information</button></td>
                                 </tr>
@@ -80,7 +77,7 @@
                                 <tbody>
                                 <tr>
                                     <td colspan="2">
-                                        <div>{!! htmlspecialchars_decode($actor[0]->works) !!}</div>
+                                        <div>{!! htmlspecialchars_decode($creative[0]->works) !!}</div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -122,7 +119,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="button" class="btn btn-default submit-btn" data-id="{{$actor[0]->id}}">Submit</button>
+                                <button type="button" class="btn btn-default submit-btn" data-id="{{$creative[0]->id}}">Submit</button>
                             </div>
                         </div>
                     </form>
