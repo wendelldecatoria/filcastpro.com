@@ -90,13 +90,14 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('index', 'WebsiteController@index')->name('web.index');
         Route::get('home', 'WebsiteController@home')->name('web.home');
         
+        Route::post('artist/search', 'WebActorController@search')->name('artist.search');
         Route::resource('artist', 'WebActorController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
         ]);
-        Route::post('search', 'WebActorController@search')->name('artist.search');
        
-
+       
+        Route::post('creative/search', 'WebCreativeController@search')->name('creative.search');
         Route::resource('creative', 'WebCreativeController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],

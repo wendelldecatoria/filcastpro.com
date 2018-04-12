@@ -74,7 +74,6 @@ class WebActorController extends Controller
         }
 
         $gender = $request->input('gender');
-        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
 
         $actors = Actor:: leftJoin('actor_skill','actor_skill.actor_id','=', 'actors.id')
             ->select('actors.*', 'actor_skill.skill_id')
@@ -94,8 +93,8 @@ class WebActorController extends Controller
             ->orderBy('name')
             ->get();
         
-        return view('web.actors.index', compact('actors', 'skills'));
-        // return $actors;
+        // return view('web.actors.index', compact('actors', 'skills'));
+        return response()->json($actors);
 
     }
 }
