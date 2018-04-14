@@ -122,7 +122,8 @@ class ActorController extends Controller
                     'actor_id' => $id,
                     'file_name' => $photoname.'.'.$ext,
                     'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
+                    'updated_at' => Carbon::now(),
+                    'group' => 'actor',
                 ];
     
                 Image::insert($data);
@@ -217,7 +218,8 @@ class ActorController extends Controller
                 'actor_id' => $actor_id,
                 'file_name' => $photoname.'.'.$ext,
                 'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'group' => 'actor',
             ];
 
             Image::insert($data);

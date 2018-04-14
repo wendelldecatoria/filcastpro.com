@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Actor;
 use App\ActorSkill;
 use App\Contact;
+use App\Creative;
 use App\Register;
 use App\WhatsUp;
 use App\Skill;
@@ -181,11 +182,11 @@ class WebsiteController extends Controller
     }
 
     /*
-    * store newly created inquiry resource
+    * store actor's inquiry
     *
     *
     */
-    public function inquire(Request $request){
+    public function actorInquire(Request $request){
         
         $email = $request->input('email');
         $name = $request->input('name');
@@ -196,7 +197,8 @@ class WebsiteController extends Controller
             'email' => $request->input('email'),
             'contact' => $request->input('contact'),
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
+            'group' => 'actor'
         ];
     
         Inquiry::insert($inquirer);
@@ -206,7 +208,7 @@ class WebsiteController extends Controller
         $actorName = $actor->name;
 
         // Send email to inquirer
-        Mail::send('admin.email.template-to-inquirer', compact('actor'), function ($message) use($email, $name) {
+        Mail::send('admin.email.actor.template-to-inquirer', compact('actor'), function ($message) use($email, $name) {
             $message
                 ->from('marketing@filcaspro.com', 'Filcaspro')
                 ->to( $email , $name)
@@ -214,11 +216,54 @@ class WebsiteController extends Controller
         });
 
         // Send email to artist
-        Mail::send('admin.email.template-to-artist', compact('inquirer'), function ($message) use($actorEmail, $actorName) {
+        Mail::send('admin.email.actor.template-to-artist', compact('inquirer'), function ($message) use($actorEmail, $actorName) {
             $message
                 ->from('marketing@filcaspro.com', 'Filcaspro')
                 ->to( $actorEmail , $actorName)
                 ->subject('Filcaspro - Artist Inquiry');
+        });
+    }
+
+    /*
+    * store creative's inquiry
+    *
+    *
+    */
+    public function creativeInquire(Request $request){
+        
+        $email = $request->input('email');
+        $name = $request->input('name');
+        $creative_id = $request->input('creative_id'); 
+        $inquirer = [
+            'actor_id' => $request->input('creative_id'), // table is shared with actors so column_name is actor_id
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'group' => 'director'
+        ];
+    
+        Inquiry::insert($inquirer);
+
+        $creative = Creative::find($creative_id);
+        $creativeEmail = $creative->email;
+        $creativeName = $creative->name;
+
+        // Send email to inquirer
+        Mail::send('admin.email.creative.template-to-inquirer', compact('creative'), function ($message) use($email, $name) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $email , $name)
+                ->subject('Filcaspro - Request Artist Information');
+        });
+
+        // Send email to artist
+        Mail::send('admin.email.creative.template-to-creative', compact('inquirer'), function ($message) use($creativeEmail, $creativeName) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $creativeEmail , $creativeName)
+                ->subject('Filcaspro - Creative Inquiry');
         });
     }
 

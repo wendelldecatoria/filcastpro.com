@@ -116,7 +116,8 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('register', 'WebsiteController@register')->name('web.register');
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         
-        Route::post('inquire','WebsiteController@inquire')->name('web.inquire');
+        Route::post('actor-inquire','WebsiteController@actorInquire')->name('web.actor-inquire');
+        Route::post('creative-inquire','WebsiteController@creativeInquire')->name('web.creative-inquire');
     });
     
 });

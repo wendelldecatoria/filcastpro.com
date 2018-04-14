@@ -25,9 +25,11 @@
                     <p class="ac-title">  
                         {{$creative[0]->name}}  
                         @if(!empty($skills)) |  @endif
-                        @foreach($skills as $skill)
-                            <small>{{$skill->skill->name}}, </small>
-                        @endforeach
+                        <span>
+                            @foreach($skills as $skill)
+                                <small>{{$skill->skill->name}}, </small>
+                            @endforeach
+                        </span>
                     </p> 
 
                 </div>
@@ -175,13 +177,13 @@
 
         var id = $(this).attr('data-id');
         var data = {
-            'actor_id' : id,
+            'creative_id' : id,
             'name'     : $("#inputName").val(),
             'email'    : $("#inputEmail").val(),
             'contact'  : $("#inputContact").val(),
         };
 
-        var url = '{{ route('web.inquire') }}';
+        var url = '{{ route('web.creative-inquire') }}';
         
         $.validate({
             borderColorOnError : 'red',

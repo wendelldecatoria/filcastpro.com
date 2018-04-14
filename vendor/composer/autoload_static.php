@@ -364,6 +364,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
 
     public static $classMap = array (
         'AddGroupToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_11_130121_add_group_to_images_table.php',
+        'AddGroupToInquiriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_14_160028_add_group_to_inquiries_table.php',
         'AddGroupToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
         'AddMusicianToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_07_102345_add_musician_to_skills_table.php',
         'AddOnlineProfileToCreativesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_11_145349_add_online_profile_to_creatives_table.php',
@@ -394,6 +395,8 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'App\\Http\\Controllers\\SkillController' => __DIR__ . '/../..' . '/app/Http/Controllers/SkillController.php',
         'App\\Http\\Controllers\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserController.php',
         'App\\Http\\Controllers\\VideoController' => __DIR__ . '/../..' . '/app/Http/Controllers/VideoController.php',
+        'App\\Http\\Controllers\\WebActorController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebActorController.php',
+        'App\\Http\\Controllers\\WebCreativeController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebCreativeController.php',
         'App\\Http\\Controllers\\WebsiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebsiteController.php',
         'App\\Http\\Controllers\\WhatsOnController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsOnController.php',
         'App\\Http\\Controllers\\WhatsUpController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsUpController.php',

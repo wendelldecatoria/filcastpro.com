@@ -184,7 +184,7 @@
             'contact'  : $("#inputContact").val(),
         };
 
-        var url = '{{ route('web.inquire') }}';
+        var url = '{{ route('web.actor-inquire') }}';
         
         $.validate({
             borderColorOnError : 'red',

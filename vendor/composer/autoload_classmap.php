@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddGroupToImagesTable' => $baseDir . '/database/migrations/2018_04_11_130121_add_group_to_images_table.php',
+    'AddGroupToInquiriesTable' => $baseDir . '/database/migrations/2018_04_14_160028_add_group_to_inquiries_table.php',
     'AddGroupToSkillsTable' => $baseDir . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',
     'AddMusicianToSkillsTable' => $baseDir . '/database/migrations/2018_04_07_102345_add_musician_to_skills_table.php',
     'AddOnlineProfileToCreativesTable' => $baseDir . '/database/migrations/2018_04_11_145349_add_online_profile_to_creatives_table.php',
@@ -37,6 +38,8 @@ return array(
     'App\\Http\\Controllers\\SkillController' => $baseDir . '/app/Http/Controllers/SkillController.php',
     'App\\Http\\Controllers\\UserController' => $baseDir . '/app/Http/Controllers/UserController.php',
     'App\\Http\\Controllers\\VideoController' => $baseDir . '/app/Http/Controllers/VideoController.php',
+    'App\\Http\\Controllers\\WebActorController' => $baseDir . '/app/Http/Controllers/WebActorController.php',
+    'App\\Http\\Controllers\\WebCreativeController' => $baseDir . '/app/Http/Controllers/WebCreativeController.php',
     'App\\Http\\Controllers\\WebsiteController' => $baseDir . '/app/Http/Controllers/WebsiteController.php',
     'App\\Http\\Controllers\\WhatsOnController' => $baseDir . '/app/Http/Controllers/WhatsOnController.php',
     'App\\Http\\Controllers\\WhatsUpController' => $baseDir . '/app/Http/Controllers/WhatsUpController.php',

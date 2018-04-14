@@ -1,0 +1,1 @@
+<p>Great day to you!!! Thank you for your request. filCASpro have sent your message to {{ $creative->name}}. Have a pleasant time.</p>
