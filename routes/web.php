@@ -103,19 +103,44 @@ Route::group(['middleware' => 'web'], function () {
             'except' => ['edit','store','update','create','destroy'],
         ]);
         
-        Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
-        Route::get('whats-up/{id}', 'WebsiteController@showWhatsUp')->name('web.show-whats-up');
-
-        Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
-
-        Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
-
-        Route::get('contact', 'WebsiteController@contact')->name('web.contact');
-        Route::post('store', 'WebsiteController@store')->name('web.store-contact');
-
-        Route::get('register', 'WebsiteController@register')->name('web.register');
-        Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
+        // Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
+        // Route::get('whats-up/{id}', 'WebsiteController@showWhatsUp')->name('web.show-whats-up');
         
+        Route::resource('whats-up', 'WebCreativeController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+
+        // Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
+
+        Route::resource('whats-on', 'WebWhatsOnController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+
+        // Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
+
+        Route::resource('whats-in', 'WebWhatsInController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+        
+        // Route::get('contact', 'WebsiteController@contact')->name('web.contact');
+        // Route::post('store', 'WebsiteController@store')->name('web.store-contact');
+
+        Route::resource('contact', 'WebContactController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+        
+        // Route::get('register', 'WebsiteController@register')->name('web.register');
+        // Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
+        
+        Route::resource('register', 'WebContactController', [
+            'parameters' => 'singular',
+            'except' => ['edit','store','update','create','destroy'],
+        ]);
+
         Route::post('actor-inquire','WebsiteController@actorInquire')->name('web.actor-inquire');
         Route::post('creative-inquire','WebsiteController@creativeInquire')->name('web.creative-inquire');
     });
