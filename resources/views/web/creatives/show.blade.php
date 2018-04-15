@@ -141,7 +141,7 @@
 <script src="{{ asset('js/jquery.form-validator.min.js') }}"></script>
 <script>
     $('document').ready(function(){
-        $('.nav-actors').addClass('active');
+        $('.nav-creatives').addClass('active');
     });
 
     // Get the modal
