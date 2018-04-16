@@ -20,7 +20,7 @@ class WebCreativeController extends Controller
     public function index(){
         $creatives = Creative::where('is_active','=', 1)->orderBy('name')->get();
         $skills = Skill::where('group','=', 'director')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
-        return view('web.creatives.index', compact('creatives', 'skills'));
+        return view('web.creative.index', compact('creatives', 'skills'));
     }
 
     /* 
@@ -35,7 +35,7 @@ class WebCreativeController extends Controller
             $query->where('group', '=', 'director');
         }])->where('id','=',$id) ->get();
         $skills = CreativeSkill::with('Skill')->where('creative_id','=', $id)->get(); //return $skills;
-        return view('web.creatives.show', compact('creative', 'skills') );
+        return view('web.creative.show', compact('creative', 'skills') );
     }
 
     /* 

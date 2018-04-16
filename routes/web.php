@@ -94,6 +94,10 @@ Route::group(['middleware' => 'web'], function () {
         Route::resource('artist', 'WebActorController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.artist.index',
+                'show' => 'web.artist.show',
+            ]
         ]);
        
        
@@ -101,28 +105,37 @@ Route::group(['middleware' => 'web'], function () {
         Route::resource('creative', 'WebCreativeController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.creative.index',
+                'show' => 'web.creative.show',
+            ]
         ]);
-        
-        // Route::get('whats-up', 'WebsiteController@whatsUp')->name('web.whats-up');
-        // Route::get('whats-up/{id}', 'WebsiteController@showWhatsUp')->name('web.show-whats-up');
-        
+    
         Route::resource('whats-up', 'WebCreativeController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.whats-up.index',
+                'show' => 'web.whats-up.show',
+            ]
         ]);
-
-        // Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
 
         Route::resource('whats-on', 'WebWhatsOnController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.whats-on.index',
+                'show' => 'web.whats-on.show',
+            ]
         ]);
-
-        // Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
 
         Route::resource('whats-in', 'WebWhatsInController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.whats-in.index',
+                'show' => 'web.whats-in.show',
+            ]
         ]);
         
         // Route::get('contact', 'WebsiteController@contact')->name('web.contact');
@@ -131,14 +144,20 @@ Route::group(['middleware' => 'web'], function () {
         Route::resource('contact', 'WebContactController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.contact.index',
+                'show' => 'web.contact.show',
+            ]
         ]);
-        
-        // Route::get('register', 'WebsiteController@register')->name('web.register');
-        // Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         
         Route::resource('register', 'WebContactController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
+            'names' => [
+                'index' => 'web.register.index',
+                'show' => 'web.register.show',
+            ]
+            
         ]);
 
         Route::post('actor-inquire','WebsiteController@actorInquire')->name('web.actor-inquire');

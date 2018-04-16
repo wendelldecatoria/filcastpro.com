@@ -21,7 +21,7 @@ class WebWhatsUpController extends Controller
         return view('web.whats-up.index', compact('articles','featured', 'archives') );
     }
 
-     /* 
+    /* 
     * Display whats up article
     *
     * @return Response

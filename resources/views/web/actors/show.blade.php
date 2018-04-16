@@ -18,7 +18,7 @@
         @include('partials.menu')
         <div class="col-md-3"></div>
         <div class="col-md-6 showactor">
-            <a href="{{route('artist.index')}}"><button type="button" class="btn btn-default">back to search</button></a>
+            <a href="{{route('web.artist.index')}}"><button type="button" class="btn btn-default">back to search</button></a>
             <br><br>
             
                 <div class="row row-ac-title"> 

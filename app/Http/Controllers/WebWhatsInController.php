@@ -16,4 +16,16 @@ class WebWhatsInController extends Controller
     public function index(){
         return view('whats-in');
     }
+
+    /* 
+    * Show specified resource
+    *
+    * @return Response
+    * 
+    */
+    public function show($id){
+        
+        // $article = WhatsOn::with('Writer')->where('id','=', $id)->get();
+        // return view('web.whats-up.show', compact('article') );
+    }
 }
