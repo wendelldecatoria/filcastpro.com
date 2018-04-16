@@ -90,7 +90,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('index', 'WebsiteController@index')->name('web.index');
         Route::get('home', 'WebsiteController@home')->name('web.home');
         
-        Route::post('artist/search', 'WebActorController@search')->name('artist.search');
+        Route::post('artist/search', 'WebActorController@search')->name('web.artist.search');
         Route::resource('artist', 'WebActorController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
@@ -101,7 +101,7 @@ Route::group(['middleware' => 'web'], function () {
         ]);
        
        
-        Route::post('creative/search', 'WebCreativeController@search')->name('creative.search');
+        Route::post('creative/search', 'WebCreativeController@search')->name('web.creative.search');
         Route::resource('creative', 'WebCreativeController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
@@ -111,7 +111,7 @@ Route::group(['middleware' => 'web'], function () {
             ]
         ]);
     
-        Route::resource('whats-up', 'WebCreativeController', [
+        Route::resource('whats-up', 'WebWhatsUpController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],
             'names' => [
@@ -143,19 +143,19 @@ Route::group(['middleware' => 'web'], function () {
 
         Route::resource('contact', 'WebContactController', [
             'parameters' => 'singular',
-            'except' => ['edit','store','update','create','destroy'],
+            'except' => ['edit','show','update','create','destroy'],
             'names' => [
                 'index' => 'web.contact.index',
-                'show' => 'web.contact.show',
+                'store' => 'web.contact.store',
             ]
         ]);
         
-        Route::resource('register', 'WebContactController', [
+        Route::resource('register', 'WebRegisterController', [
             'parameters' => 'singular',
-            'except' => ['edit','store','update','create','destroy'],
+            'except' => ['edit','show','update','create','destroy'],
             'names' => [
                 'index' => 'web.register.index',
-                'show' => 'web.register.show',
+                'store' => 'web.register.store',
             ]
             
         ]);

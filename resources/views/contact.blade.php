@@ -22,7 +22,7 @@
                 </div>
             @endif
 
-            {{Form::open(array('action' => 'WebsiteController@store', 'method' => 'post','files' => true))}}
+            {{Form::open(array('action' => 'WebContactController@store', 'method' => 'post','files' => true))}}
                 {{ Form::hidden('_token', csrf_token() ) }}
                 
                 <div class="form-group">

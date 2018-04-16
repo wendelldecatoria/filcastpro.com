@@ -86,7 +86,7 @@
 	    	
 
 	        $.ajax({
-	            url: "{{ route('artist.search') }}",
+	            url: "{{ route('web.artist.search') }}",
 	            type:'POST',
 	            data: {_token:_token, gender:gender, age:age, skill:skill, name:name},
 	            success: function(data) {
@@ -97,8 +97,7 @@
                         $('.ac-cont').append('<br><h3>No Results Found</h3>');
                     }else if (data.length > 0){
                         $.each (data, function (i,item) {
-                            var url =  "{{ route('web.artist.show'," + item.id + ")}}"; console.log(url);
-                            $('.ac-cont').append(`<a href="` + url + `" title="View">` +
+                            $('.ac-cont').append(`<a href="artist/` + item.id + `"` + ` title="View">` +
                                                     '<div class="actor-tile">' + 
                                                         `<img class="image-thumbnail" src="{{ asset('/storage/images/actors/` + item.thumb_image + `') }}" >` +
                                                         '<p>' + item.name + '</p>' + 

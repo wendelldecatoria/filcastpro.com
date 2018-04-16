@@ -36,7 +36,7 @@
 
             <div class="ac-cont">
                 @foreach($creatives as $creative)
-                    <a href="{{ route('creative.show', $creative->id)}}" title="View">
+                    <a href="{{ route('web.creative.show', $creative->id)}}" title="View">
                         <div class="actor-tile">
                             <img class="image-thumbnail" src="{{ asset('/storage/images/creatives/' . $creative->thumb_image) }}" >
                             <p>{{$creative->name}}</p>
@@ -67,7 +67,7 @@
 	    	var skill = $("#selectSkill").val();
 
 	        $.ajax({
-	            url: "{{ route('creative.search') }}",
+	            url: "{{ route('web.creative.search') }}",
 	            type:'POST',
 	            data: {_token:_token, name:name, skill:skill},
 	            success: function(data) {
