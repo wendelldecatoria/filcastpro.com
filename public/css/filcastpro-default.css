@@ -107,7 +107,7 @@ body {
 }
 
 .row-ac-title {
-    background-color: #222;
+    background-color: #f5be1d;
     color:#FFF;
     height: 40pt;
 }
@@ -131,7 +131,6 @@ body {
 }
 
 .ac-tbl thead {
-    background-color: #222;
     color: #FFF;
     font-size:large;
 }

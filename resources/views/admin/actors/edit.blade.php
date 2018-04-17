@@ -3,152 +3,41 @@
 @section('title', 'Edit Artist')
 
 @section('content_header')
-<<<<<<< HEAD
-	<h1>Filartpro<small> Artist Administration</small></h1>
-@endsection
 
-@section('css')
-=======
-	<h1>FilCaspro<small> Update Artist Information</small></h1>
+	<h1>Filcaspro<small> Update Artist Information</small></h1>
+
 @endsection
 
 @section('ibillboard_css')
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
+
 <!-- Froala Editor -->        
 	
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_style.min.css')}}">
-<<<<<<< HEAD
-=======
+
+  <link rel="stylesheet"
+          href="{{ asset('vendor/dhtmlxSuite/codebase/dhtmlx.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ asset('vendor/dhtmlxSuite/codebase/fonts/font_roboto/roboto.css') }}">
 
   <link href="{{ asset('css/billboard.css') }}" rel="stylesheet">
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
 @endsection
 
 @section('content')
 	<div class="box box-default">
 		<div class="box-body">
+            <!-- Images used to open the lightbox -->
+            <div class="row image-container" style="text-align:center">
+                @foreach($images as $image)
+                    <div class="column image-{{$image->id}}">
+                        <!-- <img  src="{{asset('/storage/images/actors/'. $image->file_name )}}" width="170" onclick="openModal();currentSlide({{$loop->iteration}})" class="hover-shadow"> -->
+                        <span class="glyphicon glyphicon-remove icon-remove delete-btn" data-id="{{$image->id}}"></span>
+                        <img  src="{{asset('/storage/images/actors/'. $image->file_name )}}" class="img-thumbnail img-responsive edit-image">
+                    </div>
+                @endforeach
+            </div>
 			<div class="row">
-<<<<<<< HEAD
-				<div class="col-xs-12">
-                @foreach($actor as $act)
-				    @include('layouts/error_box')
-                    {{Form::open(array('route' => array('artists.update', $act->id), 'method' => 'PUT', 'class' =>'form-horizontal'))}}
-					{{ csrf_field() }}
-                    {{ Form::hidden('id', $act->id) }}
-                    <div class="form-group">
-                        <label for="name" class="col-xs-2 control-label">Name:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $act->name }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="first_name" class="col-xs-2 control-label">First name:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="first_name" class="form-control" placeholder="First name" value="{{ $act->first_name }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="last_name" class="col-xs-2 control-label">Last name:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="last_name" class="form-control" placeholder="Last name" value="{{ $act->last_name }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="contact" class="col-xs-2 control-label">Contact:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="contact" class="form-control" placeholder="contact" value="{{ $act->contact }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="age" class="col-xs-2 control-label">Age:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="age" class="form-control" placeholder="age" value="{{ $act->age }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="gender" class="col-xs-2 control-label">Gender:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="gender" class="form-control" placeholder="gender" value="{{ $act->gender }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="height" class="col-xs-2 control-label">Height:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="height" class="form-control" placeholder="height" value="{{ $act->height }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="vital" class="col-xs-2 control-label">Vital:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="vital" class="form-control" placeholder="vital" value="{{ $act->vital }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="manager" class="col-xs-2 control-label">Manager:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="manager" class="form-control" placeholder="manager" value="{{ $act->manager }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email" class="col-xs-2 control-label">Email:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="email" class="form-control" placeholder="email" value="{{ $act->email }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="online_profile" class="col-xs-2 control-label">Online profile:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="online_profile" class="form-control" placeholder="online_profile" value="{{ $act->online_profile }}">
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="works" class="col-xs-2 control-label">Works:</label>
-                        <div class="col-xs-8">
-                            <!-- <input type="textarea" name="works" class="form-control" placeholder="works" value="{{ $act->works }}"> -->
-                            <textarea name="works" id="froala-editor" placeholder="works" class="form-control">{{ $act->works }}</textarea>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="vital" class="col-xs-2 control-label">Vital:</label>
-                        <div class="col-xs-8">
-                            <input type="text" name="vital" class="form-control" placeholder="vital" value="{{ $act->vital }}">
-                        </div>
-                    </div>
-
-					<div class="form-group">
-						<div class="col-xs-1 col-xs-offset-2">
-							<button type="submit" class="btn btn-primary" placeholder="Submit"><i class="glyphicon glyphicon-check"></i> Save</button>
-						</div>
-						<div class="col-xs-1">
-							<a href="{{ route('artists.index') }}" title="Cancel" class="btn btn-primary btn cancel_Btn">
-										<i class="glyphicon glyphicon-remove-circle"></i> Cancel
-							</a>
-						</div>
-					</div>
-					<input type="hidden" name="id" value="{{ $act->id }}">
-                    @endforeach
-					{{ Form::close() }}
-				</div>
-			</div>
-		</div>
-		
-@endsection
-
-@section('js')
-=======
 				<div class="col-md-12">
                     @foreach($actor as $act)
                     @include('layouts/error_box')
@@ -240,23 +129,62 @@
 @endsection
 
 @section('ibillboard_js')
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
 
+<script src="{{ asset('vendor/dhtmlxSuite/codebase/dhtmlx.js') }}"></script>
+<script src="{{ asset('js/helpers.js') }}"></script>
+<script src="{{ asset('js/ajax-interceptor.js') }}"></script>
 <script type='text/javascript' src="{{ asset('vendor/froala/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript">
 				
-<<<<<<< HEAD
-				$(function() {
-					$('textarea#froala-editor').froalaEditor({
-					  iframe: true,
-					})
-				  });
-=======
     $(function() {
         $('textarea#froala-editor').froalaEditor({
             iframe: true,
         })
     });
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
+
+    $(document).ready(function() {
+        /**
+        * Delete the record.
+        */
+        $(document).on("click", ".delete-btn", function () {
+            var self = this;
+            var id = $(this).attr('data-id');
+            var url = '{{ route('images.destroy', ':id') }}'.replace(':id', id);
+            console.log(url);
+            console.log(id);
+
+            dhtmlx.confirm({
+                title:"Confirm Deletion",
+                type:"confirm-warning",
+                text:"Do you really want to delete this image?",
+                callback: function (res) {
+
+                    if(!res) {
+                        return;
+                    }
+            
+                    $.ajax({
+                        type: "DELETE",
+                        url: url,
+                        success: function (response) {
+
+                            dhtmlx.alert({
+                                title: 'Image Deleted',
+                                text: 'The image has been successfully deleted',
+                                callback: function () {
+                                    $('.image-' +id).remove();
+                                }
+                            });
+
+                        },
+                        error: function (err) {
+                            console.log(err);
+                        }
+                    });
+                }
+            });
+        });
+    });
+        
 </script>
 @endsection

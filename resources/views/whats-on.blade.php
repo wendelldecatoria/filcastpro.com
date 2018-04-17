@@ -11,7 +11,10 @@
         @include('partials.menu')
         <div class="col-md-2"></div>
         <div class="col-md-8">
-            <h3>Watch out! We are building something awesome.</h3>
+            <div style="text-align:center">
+            <h3>Watch out for the page that will list all the events in the Philippines.</h3>
+        </div>
+        <br><br>
         </div>
         <div class="col-md-2"></div>
     </div>

@@ -1,0 +1,1 @@
+<p>Great day there to you, {{ $actor->name}} is getting in touch with you from your FilCASPro page. Kindly email back on {{ $actor->email}} or get in contact on {{ $actor->contact}} </p>

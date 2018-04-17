@@ -13,11 +13,7 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'title' => 'Filartpro',
-=======
-    'title' => 'FilCaspro',
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
+    'title' => 'Filcaspro',
 
     'title_prefix' => '',
 
@@ -34,12 +30,8 @@ return [
     |
     */
 
-<<<<<<< HEAD
-    'logo' => '<b>Filartpro</b>',
-=======
-    'logo' => '<b>FilCaspro</b>',
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
-
+    'logo' => '<b>Filcaspro</b>',
+    
     'logo_mini' => '',
 
     /*
@@ -123,15 +115,32 @@ return [
             'url'         => 'admin/home',
             'icon'        => 'home',
         ],  
-        'ARTISTS',
+        'ADMINISTRATION',
         [
             'text' => 'Artists',
-<<<<<<< HEAD
-            'icon' => 'heartbeat',
-=======
             'icon' => 'address-book',
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
             'url' => 'admin/artists',
+        ],
+        [
+            'text' => "What's Up",
+            'icon' => 'address-book',
+            'url' => 'admin/whats-up ',
+        ],
+        'FORMS',
+        [
+            'text' => 'Contacts',
+            'icon' => 'address-book',
+            'url' => 'admin/contact',
+        ],
+        [
+            'text' => 'Artist Inquiries',
+            'icon' => 'address-book',
+            'url' => 'admin/inquiry',
+        ],
+        [
+            'text' => 'Registers',
+            'icon' => 'address-book',
+            'url' => 'admin/register',
         ],
     ],
 

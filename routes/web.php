@@ -27,14 +27,47 @@ Route::group(['middleware' => 'web'], function () {
                 'middleware' => ['auth']
             ], function() {
                     Route::get('home', 'AdminController@home')->name('admin.home');
-                    Route::resource('artists', 'AdminController', [
-<<<<<<< HEAD
-                        'except' => 'show',
-=======
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
+                    Route::resource('artists', 'ActorController', [
                         'parameters' => 'singular'
                     ]);
-                }
+
+                    Route::resource('images', 'ImageController', [
+                        'parameters' => 'singular',
+                        'except' => ['index','edit','store','update','create'],
+                    ]);
+
+                    Route::resource('contact', 'ContactController', [
+                        'parameters' => 'singular',
+                        'except' => ['show','edit','store','update','create','destroy'],
+                    ]);
+
+                    Route::resource('register', 'RegisterController', [
+                        'parameters' => 'singular',
+                        'except' => ['show','edit','store','update','create','destroy'],
+                    ]);
+
+                    Route::get('archived', 'WhatsUpController@archived')->name('whats-up.archived');
+                    Route::resource('whats-up', 'WhatsUpController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
+
+                    Route::resource('inquiry', 'InquiryController', [
+                        'parameters' => 'singular',
+                        'except' => ['show','edit','store','update','create','destroy'],
+                    ]);
+
+                    // Cannot be accessed directly via url
+                    // Route for sending email
+                    Route::get('sparkpost', function () {
+                        Mail::send('admin.email.artist', [], function ($message) {
+                        $message
+                            ->from('marketing@filcaspro.com', 'Filcaspro')
+                            ->to('wendell.t.decatoria@gmail.com', 'Wendell Decatoria')
+                            ->subject('Test Email');
+                        });
+                    });
+                } 
             );
         }
     );
@@ -54,10 +87,12 @@ Route::group(['middleware' => 'web'], function () {
         Route::get('whats-on', 'WebsiteController@whatsOn')->name('web.whats-on');
         Route::get('whats-in', 'WebsiteController@whatsIn')->name('web.whats-in');
         Route::get('contact', 'WebsiteController@contact')->name('web.contact');
+        
         Route::get('register', 'WebsiteController@register')->name('web.register');
         Route::post('store-register', 'WebsiteController@storeRegister')->name('web.store-register'); 
         Route::post('store', 'WebsiteController@store')->name('web.store-contact');
         Route::post('search', 'WebsiteController@search')->name('web.search');
+        Route::post('inquire','WebsiteController@inquire')->name('web.inquire');
     });
     
 });

@@ -26,6 +26,7 @@ class AdminController extends Controller
     public function home(){
         return view('admin.home');
     }
+<<<<<<< HEAD
 
     /*
     * display listing of the resource
@@ -259,4 +260,6 @@ class AdminController extends Controller
             "message" => "Artist has been deleted.",
         ]);
     }
+=======
+>>>>>>> 5f5c5dd07a5161d45b0b9ef6c048aa1eee1f52d6
 }

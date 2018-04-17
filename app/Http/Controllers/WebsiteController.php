@@ -6,8 +6,12 @@ use Illuminate\Http\Request;
 use App\Actor;
 use App\Contact;
 use App\Register;
+use App\Skill;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
+use App\Inquiry;
+use Mail;
+
 
 class WebsiteController extends Controller
 {
@@ -65,7 +69,8 @@ class WebsiteController extends Controller
 
     public function artist(){
         $actors = Actor::where('is_active','=', 1)->orderBy('name')->get();
-        return view('artist', compact('actors'));
+        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
+        return view('artist', compact('actors', 'skills'));
     }
 
     /* 
@@ -235,6 +240,37 @@ class WebsiteController extends Controller
 
     public function whatsIn(){
         return view('whats-in');
+    }
+
+    /*
+    * store newly created inquiry resource
+    *
+    *
+    */
+    public function inquire(Request $request){
+        
+        $email = $request->input('email');
+        $name = $request->input('name');
+        $actor_id = $request->input('actor_id');
+        $dataSet = [
+            'actor_id' => $request->input('actor_id'),
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now()
+        ];
+    
+        Inquiry::insert($dataSet);
+
+        $actor = Actor::find($actor_id);
+        
+        Mail::send('admin.email.artist-template', compact('actor'), function ($message) use($email, $name) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $email , $name)
+                ->subject('Filcaspro - Request Artist Information');
+        });
     }
 
 }

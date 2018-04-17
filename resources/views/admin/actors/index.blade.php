@@ -3,11 +3,9 @@
 @section('title', 'Filcaspro')
 
 @section('content_header')
-<<<<<<< HEAD
-	<h1>Filartpro<small> Artist Administration</small></h1>
-=======
-	<h1>FilCaspro<small> Artist Administration</small></h1>
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
+
+	<h1>Filcaspro<small> Artist Administration</small></h1>
+
 @endsection
 
 @section('css')
