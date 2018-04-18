@@ -1,4 +1,4 @@
-html { 
+html {
 
     overflow-x:hidden;
     height: 100%;
@@ -18,7 +18,7 @@ body {
     max-height: 193px;
     height: 193px;
     background-color: #000;
-    background: url('../images/177601542cd0d26ad35e9b557b5dee23.jpg'); 
+    background: url('../images/177601542cd0d26ad35e9b557b5dee23.jpg');
     -webkit-background-size: contain;
     -moz-background-size: contain;
     -o-background-size: contain;
@@ -288,9 +288,13 @@ a:active {
 }
 
 .article {
-   
+
 }
 
 #headline {
     color: rgba(255,0,0,0.8);
+}
+
+.event-title {
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
 }
