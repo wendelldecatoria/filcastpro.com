@@ -295,6 +295,19 @@ a:active {
     color: rgba(255,0,0,0.8);
 }
 
+.col-event {
+      padding: 10pt;
+}
+
+.col-event .row {
+      margin: 0pt 5pt 5pt 5pt;
+}
+
+.event-header {
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+}
+
 .event-title {
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+  font-weight: bold;
 }
