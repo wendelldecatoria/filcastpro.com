@@ -94,6 +94,50 @@
 					},
 				]
 			});
+			
+			/**
+			* Delete the record.
+			*/
+			$(document).on("click", ".delete-btn", function () {
+				var self = this;
+				var id = $(this).attr('data-id');
+				var url = '{{ route('skill.destroy', ':id') }}'.replace(':id', id);
+				console.log(url);
+				console.log(id);
+				
+				dhtmlx.confirm({
+					title:"Confirm Deletion",
+					type:"confirm-warning",
+					text:"Do you really want to delete this record?",
+					callback: function (res) {
+
+						if(!res) {
+							return;
+						}
+				
+						$.ajax({
+							type: "DELETE",
+							url: url,
+							data: { _token: '{{csrf_token()}}' },
+							success: function (response) {
+
+								dhtmlx.alert({
+									title: 'Record Deleted',
+									text: 'The has been successfully deleted',
+									callback: function () {
+										dataTable.draw();
+									}
+								});
+
+							},
+							error: function (err) {
+								
+							}
+						});
+					}
+				});
+			});
+
 		});
 	</script>
 @endsection

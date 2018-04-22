@@ -149,6 +149,7 @@
 						$.ajax({
 							type: "DELETE",
 							url: url,
+							data: { _token: '{{csrf_token()}}' },
 							success: function (response) {
 
 								dhtmlx.alert({
