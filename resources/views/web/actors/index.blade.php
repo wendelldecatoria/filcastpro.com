@@ -52,7 +52,7 @@
          
             <div class="ac-cont">
                 @foreach($actors as $actor)
-                    <a href="{{ route('web.artist.show', $actor->id)}}" title="View">
+                    <a href="{{ route('web.artist.show', $actor->name)}}" title="View">
                         <div class="actor-tile">
                             <img class="image-thumbnail" src="{{ asset('/storage/images/actors/' . $actor->thumb_image) }}" >
                             <p>{{$actor->name}}</p>
@@ -97,7 +97,7 @@
                         $('.ac-cont').append('<br><h3>No Results Found</h3>');
                     }else if (data.length > 0){
                         $.each (data, function (i,item) {
-                            $('.ac-cont').append(`<a href="artist/` + item.id + `"` + ` title="View">` +
+                            $('.ac-cont').append(`<a href="artist/` + item.name + `"` + ` title="View">` +
                                                     '<div class="actor-tile">' + 
                                                         `<img class="image-thumbnail" src="{{ asset('/storage/images/actors/` + item.thumb_image + `') }}" >` +
                                                         '<p>' + item.name + '</p>' + 

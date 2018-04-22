@@ -144,17 +144,17 @@ return [
         [
             'text' => "What's In",
             'icon' => 'map',
-            'url' => 'admin/whats-in ',
+            'url' => 'admin/whats-in',
         ],
         [
             'text' => "What's On",
             'icon' => 'calendar',
-            'url' => 'admin/whats-on ',
+            'url' => 'admin/whats-on',
         ],
         [
             'text' => "What's Up",
             'icon' => 'star',
-            'url' => 'admin/whats-up ',
+            'url' => 'admin/whats-up',
         ],
         'FORMS',
         [

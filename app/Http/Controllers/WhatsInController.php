@@ -24,6 +24,7 @@ class WhatsInController extends Controller
             $whatsin = WhatsInCategory::leftJoin('categories','categories.id','=','whats_in_category.category_id')
                 ->leftJoin('whats_in','whats_in.id','=','whats_in_category.whats_in_id')
                 ->select('whats_in.id','whats_in.name as name','categories.name as category','whats_in.contact','whats_in.email','whats_in.url','whats_in.location','whats_in.is_active')
+                ->groupBy('whats_in.id')
                 ->get();
 			return Datatables::of($whatsin)->make(true);
         }
@@ -45,22 +46,21 @@ class WhatsInController extends Controller
     */
     public function edit($id){
         $categories = Category::orderBy('name')->pluck('name','id');
-        $tags = Tag::where('whats_in_id','=', $id)->orderBy('name')->get();
+        $tags = Tag::where('whats_in_id','=', $id)->where('whats_in_id','=', $id)->orderBy('name')->get();
 
         $tagsArray = [];
         foreach ($tags as $tag)
         {
             $tagsArray[] = [
                 'id' => $tag['id'],
-                'text' => $tag['name']
+                'name' => $tag['name']
             ];
         }
-
         $whatsin = WhatsIn::find($id);
         $whats_in_category = WhatsInCategory::leftJoin('categories','categories.id','=','whats_in_category.category_id')
                 ->where('whats_in_id','=', $id)->orderBy('categories.name')->pluck('categories.id'); 
                 
-        return view('admin.whats-in.edit', compact('categories','tagsArray', 'whatsin','whats_in_category') );
+        return view('admin.whats-in.edit', compact('categories', 'tagsArray', 'whatsin','whats_in_category') );
 
         // return $tagsArray;
     }
@@ -77,23 +77,51 @@ class WhatsInController extends Controller
             'category' => 'required',
             'is_active' => 'required'
         ]);
- 
-        $whats_in_id = WhatsIn::insertGetId([
-            'name' => $request->input('name'),
-            'location' => $request->input('location'), 
-            'contact' => $request->input('contact'),
-            'email' => $request->input('email'),
-            'url' => $request->input('url'),
-            'is_active' => $request->input('is_active'),
-            'updated_at' => Carbon::now()
-        ]);
+
+        $path = 'public/images/business/';
+        $allowedfileExtension=['jpg','png'];
+        $id = $request->input('id');
+
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $filename = md5_file($image->getRealPath() );
+            $extension = $image->guessExtension();
+            $file = $image->storeAs($path, $filename.'.'.$extension);
+    
+            $data = [
+                'name' => $request->input('name'),
+                'location' => $request->input('location'), 
+                'contact' => $request->input('contact'),
+                'email' => $request->input('email'),
+                'url' => $request->input('url'),
+                'image' => $filename.'.'.$extension,
+                'is_active' => $request->input('is_active'),
+                'updated_at' => Carbon::now()
+            ];
+
+        }else {
+            $data = [
+                'name' => $request->input('name'),
+                'location' => $request->input('location'), 
+                'contact' => $request->input('contact'),
+                'email' => $request->input('email'),
+                'url' => $request->input('url'),
+                'is_active' => $request->input('is_active'),
+                'updated_at' => Carbon::now()
+            ];
+        }
+
+        WhatsIn::where('id','=', $id)->update($data);
 
         if($request->has('category')){
-            $categories = $request->input('category');
             
+            // sanitize existing category
+            WhatsInCategory::where('whats_in_id','=', $id)->delete();
+
+            $categories = $request->input('category');
             foreach ($categories as $category){
                 $data = [
-                    'whats_in_id' =>  $whats_in_id,
+                    'whats_in_id' =>  $id,
                     'category_id' => $category,
                     'created_at' => Carbon::now(),
                     'updated_at' => Carbon::now()
@@ -103,22 +131,29 @@ class WhatsInController extends Controller
             }
         }
         
-        if($request->has('tag')){
+        if($request->has('tag')){ 
+
+            // sanitize existing category
+            Tag::where('whats_in_id','=', $id)->delete();
+
             $tags = $request->input('tag');
             
-            foreach (explode(",", $tags) as $tag){
-                $tag = [
-                    'whats_in_id' =>  $whats_in_id,
-                    'name' => $tag,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ];
+            if(!empty($tags) ){
+                foreach (explode(",", $tags) as $tag){
+                    $tag = [
+                        'whats_in_id' =>  $id,
+                        'name' => $tag,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ];
 
-                Tag::insert($tag);
+                    Tag::insert($tag);
+                }
             }
         }
 	
         return redirect()->route('whats-in.index'); 
+
     }
 
     /*
@@ -141,15 +176,25 @@ class WhatsInController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'category' => 'required',
-            'is_active' => 'required'
+            'is_active' => 'required',
+            'image' => 'required'
         ]);
- 
+
+        $path = 'public/images/business/';
+        $allowedfileExtension=['jpg','png'];
+
+        $image = $request->file('image');
+        $filename = md5_file($image->getRealPath() );
+        $extension = $image->guessExtension();
+        $file = $image->storeAs($path, $filename.'.'.$extension);
+
         $whats_in_id = WhatsIn::insertGetId([
             'name' => $request->input('name'),
             'location' => $request->input('location'), 
             'contact' => $request->input('contact'),
             'email' => $request->input('email'),
             'url' => $request->input('url'),
+            'image' => $filename.'.'.$extension,
             'is_active' => $request->input('is_active'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now()
@@ -170,25 +215,27 @@ class WhatsInController extends Controller
             }
         }
         
-        if($request->has('tag')){
+        if($request->has('tag')){ 
             $tags = $request->input('tag');
             
-            foreach (explode(",", $tags) as $tag){
-                $tag = [
-                    'whats_in_id' =>  $whats_in_id,
-                    'name' => $tag,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ];
+            if(!empty($tags) ){
+                foreach (explode(",", $tags) as $tag){
+                    $tag = [
+                        'whats_in_id' =>  $whats_in_id,
+                        'name' => $tag,
+                        'created_at' => Carbon::now(),
+                        'updated_at' => Carbon::now()
+                    ];
 
-                Tag::insert($tag);
+                    Tag::insert($tag);
+                }
             }
         }
 	
         return redirect()->route('whats-in.index'); 
     }
 
-     /*
+    /*
     *  delete the selected resource
     *
     *
@@ -199,5 +246,17 @@ class WhatsInController extends Controller
             "success" => "true",
             "message" => "Event has been deleted.",
         ]);
+    }
+
+
+    /*
+    * Search tags for selected resource
+    *
+    *
+    */
+    public function tags($id){
+
+        $tags = Tag::where('whats_in_id','=', $id)->where('whats_in_id','=', $id)->orderBy('name')->pluck('name');
+        return response()->json($tags);
     }
 }

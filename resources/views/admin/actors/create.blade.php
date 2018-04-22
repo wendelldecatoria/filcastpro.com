@@ -6,7 +6,7 @@
 	<h1>FilCaspro<small> Add Artist</small></h1>
 @endsection
 
-@section('ibillboard_css')
+@section('css')
 <!-- Image uploader plugin --> 
     <link rel="stylesheet" href="{{ asset('vendor/jQuery-File-Upload-master/css/jquery.fileupload.css')}}">
 
@@ -84,7 +84,7 @@
     </div>
 @endsection
 
-@section('ibillboard_js')
+@section('js')
 
 <script type='text/javascript' src="{{ asset('vendor/froala/js/froala_editor.min.js')}}"></script>
 <script type="text/javascript">

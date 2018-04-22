@@ -6,7 +6,7 @@
 	<h1>Filcaspro<small> Create What's In</small></h1>
 @endsection
 
-@section('ibillboard_css')
+@section('css')
 <!-- Froala Editor -->
 
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/dhtmlxSuite/codebase/fonts/font_roboto/roboto.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap-tagsinput/src/bootstrap-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/jQuery-tagEditor/jquery.tag-editor.css') }}">
 
   <link href="{{ asset('css/billboard.css') }}" rel="stylesheet">
 @endsection
@@ -65,6 +65,10 @@
                                 <td>Active (?):</td>
                                 <td>{{Form::select('is_active', array( '' => '-----', 1 => 'Yes', 0 => 'No'), null ,['class' => 'form-control'])}}</td>
                             </tr>
+                            <tr>
+                                <td>Image:</td>
+                                <td> {{ Form::file('image') }}</td>
+                            </tr>
                         </tbody>
                     </table>
                     </div>
@@ -75,7 +79,7 @@
                     <div class="btn-submit-container">
                     <button type="submit" class="btn btn-primary" placeholder="Submit"><i class="glyphicon glyphicon-check"></i> Save</button>
                         &nbsp;
-                        <a href="{{ route('whats-on.index') }}" title="Cancel" class="btn btn-primary btn cancel_Btn">
+                        <a href="{{ route('whats-in.index') }}" title="Cancel" class="btn btn-primary btn cancel_Btn">
                             <i class="glyphicon glyphicon-remove-circle"></i> Cancel
                         </a>
                     </div>
@@ -86,9 +90,10 @@
     </div>
 @endsection
 
-@section('ibillboard_js')
+@section('js')
 
-<script src="{{ asset('vendor/bootstrap-tagsinput/src/bootstrap-tagsinput.js') }}"></script>
+<script src="{{ asset('vendor/jQuery-tagEditor/jquery.tag-editor.min.js') }}"></script>
+<script src="{{ asset('vendor/jQuery-tagEditor/jquery.caret.min.js') }}"></script>
 
 <script type="text/javascript">
 

@@ -6,7 +6,7 @@
 	<h1>Filcaspro<small> Edit What's In</small></h1>
 @endsection
 
-@section('ibillboard_css')
+@section('css')
 <!-- Froala Editor -->
 
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
@@ -17,7 +17,7 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/dhtmlxSuite/codebase/fonts/font_roboto/roboto.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('vendor/bootstrap-tagsinput/src/bootstrap-tagsinput.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/jQuery-tagEditor/jquery.tag-editor.css') }}">
 
   <link href="{{ asset('css/billboard.css') }}" rel="stylesheet">
 @endsection
@@ -29,8 +29,9 @@
 				<div class="col-md-12">
 
                     @include('layouts/error_box')
-                    {{Form::open(array('route' => array('whats-in.store'), 'method' => 'POST', 'class' =>'form-horizontal', 'files' => true))}}
+                    {{Form::open(array('route' => array('whats-in.update', $whatsin->id), 'method' => 'PUT', 'class' =>'form-horizontal', 'files' => true))}}
                     {{ csrf_field() }}
+                    {{ Form::hidden('id',$whatsin->id) }} 
                     <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" role="grid" style="width: 80%;">
 							<tbody>
                             <tr>
@@ -59,11 +60,15 @@
                             </tr>
                             <tr>
                                 <td>Tag:</td>
-                                <td>{{ Form::text('tag', null ,array('class' => 'form-control', 'data-role' => "tagsinput", 'id' => 'bootstrap-tagsinput')) }}</td>
+                                <td>{{ Form::textarea('tag', null ,array('class' => 'form-control', 'id' => 'bootstrap-tagsinput')) }}</td>
                             </tr>
                             <tr>
                                 <td>Active (?):</td>
                                 <td>{{Form::select('is_active', array( '' => '-----', 1 => 'Yes', 0 => 'No'), $whatsin->is_active ,['class' => 'form-control'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Image:</td>
+                                <td> {{ Form::file('image') }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -75,7 +80,7 @@
                     <div class="btn-submit-container">
                     <button type="submit" class="btn btn-primary" placeholder="Submit"><i class="glyphicon glyphicon-check"></i> Save</button>
                         &nbsp;
-                        <a href="{{ route('whats-on.index') }}" title="Cancel" class="btn btn-primary btn cancel_Btn">
+                        <a href="{{ route('whats-in.index') }}" title="Cancel" class="btn btn-primary btn cancel_Btn">
                             <i class="glyphicon glyphicon-remove-circle"></i> Cancel
                         </a>
                     </div>
@@ -86,23 +91,28 @@
     </div>
 @endsection
 
-@section('ibillboard_js')
+@section('js')
 
-<script src="{{ asset('vendor/bootstrap-tagsinput/src/bootstrap-tagsinput.js') }}"></script>
+<script src="{{ asset('vendor/jQuery-tagEditor/jquery.tag-editor.min.js') }}"></script>
+<script src="{{ asset('vendor/jQuery-tagEditor/jquery.caret.min.js') }}"></script>
 
 <script type="text/javascript">
 
     $(document).ready(function() {
         $('.select2').select2();
+       
+        var id = {{ $whatsin->id}} ;
+		var url = '{{ route('whats-in.tags', ':id') }}'.replace(':id', id);
 
-        // var myJSON = JSON.stringify();
-
-        // var elt = $('#bootstrap-tagsinput');
-        // elt.tagsinput({
-        //     itemValue: 'id',
-        // });
-
-        // elt.tagsinput('add', {"id":3,"text":"chicken"},{"id":4,"text":"inihaw"} );
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: { _token: '{{csrf_token()}}' },
+            success: function (data) {
+                console.log(JSON.stringify(data));
+                $('#bootstrap-tagsinput').tagEditor({ initialTags: data});			
+            }
+        });     
     });
 
    

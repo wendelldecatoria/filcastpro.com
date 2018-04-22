@@ -40,7 +40,7 @@ class WebActorController extends Controller
     public function show($id){
         $actor = Actor::with(['Image' => function ($query) {
                 $query->where('group', '=', 'actor');
-        }])->where('id','=',$id)
+        }])->where('name','=',$id)
             ->get(); //return $actor;
         $skills = ActorSkill::with('Skill')->where('actor_id','=', $id)->get(); //return $skills;
         return view('web.actors.show', compact('actor', 'skills') );

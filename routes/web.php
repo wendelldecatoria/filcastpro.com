@@ -77,11 +77,11 @@ Route::group(['middleware' => 'web'], function () {
                         'except' => ['show'],
                     ]);
 
+                    Route::get('whats-in/{whats_in}/tags', 'WhatsInController@tags')->name('whats-in.tags');
                     Route::resource('whats-in', 'WhatsInController', [
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);
-
                     Route::resource('category', 'CategoryController', [
                         'parameters' => 'singular',
                         'except' => ['show'],

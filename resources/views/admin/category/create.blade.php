@@ -6,7 +6,7 @@
 	<h1>Filcaspro<small> Create Skill</small></h1>
 @endsection
 
-@section('ibillboard_css')
+@section('css')
 <!-- Froala Editor -->        
 	
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
@@ -57,6 +57,6 @@
     </div>
 @endsection
 
-@section('ibillboard_js')
+@section('js')
 
 @endsection
