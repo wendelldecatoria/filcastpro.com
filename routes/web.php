@@ -76,6 +76,11 @@ Route::group(['middleware' => 'web'], function () {
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);
+
+                    Route::resource('whats-in', 'WhatsInController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
                 } 
             );
         }

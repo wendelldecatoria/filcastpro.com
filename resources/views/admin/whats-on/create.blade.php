@@ -7,8 +7,8 @@
 @endsection
 
 @section('ibillboard_css')
-<!-- Froala Editor -->        
-	
+<!-- Froala Editor -->
+
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_style.min.css')}}">
 
@@ -26,7 +26,7 @@
 		<div class="box-body">
 			<div class="row">
 				<div class="col-md-12">
-                   
+
                     @include('layouts/error_box')
                     {{Form::open(array('route' => array('whats-on.store'), 'method' => 'POST', 'class' =>'form-horizontal', 'files' => true))}}
                     {{ csrf_field() }}
@@ -47,27 +47,27 @@
                             <tr>
                                 <td>Date From:</td>
                                 <td>
-                                    
+
                                         <div class='input-group date'>
                                             <input type='text' class="form-control"  name="date_from" id='datetimepicker_from' />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                   
+
                                 </td>
                             </tr>
                             <tr>
                                 <td>Date To:</td>
                                 <td>
-                                    
+
                                         <div class='input-group date'>
                                             <input type='text' class="form-control"  name="date_to" id='datetimepicker_to' />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
                                         </div>
-                                    
+
                                 </td>
                             </tr>
                             <tr>
@@ -77,7 +77,7 @@
                         </tbody>
                     </table>
                     </div>
-                </div>       
+                </div>
             </div>
             <div class="row">
                 <div class="col-md-12">
@@ -101,6 +101,6 @@
 		 $(document).ready(function(){
             $('#datetimepicker_from').datetimepicker({ format: 'LLL'});
             $('#datetimepicker_to').datetimepicker({ format: 'LLL'});
-        });		
+        });
 </script>
 @endsection

@@ -118,12 +118,12 @@ return [
         'ADMINISTRATION',
         [
             'text' => 'Artists',
-            'icon' => 'address-book',
+            'icon' => 'tv',
             'url' => 'admin/artists',
         ],
         [
             'text' => 'Creatives',
-            'icon' => 'address-book',
+            'icon' => 'camera',
             'url' => 'admin/creatives',
         ],
         [
@@ -133,33 +133,38 @@ return [
         ],
         [
             'text' => 'Videos',
-            'icon' => 'address-book',
+            'icon' => 'youtube',
             'url' => 'admin/video',
         ],
         [
+            'text' => "What's In",
+            'icon' => 'map',
+            'url' => 'admin/whats-in ',
+        ],
+        [
             'text' => "What's On",
-            'icon' => 'address-book',
+            'icon' => 'calendar',
             'url' => 'admin/whats-on ',
         ],
         [
             'text' => "What's Up",
-            'icon' => 'address-book',
+            'icon' => 'star',
             'url' => 'admin/whats-up ',
         ],
         'FORMS',
         [
             'text' => 'Contacts',
-            'icon' => 'address-book',
+            'icon' => 'address-card',
             'url' => 'admin/contact',
         ],
         [
             'text' => 'Artist Inquiries',
-            'icon' => 'address-book',
+            'icon' => 'question',
             'url' => 'admin/inquiry',
         ],
         [
             'text' => 'Registers',
-            'icon' => 'address-book',
+            'icon' => 'align-justify',
             'url' => 'admin/register',
         ],
     ],

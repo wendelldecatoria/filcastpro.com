@@ -15,14 +15,13 @@ class CreateWhatsInTable extends Migration
     {
         Schema::create('whats_in', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('category_id');
             $table->string('name');
-            $table->string('location');
-            $table->string('contact');
-            $table->string('email');
-            $table->string('url');
-            $table->string('image');
-            $table->longText('tag');
+            $table->string('location')->nullable();
+            $table->string('contact')->nullable();
+            $table->string('email')->nullable();
+            $table->string('url')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('is_active')->default(0);
             $table->timestamps();
         });
     }

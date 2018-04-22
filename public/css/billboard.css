@@ -31,3 +31,8 @@
       width:170px;
       height:250px;
   }
+
+  .label-info {
+    background-color: #3c8dbc !important;
+    font-size: small;
+  }
