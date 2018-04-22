@@ -122,6 +122,11 @@ return [
             'url' => 'admin/artists',
         ],
         [
+            'text' => 'Category',
+            // 'icon' => 'camera',
+            'url' => 'admin/category',
+        ],
+        [
             'text' => 'Creatives',
             'icon' => 'camera',
             'url' => 'admin/creatives',

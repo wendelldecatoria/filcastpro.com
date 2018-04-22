@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
+class ComposerStaticInitd8032368074f05d2fa143170ef7be33f
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -135,8 +135,8 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'Yajra\\DataTables\\' => 
         array (
@@ -404,6 +404,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'AlterTableWhatsUp' => __DIR__ . '/../..' . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
         'App\\Actor' => __DIR__ . '/../..' . '/app/Actor.php',
         'App\\ActorSkill' => __DIR__ . '/../..' . '/app/ActorSkill.php',
+        'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Contact' => __DIR__ . '/../..' . '/app/Contact.php',
         'App\\Creative' => __DIR__ . '/../..' . '/app/Creative.php',
@@ -435,6 +436,7 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'App\\Http\\Controllers\\WebWhatsOnController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebWhatsOnController.php',
         'App\\Http\\Controllers\\WebWhatsUpController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebWhatsUpController.php',
         'App\\Http\\Controllers\\WebsiteController' => __DIR__ . '/../..' . '/app/Http/Controllers/WebsiteController.php',
+        'App\\Http\\Controllers\\WhatsInCategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsInCategoryController.php',
         'App\\Http\\Controllers\\WhatsInController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsInController.php',
         'App\\Http\\Controllers\\WhatsOnController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsOnController.php',
         'App\\Http\\Controllers\\WhatsUpController' => __DIR__ . '/../..' . '/app/Http/Controllers/WhatsUpController.php',
@@ -456,9 +458,11 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'App\\Role' => __DIR__ . '/../..' . '/app/Role.php',
         'App\\RoleUser' => __DIR__ . '/../..' . '/app/RoleUser.php',
         'App\\Skill' => __DIR__ . '/../..' . '/app/Skill.php',
+        'App\\Tag' => __DIR__ . '/../..' . '/app/Tag.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\Video' => __DIR__ . '/../..' . '/app/Video.php',
         'App\\WhatsIn' => __DIR__ . '/../..' . '/app/WhatsIn.php',
+        'App\\WhatsInCategory' => __DIR__ . '/../..' . '/app/WhatsInCategory.php',
         'App\\WhatsOn' => __DIR__ . '/../..' . '/app/WhatsOn.php',
         'App\\WhatsUp' => __DIR__ . '/../..' . '/app/WhatsUp.php',
         'App\\Work' => __DIR__ . '/../..' . '/app/Work.php',
@@ -487,13 +491,14 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
         'CreateRegistersTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_135321_create_registers_table.php',
         'CreateRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_13_134855_create_roles_table.php',
         'CreateSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_22_152756_create_skills_table.php',
+        'CreateTagTables' => __DIR__ . '/../..' . '/database/migrations/2018_04_21_125139_create_tag_tables.php',
         'CreateUsersRolesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_13_142016_create_users_roles_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2018_02_20_234602_create_users_table.php',
         'CreateVideosTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_05_144502_create_videos_table.php',
+        'CreateWhatsInCategoryTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_21_072919_create_whats_in_category_table.php',
         'CreateWhatsInTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_21_055930_create_whats_in_table.php',
         'CreateWhatsOnTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_04_161154_create_whats_on_table.php',
         'CreateWhatsUpTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_13_025320_create_whats_up_table.php',
-        'CreateWhatsupCategoryTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_21_072919_create_whatsup_category_table.php',
         'CreateWritersTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_25_151013_create_writers_table.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/CronExpression.php',
@@ -4279,11 +4284,11 @@ class ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit8cb61c39b9f9a8eff4636d61cda1ae67::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$classMap;
 
         }, null, ClassLoader::class);
     }
