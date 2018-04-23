@@ -14,7 +14,7 @@ class WebWhatsInController extends Controller
     */
 
     public function index(){
-        return view('whats-in');
+        return view('web.whats-in.index');
     }
 
     /* 

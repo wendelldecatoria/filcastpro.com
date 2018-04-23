@@ -91,7 +91,6 @@ Route::group(['middleware' => 'web'], function () {
         }
     );
 
-    // Route::get('', 'WebsiteController@index')->name('web.index');
     Route::group([
         'prefix'     => '',
     ], function() {
@@ -147,9 +146,6 @@ Route::group(['middleware' => 'web'], function () {
                 'show' => 'web.whats-in.show',
             ]
         ]);
-        
-        // Route::get('contact', 'WebsiteController@contact')->name('web.contact');
-        // Route::post('store', 'WebsiteController@store')->name('web.store-contact');
 
         Route::resource('contact', 'WebContactController', [
             'parameters' => 'singular',
