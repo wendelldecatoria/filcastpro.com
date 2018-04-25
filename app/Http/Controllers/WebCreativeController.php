@@ -34,7 +34,8 @@ class WebCreativeController extends Controller
         $creative = Creative::with(['Image' => function ($query) {
             $query->where('group', '=', 'director');
         }])->where('name','=',$id) ->get();
-        $skills = CreativeSkill::with('Skill')->where('creative_id','=', $id)->get(); //return $skills;
+        $creative_id = Creative::where('name','=', $id)->pluck('id'); //return $creative_id;
+        $skills = CreativeSkill::with('Skill')->where('creative_id','=', $creative_id)->get(); //return $skills;
         return view('web.creatives.show', compact('creative', 'skills') );
     }
 
