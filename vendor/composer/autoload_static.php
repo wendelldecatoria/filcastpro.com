@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitd8032368074f05d2fa143170ef7be33f
+class ComposerStaticInitf49a63005521bfd57161162628a3bb59
 {
     public static $files = array (
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
@@ -135,8 +135,8 @@ class ComposerStaticInitd8032368074f05d2fa143170ef7be33f
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
         ),
         'Yajra\\DataTables\\' => 
         array (
@@ -417,6 +417,7 @@ class ComposerStaticInitd8032368074f05d2fa143170ef7be33f
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
         'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CreativeController' => __DIR__ . '/../..' . '/app/Http/Controllers/CreativeController.php',
@@ -4284,11 +4285,11 @@ class ComposerStaticInitd8032368074f05d2fa143170ef7be33f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitd8032368074f05d2fa143170ef7be33f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitf49a63005521bfd57161162628a3bb59::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitf49a63005521bfd57161162628a3bb59::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInitf49a63005521bfd57161162628a3bb59::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitf49a63005521bfd57161162628a3bb59::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitf49a63005521bfd57161162628a3bb59::$classMap;
 
         }, null, ClassLoader::class);
     }

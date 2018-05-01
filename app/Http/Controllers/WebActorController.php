@@ -42,7 +42,8 @@ class WebActorController extends Controller
                 $query->where('group', '=', 'actor');
         }])->where('name','=',$id)
             ->get(); //return $actor;
-        $skills = ActorSkill::with('Skill')->where('actor_id','=', $id)->get(); //return $skills;
+        $actor_id = Actor::where('name','=', $id)->pluck('id'); //return $actor_id;
+        $skills = ActorSkill::with('Skill')->where('actor_id','=', $actor_id)->get(); //return $skills;
         return view('web.actors.show', compact('actor', 'skills') );
     }
 

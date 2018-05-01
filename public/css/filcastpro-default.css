@@ -272,7 +272,7 @@ a:active {
 
 .article-body, .feature-body{
     text-align:left;
-    padding: 0pt;
+    padding: 0pt 0pt 0pt 25pt;
     margin:10pt;
    font-family: Helvetica;
 }

@@ -57,6 +57,7 @@
 				serverSide: true,
 				deferRender: true,
 				ajax: '{{ route("contact.index") }}',
+				"order": [[ 4, "desc" ]],
 				columnDefs: [
 					{
 						'targets': 0,
