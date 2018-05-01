@@ -55,6 +55,10 @@
                                 <td>{{ Form::text('url', $whatsin->url,array('class' => 'form-control','placeholder' => 'Enter Business URL')) }}</td>
                             </tr>
                             <tr>
+                                <td>Google Map URL:</td>
+                                <td>{{ Form::text('map_url', $whatsin->map_url, array('class' => 'form-control','placeholder' => 'Enter Google Map URL')) }}</td>
+                            </tr>
+                            <tr>
                                 <td>Category:</td>
                                 <td>{{Form::select('category[]', $categories, $whats_in_category ,['class' => 'form-control select2', 'multiple' => 'multiple'])}}</td>
                             </tr>

@@ -22,7 +22,7 @@
               @foreach($today as $event)
               <div class="row">
                   @if(!empty($event->url))<a href="{{ $event->url }}" target="_blank"> @endif
-                    <p class="event-title"> {{ $event->title }}</p>
+                    <p class="event-title">{{ date('M d', strtotime($event->date_from)) }} - {{ $event->title }}</p>
                   @if(!empty($event->url))</a> @endif
                   <p>{{ date('h:i a', strtotime($event->date_from)) }}, {{ $event->venue }}</p>
               </div>
@@ -34,7 +34,7 @@
               @foreach($thisWeek as $event)
                 <div class="row">
                     @if(!empty($event->url))<a href="{{ $event->url }}" target="_blank"> @endif
-                      <p class="event-title"> {{ $event->title }}</p>
+                      <p class="event-title">{{ date('M d', strtotime($event->date_from)) }} - {{ $event->title }}</p>
                     @if(!empty($event->url))</a> @endif
                     <p>{{ date('l', strtotime($event->date_from)) }} , {{ date('h:i a', strtotime($event->date_from)) }}, {{ $event->venue }}</p>
                 </div>
@@ -46,7 +46,7 @@
               @foreach($nextWeek as $event)
                 <div class="row">
                     @if(!empty($event->url))<a href="{{ $event->url }}" target="_blank"> @endif
-                      <p class="event-title"> {{ $event->title }}</p>
+                      <p class="event-title">{{ date('M d', strtotime($event->date_from)) }} - {{ $event->title }}</p>
                     @if(!empty($event->url))</a> @endif
                     <p>{{ date('l', strtotime($event->date_from)) }} , {{ date('h:i a', strtotime($event->date_from)) }}, {{ $event->venue }}</p>
                 </div>
@@ -58,7 +58,7 @@
               @foreach($thisMonth as $event)
                 <div class="row">
                     @if(!empty($event->url))<a href="{{ $event->url }}" target="_blank"> @endif
-                      <p class="event-title"> {{ $event->title }}</p>
+                      <p class="event-title">{{ date('M d', strtotime($event->date_from)) }} - {{ $event->title }}</p>
                     @if(!empty($event->url))</a> @endif
                     <p>{{ date('l', strtotime($event->date_from)) }} , {{ date('h:i a', strtotime($event->date_from)) }}, {{ $event->venue }}</p>
                 </div>
@@ -70,7 +70,7 @@
               @foreach($nextMonth as $event)
                 <div class="row">
                     @if(!empty($event->url))<a href="{{ $event->url }}" target="_blank"> @endif
-                      <p class="event-title"> {{ $event->title }}</p>
+                      <p class="event-title">{{ date('M d', strtotime($event->date_from)) }} - {{ $event->title }}</p>
                     @if(!empty($event->url))</a> @endif
                     <p>{{ date('l', strtotime($event->date_from)) }} , {{ date('h:i a', strtotime($event->date_from)) }}, {{ $event->venue }}</p>
                 </div>

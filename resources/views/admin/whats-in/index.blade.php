@@ -132,7 +132,7 @@
 			$(document).on("click", ".delete-btn", function () {
 				var self = this;
 				var id = $(this).attr('data-id');
-				var url = '{{ route('whats-on.destroy', ':id') }}'.replace(':id', id);
+				var url = '{{ route('whats-in.destroy', ':id') }}'.replace(':id', id);
 				console.log(url);
 				console.log(id);
 

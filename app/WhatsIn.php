@@ -11,4 +11,8 @@ class WhatsIn extends Model
     public function WhatsInCategory(){
         return $this->hasMany('App\WhatsInCategory'); 
     }
+
+    public function Tag(){
+        return $this->hasMany('App\Tag'); 
+    }
 }

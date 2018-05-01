@@ -48,18 +48,18 @@ class WebCreativeController extends Controller
 
     public function search(Request $request){
 
-        $creatives = Creative:: leftJoin('creative_skill','creative_skill.creative_id','=', 'creatives.id')
+        $whatsin = Creative:: leftJoin('creative_skill','creative_skill.creative_id','=', 'creatives.id')
             ->select('creatives.*', 'creative_skill.skill_id')
-            ->when($request->input('skill'), function($query) use ($request) {
-                return $query->where('creative_skill.skill_id', '=', $request->input('skill') );
+            ->when($request->input('category'), function($query) use ($request) {
+                return $query->where('whats_in_category.category_id', '=', $request->input('category') );
             })
-            ->when($request->input('name'), function($query) use ($request) {
-                return $query->where('name', 'like', '%' . $request->input('name') . '%' );
+            ->when($request->input('location'), function($query) use ($request) {
+                return $query->where('location', 'like', '%' . $request->input('location') . '%' );
             })
             ->groupBy('name')
             ->orderBy('name')
             ->get();
 
-        return response()->json($creatives);
+        return response()->json($whatsin);
     }
 }

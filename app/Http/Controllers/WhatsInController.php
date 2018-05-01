@@ -24,10 +24,13 @@ class WhatsInController extends Controller
             $whatsin = WhatsInCategory::leftJoin('categories','categories.id','=','whats_in_category.category_id')
                 ->leftJoin('whats_in','whats_in.id','=','whats_in_category.whats_in_id')
                 ->select('whats_in.id','whats_in.name as name','categories.name as category','whats_in.contact','whats_in.email','whats_in.url','whats_in.location','whats_in.is_active')
+                ->where('whats_in.id','!=', null)
                 ->groupBy('whats_in.id')
                 ->get();
 			return Datatables::of($whatsin)->make(true);
-        }
+        } 
+
+        // return $whatsin;
 
         return view('admin.whats-in.index');
         
@@ -96,7 +99,8 @@ class WhatsInController extends Controller
                 'url' => $request->input('url'),
                 'image' => $filename.'.'.$extension,
                 'is_active' => $request->input('is_active'),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'map_url' => $request->input('map_url')
             ];
 
         }else {
@@ -107,7 +111,8 @@ class WhatsInController extends Controller
                 'email' => $request->input('email'),
                 'url' => $request->input('url'),
                 'is_active' => $request->input('is_active'),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'map_url' => $request->input('map_url')
             ];
         }
 
@@ -197,7 +202,8 @@ class WhatsInController extends Controller
             'image' => $filename.'.'.$extension,
             'is_active' => $request->input('is_active'),
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
+            'map_url' => $request->input('map_url')
         ]);
 
         if($request->has('category')){
@@ -244,7 +250,7 @@ class WhatsInController extends Controller
         WhatsIn::where('id','=', $id)->delete();
         return response()->json([
             "success" => "true",
-            "message" => "Event has been deleted.",
+            "message" => "Record has been deleted.",
         ]);
     }
 

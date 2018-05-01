@@ -138,6 +138,7 @@ Route::group(['middleware' => 'web'], function () {
             ]
         ]);
 
+        Route::post('whats-in/search', 'WebWhatsInController@search')->name('web.whats-in.search');
         Route::resource('whats-in', 'WebWhatsInController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],

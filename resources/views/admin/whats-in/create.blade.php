@@ -54,6 +54,10 @@
                                 <td>{{ Form::text('url', null ,array('class' => 'form-control','placeholder' => 'Enter Business URL')) }}</td>
                             </tr>
                             <tr>
+                                <td>Google Map URL:</td>
+                                <td>{{ Form::text('map_url', null, array('class' => 'form-control','placeholder' => 'Enter Google Map URL')) }}</td>
+                            </tr>
+                            <tr>
                                 <td>Category:</td>
                                 <td>{{Form::select('category[]', $categories, null ,['class' => 'form-control select2', 'multiple' => 'multiple'])}}</td>
                             </tr>
