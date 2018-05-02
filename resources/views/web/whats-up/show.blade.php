@@ -18,6 +18,7 @@
             <hr class="hr">
             <p class="text-justify"> <blockquote>{!! htmlspecialchars_decode($article[0]->content) !!} </blockquote></p>
 
+            <div class="fb-like" data-href="{{route('web.whats-up.show', $article[0]->id)}}" data-width="500" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             <div class="fb-comments" data-href="{{route('web.whats-up.show', $article[0]->id)}}" data-width="100%" data-numposts="5"></div>
         </div>
         <div class="col-md-2"></div>
