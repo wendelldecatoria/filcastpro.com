@@ -63,7 +63,7 @@
                             </tr>
                             <tr>
                                 <td>Tag:</td>
-                                <td>{{ Form::text('tag', null ,array('class' => 'form-control', 'data-role' => "tagsinput")) }}</td>
+                                <td>{{ Form::text('tag', null ,array('class' => 'form-control', 'id' => 'bootstrap-tagsinput')) }}</td>
                             </tr>
                             <tr>
                                 <td>Active (?):</td>
@@ -103,6 +103,8 @@
 
           $(document).ready(function() {
                 $('.select2').select2();
+                $('#bootstrap-tagsinput').tagEditor();
+
             });
 
 </script>
