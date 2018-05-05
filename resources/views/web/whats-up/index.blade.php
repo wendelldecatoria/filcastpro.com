@@ -4,7 +4,7 @@
     <link href="{{ asset('css/filcastpro-default.css') }}" rel="stylesheet">
 @endsection
 
-@section('content')
+@section('content') {{dd($articles)}}
 <div class="container">
     @include('partials.header')
     <div class="row content">

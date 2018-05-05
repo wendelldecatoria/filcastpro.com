@@ -15,9 +15,9 @@ class UpdateWritersIdInWhatsUpTable extends Migration
     {
         Schema::table('whats_up', function (Blueprint $table) {
 
-            DB::table('whats_up')->where('writer','=','George Vail Kabristante')->update(['writer_id' => 1]);
-            DB::table('whats_up')->where('writer','=','Boy Villasanta')->update(['writer_id' => 2]);
-            DB::table('whats_up')->where('writer','=','Danny Vibas')->update(['writer_id' => 3]);
+            DB::table('whats_up')->where('writer','like','George%')->update(['writer_id' => 1]);
+            DB::table('whats_up')->where('writer','like','Boy%')->update(['writer_id' => 2]);
+            DB::table('whats_up')->where('writer','like','Danny%')->update(['writer_id' => 3]);
         });
     }
 
