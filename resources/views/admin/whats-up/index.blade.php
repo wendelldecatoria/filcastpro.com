@@ -66,6 +66,7 @@
 				processing: true,
 				serverSide: true,
 				deferRender: true,
+				"order": [[ 5, "desc" ]],
 				ajax: '{{ route("whats-up.index") }}',
 				columnDefs: [
 					{
