@@ -29,7 +29,7 @@
             <br>
             <p class="text-justify"> {!! htmlspecialchars_decode($article[0]->content) !!} </p>
             <br>
-            <a href="{{route('web.whats-up.disclaimer')}}"><button type="button" class="btn btn-default">disclaimer</button></a>
+            <a href="{{route('web.whats-up.disclaimer')}}"><button type="button" class="btn btn-danger"><strong>Disclaimer</strong></button></a>
             <br><br>
             <div class="fb-like" data-href="{{route('web.whats-up.show', $article[0]->id)}}" data-width="500" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             <div class="fb-comments" data-href="{{route('web.whats-up.show', $article[0]->id)}}" data-width="100%" data-numposts="5"></div>
