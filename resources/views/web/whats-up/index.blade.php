@@ -9,8 +9,8 @@
     @include('partials.header')
     <div class="row content">
         @include('partials.menu')
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
             <div class="row">
                 <div class="col-md-12" style="width: 100%;text-align: center; margin-bottom: 20pt;">
                     <img class="img-responsive" src="images/whats-up-title2.png" style="display: inline-block;">
@@ -82,7 +82,7 @@
                 @endforeach
             @endif
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-md-1"></div>
     </div>
     @include('partials.footer')
 </div>
