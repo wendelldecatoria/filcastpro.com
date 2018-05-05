@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddArticleImageOnWhatsUpTable' => $baseDir . '/database/migrations/2018_05_05_145159_add_article_image_on_whats_up_table.php',
     'AddGroupToImagesTable' => $baseDir . '/database/migrations/2018_04_11_130121_add_group_to_images_table.php',
     'AddGroupToInquiriesTable' => $baseDir . '/database/migrations/2018_04_14_160028_add_group_to_inquiries_table.php',
     'AddGroupToSkillsTable' => $baseDir . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',

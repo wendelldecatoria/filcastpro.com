@@ -120,6 +120,7 @@ Route::group(['middleware' => 'web'], function () {
             ]
         ]);
     
+        Route::get('whats-up/disclaimer', 'WebWhatsUpController@disclaimer')->name('web.whats-up.disclaimer');
         Route::resource('whats-up', 'WebWhatsUpController', [
             'parameters' => 'singular',
             'except' => ['edit','store','update','create','destroy'],

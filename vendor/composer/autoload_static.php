@@ -395,6 +395,7 @@ class ComposerStaticInitf49a63005521bfd57161162628a3bb59
     );
 
     public static $classMap = array (
+        'AddArticleImageOnWhatsUpTable' => __DIR__ . '/../..' . '/database/migrations/2018_05_05_145159_add_article_image_on_whats_up_table.php',
         'AddGroupToImagesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_11_130121_add_group_to_images_table.php',
         'AddGroupToInquiriesTable' => __DIR__ . '/../..' . '/database/migrations/2018_04_14_160028_add_group_to_inquiries_table.php',
         'AddGroupToSkillsTable' => __DIR__ . '/../..' . '/database/migrations/2018_03_30_005912_add_group_to_skills_table.php',

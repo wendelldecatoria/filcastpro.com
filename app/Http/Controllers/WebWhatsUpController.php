@@ -32,4 +32,13 @@ class WebWhatsUpController extends Controller
         $article = WhatsUp::with('Writer')->where('id','=', $id)->get();
         return view('web.whats-up.show', compact('article') );
     }
+
+    /*
+     * 
+     * Display Disclaimer page
+     * 
+     */
+    public function disclaimer(){
+        return view('web.whats-up.disclaimer');
+    }
 }

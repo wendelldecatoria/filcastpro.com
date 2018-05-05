@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Create Article')
+@section('title', 'Filcaspro')
 
 @section('content_header')
 	<h1>Filcaspro<small> Create What's Up Article</small></h1>
@@ -34,16 +34,16 @@
 							<tbody>
                             <tr>
                                 <td>Writer:</td>
-                                <td>{{ Form::text('writer', null ,array('class' => 'form-control','placeholder' => 'Enter Article Writer')) }}</td>
+                                <td>{{Form::select('writer', $writers, null ,['class' => 'form-control'])}}</td>
                             </tr>
                             <tr>
                                 <td>Headline:</td>
                                 <td>{{ Form::text('headline', null ,array('class' => 'form-control','placeholder' => 'Enter Article Headline')) }}</td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>Title:</td>
                                 <td>{{ Form::text('title', null ,array('class' => 'form-control','placeholder' => 'Enter Article Title')) }}</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>Content:</td>
                                 <td>{{ Form::textarea('content', null ,array('class' => 'form-control','id' => 'froala-editor','placeholder' => 'Enter Article Content')) }}</td>
@@ -59,6 +59,10 @@
                             <tr>
                                 <td>Image:</td>
                                 <td> {{ Form::file('image') }}</td>
+                            </tr>
+                            <tr>
+                                <td>Article Banner:</td>
+                                <td> {{ Form::file('article_banner') }}</td>
                             </tr>
                         </tbody>
                     </table>
