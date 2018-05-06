@@ -82,7 +82,13 @@ Route::group(['middleware' => 'web'], function () {
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);
+
                     Route::resource('category', 'CategoryController', [
+                        'parameters' => 'singular',
+                        'except' => ['show'],
+                    ]);
+
+                    Route::resource('writer', 'WriterController', [
                         'parameters' => 'singular',
                         'except' => ['show'],
                     ]);

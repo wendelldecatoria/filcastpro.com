@@ -117,24 +117,26 @@ return [
         ],  
         'ADMINISTRATION',
         [
-            'text' => 'Artists',
+            'text' => 'Production',
             'icon' => 'tv',
-            'url' => 'admin/artists',
-        ],
-        [
-            'text' => 'Category',
-            // 'icon' => 'camera',
-            'url' => 'admin/category',
-        ],
-        [
-            'text' => 'Creatives',
-            'icon' => 'camera',
-            'url' => 'admin/creatives',
-        ],
-        [
-            'text' => "Skills",
-            'icon' => 'address-book',
-            'url' => 'admin/skill',
+            'submenu' => [
+                [
+                    'text' => 'Artists',
+                    'icon' => 'tv',
+                    'url' => 'admin/artists',
+                ],
+               
+                [
+                    'text' => 'Creatives',
+                    'icon' => 'camera',
+                    'url' => 'admin/creatives',
+                ],
+                [
+                    'text' => "Skills",
+                    'icon' => 'address-book',
+                    'url' => 'admin/skill',
+                ],
+            ]
         ],
         [
             'text' => 'Videos',
@@ -144,7 +146,16 @@ return [
         [
             'text' => "What's In",
             'icon' => 'map',
-            'url' => 'admin/whats-in',
+            'submenu' => [
+                [
+                    'text' => 'Establishments',
+                    'url' => 'admin/whats-in',
+                ],
+                [
+                    'text' => 'Category',
+                    'url' => 'admin/category',
+                ],
+            ],
         ],
         [
             'text' => "What's On",
@@ -154,8 +165,19 @@ return [
         [
             'text' => "What's Up",
             'icon' => 'star',
-            'url' => 'admin/whats-up',
+            
+            'submenu' => [
+                [
+                    'text' => 'Articles',
+                    'url' => 'admin/whats-up',
+                ],
+                [
+                    'text' => "Writers",
+                    'url' => 'admin/writer',
+                ],
+            ]
         ],
+       
         'FORMS',
         [
             'text' => 'Contacts',
