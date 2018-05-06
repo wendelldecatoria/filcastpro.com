@@ -16,7 +16,7 @@
                     <img class="img-responsive" src="images/whats-up-title2.png" style="display: inline-block;">
                 </div>
             </div>
-            @if(count($featured) > 1)
+           
                 @foreach($featured as $feature)
                             <div class="row article">   
                                 <div class="col-md-1"></div>
@@ -34,8 +34,7 @@
                             </div>
                         <hr class="hr">
                 @endforeach
-            @endif
-            @if(count($articles) > 1)
+           
                 <div class="row">
                     @foreach($articles as $article)
                         <div class="col-md-3">
@@ -55,9 +54,9 @@
                     @endforeach
                 </div>
                 <hr class="hr">
-            @endif
+           
 
-            @if(count($archives) > 1)
+            
                 <div class="row" style="text-align:center;"> 
                     <h2>Previous Articles</h2>
                     <br>
@@ -80,7 +79,7 @@
                             </div>
                         <hr class="hr">
                 @endforeach
-            @endif
+           
         </div>
         <div class="col-md-1"></div>
     </div>

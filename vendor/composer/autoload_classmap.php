@@ -531,6 +531,7 @@ return array(
     'Dotenv\\Exception\\ValidationException' => $vendorDir . '/vlucas/phpdotenv/src/Exception/ValidationException.php',
     'Dotenv\\Loader' => $vendorDir . '/vlucas/phpdotenv/src/Loader.php',
     'Dotenv\\Validator' => $vendorDir . '/vlucas/phpdotenv/src/Validator.php',
+    'DropTitleInWhatsUpTable' => $baseDir . '/database/migrations/2018_05_06_012722_drop_title_in_whats_up_table.php',
     'Egulias\\EmailValidator\\EmailLexer' => $vendorDir . '/egulias/email-validator/EmailValidator/EmailLexer.php',
     'Egulias\\EmailValidator\\EmailParser' => $vendorDir . '/egulias/email-validator/EmailValidator/EmailParser.php',
     'Egulias\\EmailValidator\\EmailValidator' => $vendorDir . '/egulias/email-validator/EmailValidator/EmailValidator.php',

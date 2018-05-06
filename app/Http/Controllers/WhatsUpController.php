@@ -65,7 +65,7 @@ class WhatsUpController extends Controller
             $file_banner = $article_banner->storeAs($path, $photoname_banner.'.'.$ext_banner);
     
             $data = [
-                'writer' => $request->input('writer'),
+                'writer_id' => $request->input('writer'),
                 'headline' => $request->input('headline'),
                 'content' =>  $request->input('content'),
                 'status' =>  $request->input('status'),
@@ -78,7 +78,7 @@ class WhatsUpController extends Controller
 
         }else {
             $data = [
-                'writer' => $request->input('writer'),
+                'writer_id' => $request->input('writer'),
                 'headline' => $request->input('headline'),
                 'content' =>  $request->input('content'),
                 'status' =>  $request->input('status'),
