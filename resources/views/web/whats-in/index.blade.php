@@ -46,7 +46,6 @@
                     <a href="{{ route('web.whats-in.show' , $whtsin->id)}}" title="View">
                         <div class="actor-tile">
                             <img class="image-thumbnail" src="{{ asset('/storage/images/business/' . $whtsin->image) }}" >
-                            <p>{{$whtsin->name}}</p>
                         </div>
                     </a>
                 @endforeach
