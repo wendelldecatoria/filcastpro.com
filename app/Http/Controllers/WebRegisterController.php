@@ -41,6 +41,8 @@ class WebRegisterController extends Controller
     
         Register::insert($dataSet);
        
-        return redirect()->route('web.home'); 
+        return response()->json([
+            'Message' => 'Success',
+        ]);
     }
 }

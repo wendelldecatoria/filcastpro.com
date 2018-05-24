@@ -43,6 +43,8 @@ class WebContactController extends Controller
     
         Contact::insert($dataSet);
        
-        return redirect()->route('web.home'); 
+        return response()->json([
+            'Message' => 'Success',
+        ]);
     }
 }
