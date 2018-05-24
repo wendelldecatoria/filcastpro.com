@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actor;
+use App\ActorSkill;
 use App\Contact;
+use App\Creative;
 use App\Register;
+use App\WhatsUp;
 use App\Skill;
 use Carbon\Carbon;
 use Yajra\Datatables\Datatables;
 use App\Inquiry;
+use App\Video;
 use Mail;
 
 
@@ -48,228 +52,95 @@ class WebsiteController extends Controller
     * 
     */
     public function home(){
-        return view('home');
-    }
 
-    /* 
-    * Display actors page
-    *
-    * @return Response
-    * 
-    */
-
-    public function getactors(Request $request){
-        $actors = Actor::all();
-        return Datatables::of($actors)->make();
-    }
-
-    public function actors(){
-        return view('actors');
-    }
-
-    public function artist(){
-        $actors = Actor::where('is_active','=', 1)->orderBy('name')->get();
-        $skills = Skill::where('group','=', 'actor')->orderBy('name')->pluck('name','id')->reverse()->put('', '-----')->reverse();
-        return view('artist', compact('actors', 'skills'));
-    }
-
-    /* 
-    * Display contact page
-    *
-    * @return Response
-    * 
-    */
-    public function contact(){
-        return view('contact');
-    }
-
-    /* 
-    * Display contact page
-    *
-    * @return Response
-    * 
-    */
-    public function register(){
-        return view('register');
-    }
-
-    /* 
-    * Display whats up page
-    *
-    * @return Response
-    * 
-    */
-    public function whatsUp(){
-        return view('whats-up');
-    }
-
-    /* 
-    * Display whats on page
-    *
-    * @return Response
-    * 
-    */
-    public function whatsOn(){
-        return view('whats-on');
-    }
-
-    /* 
-    * Store contact details
-    *
-    * @return Response
-    * 
-    */
-    public function store(Request $request){
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'contact' => 'required',
-            'message' => 'required',
-        ]);
-
-        $dataSet = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'contact' => $request->input('contact'),
-            'message' => $request->input('message'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ];
-    
-        Contact::insert($dataSet);
-       
-        return redirect()->route('web.home'); 
-    }
-
-    /* 
-    * Store register details
-    *
-    * @return Response
-    * 
-    */
-    public function storeRegister(Request $request){
-        $this->validate($request, [
-            'name' => 'required',
-            'email' => 'required',
-            'contact' => 'required',
-        ]);
-
-        $dataSet = [
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'contact' => $request->input('contact'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ];
-    
-        Register::insert($dataSet);
-       
-        return redirect()->route('web.home'); 
-    }
-
-    /* 
-    * Show selected actor
-    *
-    * @return Response
-    * 
-    */
-
-    public function showactor($id){
-        $actor = Actor::with('Image')->where('id','=',$id)->get(); //return $actor;
-        return view('show-actor', compact('actor') );
-    }
-
-     /* 
-    * Search for actor
-    *
-    * @return Response
-    * 
-    */
-    public function search(Request $request){
-        //array('0' => 'All Ages', '1' => '10 and below', '2' => '11 to 20', '3' => '21 to 30', '4' => '31 to 40', '5' => '41 and above')
-        if($request->input('age') == 0){
-            $val1 = 0;
-            $val2 = 100;
-        }else if($request->input('age') == 1){
-            $val1 = 1;
-            $val2 = 10;
-        }else if($request->input('age') == 2){
-            $val1 = 11;
-            $val2 = 20;
-        }else if($request->input('age') == 3){
-            $val1 = 21;
-            $val2 = 30;
-        }else if($request->input('age') == 4){
-            $val1 = 31;
-            $val2 = 40;
-        }else if($request->input('age') == 5){
-            $val1 = 41;
-            $val2 = 100;
-        } else {
-
-        }
-
-        $gender = $request->input('gender');
-        
-        if($gender)
-            $actors = Actor::whereBetween('age', [$val1, $val2])->where('gender','=', $gender)->orderBy('name')->get();
-        else {
-            $actors = Actor::whereBetween('age', [$val1, $val2])->orderBy('name')->get();
-        }
-       
-        return view('artist', compact('actors'));
-    }
-
-     /* 
-    * Show creatives page
-    *
-    * @return Response
-    * 
-    */
-
-    public function creatives(){
-        return view('creatives');
-    }
-
-    /* 
-    * Show what's in page
-    *
-    * @return Response
-    * 
-    */
-
-    public function whatsIn(){
-        return view('whats-in');
+        $videos = Video::where('is_active','=', 1)->orderBy('created_at')->get();
+        $default = Video::where('is_default','=', 1)->first();
+        return view('home', compact('videos','default') );
     }
 
     /*
-    * store newly created inquiry resource
+    * store actor's inquiry
     *
     *
     */
-    public function inquire(Request $request){
+    public function actorInquire(Request $request){
         
         $email = $request->input('email');
         $name = $request->input('name');
         $actor_id = $request->input('actor_id');
-        $dataSet = [
+        $inquirer = [
             'actor_id' => $request->input('actor_id'),
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'contact' => $request->input('contact'),
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
+            'group' => 'actor'
         ];
     
-        Inquiry::insert($dataSet);
+        Inquiry::insert($inquirer);
 
         $actor = Actor::find($actor_id);
-        
-        Mail::send('admin.email.artist-template', compact('actor'), function ($message) use($email, $name) {
+        $actorEmail = $actor->email;
+        $actorName = $actor->name;
+
+        // Send email to inquirer
+        Mail::send('admin.email.actor.template-to-inquirer', compact('actor'), function ($message) use($email, $name) {
             $message
                 ->from('marketing@filcaspro.com', 'Filcaspro')
                 ->to( $email , $name)
                 ->subject('Filcaspro - Request Artist Information');
+        });
+
+        // Send email to artist
+        Mail::send('admin.email.actor.template-to-artist', compact('inquirer'), function ($message) use($actorEmail, $actorName) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $actorEmail , $actorName)
+                ->subject('Filcaspro - Artist Inquiry');
+        });
+    }
+
+    /*
+    * store creative's inquiry
+    *
+    *
+    */
+    public function creativeInquire(Request $request){
+        
+        $email = $request->input('email');
+        $name = $request->input('name');
+        $creative_id = $request->input('creative_id'); 
+        $inquirer = [
+            'actor_id' => $request->input('creative_id'), // table is shared with actors so column_name is actor_id
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'contact' => $request->input('contact'),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+            'group' => 'director'
+        ];
+    
+        Inquiry::insert($inquirer);
+
+        $creative = Creative::find($creative_id);
+        $creativeEmail = $creative->email;
+        $creativeName = $creative->name;
+
+        // Send email to inquirer
+        Mail::send('admin.email.creative.template-to-inquirer', compact('creative'), function ($message) use($email, $name) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $email , $name)
+                ->subject('Filcaspro - Request Artist Information');
+        });
+
+        // Send email to artist
+        Mail::send('admin.email.creative.template-to-creative', compact('inquirer'), function ($message) use($creativeEmail, $creativeName) {
+            $message
+                ->from('marketing@filcaspro.com', 'Filcaspro')
+                ->to( $creativeEmail , $creativeName)
+                ->subject('Filcaspro - Creative Inquiry');
         });
     }
 

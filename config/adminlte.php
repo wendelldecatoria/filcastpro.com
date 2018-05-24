@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'skin' => 'blue',
+    'skin' => 'red',
 
     /*
     |--------------------------------------------------------------------------
@@ -117,29 +117,81 @@ return [
         ],  
         'ADMINISTRATION',
         [
-            'text' => 'Artists',
-            'icon' => 'address-book',
-            'url' => 'admin/artists',
+            'text' => 'Production',
+            'icon' => 'tv',
+            'submenu' => [
+                [
+                    'text' => 'Artists',
+                    'icon' => 'tv',
+                    'url' => 'admin/artists',
+                ],
+               
+                [
+                    'text' => 'Creatives',
+                    'icon' => 'camera',
+                    'url' => 'admin/creatives',
+                ],
+                [
+                    'text' => "Skills",
+                    'icon' => 'address-book',
+                    'url' => 'admin/skill',
+                ],
+            ]
+        ],
+        [
+            'text' => 'Videos',
+            'icon' => 'youtube',
+            'url' => 'admin/video',
+        ],
+        [
+            'text' => "What's In",
+            'icon' => 'map',
+            'submenu' => [
+                [
+                    'text' => 'Establishments',
+                    'url' => 'admin/whats-in',
+                ],
+                [
+                    'text' => 'Category',
+                    'url' => 'admin/category',
+                ],
+            ],
+        ],
+        [
+            'text' => "What's On",
+            'icon' => 'calendar',
+            'url' => 'admin/whats-on',
         ],
         [
             'text' => "What's Up",
-            'icon' => 'address-book',
-            'url' => 'admin/whats-up ',
+            'icon' => 'star',
+            
+            'submenu' => [
+                [
+                    'text' => 'Articles',
+                    'url' => 'admin/whats-up',
+                ],
+                [
+                    'text' => "Writers",
+                    'url' => 'admin/writer',
+                ],
+            ]
         ],
+       
         'FORMS',
         [
             'text' => 'Contacts',
-            'icon' => 'address-book',
+            'icon' => 'address-card',
             'url' => 'admin/contact',
         ],
         [
             'text' => 'Artist Inquiries',
-            'icon' => 'address-book',
+            'icon' => 'question',
             'url' => 'admin/inquiry',
         ],
         [
             'text' => 'Registers',
-            'icon' => 'address-book',
+            'icon' => 'align-justify',
             'url' => 'admin/register',
         ],
     ],

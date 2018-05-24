@@ -3,7 +3,6 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title_prefix', config('adminlte.title_prefix', ''))
 @yield('title', config('adminlte.title', 'AdminLTE 2'))
 @yield('title_postfix', config('adminlte.title_postfix', ''))</title>
@@ -15,8 +14,6 @@
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/font-awesome/css/font-awesome.min.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('vendor/adminlte/vendor/Ionicons/css/ionicons.min.css') }}">
-    <!-- DatePicker -->
-    <link href="{{ asset('css/bootstrap-datepicker.css') }}" rel="stylesheet">
 
     @if(config('adminlte.plugins.select2'))
         <!-- Select2 -->
@@ -40,8 +37,6 @@
 
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-    @yield('ibillboard_css')
 </head>
 <body class="hold-transition @yield('body_class')">
 
@@ -50,11 +45,6 @@
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<script src="{{asset('js/tether.min.js') }}"></script>
-<script src="{{asset('js/moment-with-locales.min.js') }}"></script>
-<script src="{{asset('js/bootstrap/transition.js') }}"></script>
-<script src="{{asset('js/bootstrap/collapse.js') }}"></script>
-<script src="{{ asset('js/bootstrap-datetimepicker.js') }}"></script>
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
@@ -71,14 +61,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js"></script>
 @endif
 
-<script>
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-</script>
 @yield('adminlte_js')
-@yield('ibillboard_js')
+
 </body>
 </html>

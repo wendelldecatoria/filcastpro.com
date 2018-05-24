@@ -1,4 +1,4 @@
-html { 
+html {
 
     overflow-x:hidden;
     height: 100%;
@@ -15,13 +15,15 @@ body {
 }
 
 .header {
-    height: 13%;
+    max-height: 193px;
+    height: 193px;
     background-color: #000;
-    background: url('../images/header.jpg'); 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: url('../images/177601542cd0d26ad35e9b557b5dee23.jpg');
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .header h1 {
@@ -68,17 +70,15 @@ body {
 }
 
 .footer {
-    background-image: url(../images/footernologo.jpg);
+    background-image: url(../images/7995c9b601ce984733ca5a695ab01a7a.jpg);
     background-repeat: no-repeat;
-    background-size: 15%;
+    background-size: 100%;
     text-align: center;
     bottom: 0;
     padding: 15pt;
     background-color: rgb(255, 255, 255);
     height: 11%;
     color: #000;
-    border-top: 1pt solid #7d7d7d;
-    border-bottom: 1pt solid #7d7d7d;
     vertical-align: middle;
 }
 
@@ -110,6 +110,10 @@ body {
     background-color: #f5be1d;
     color:#FFF;
     height: 40pt;
+}
+
+.ac-title small {
+    font-size:50%;
 }
 
 .row-ac-img {
@@ -160,12 +164,44 @@ a:active {
     color:#000;
 }
 
+@media (min-width: 768px){
+    .navbar-nav {
+        float: none;
+        margin: 0;
+    }
+}
+
+
+.navbar-nav {
+    margin: 0 auto;
+    width: fit-content;
+    width: intrinsic;           /* Safari/WebKit uses a non-standard name */
+    width: -moz-max-content;    /* Firefox/Gecko */
+    width: -webkit-max-content; /* Chrome */
+}
+
 #myNavbar {
     font-family: Futura;
 }
 
+.navbar-default .navbar-nav>li>a {
+    color: #3B5E2B;
+    font-size: 12.5pt;
+    text-align: center;
+}
+
+.navbar-default {
+    background-color: #FFF;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #FFC04C;
+    background-color: transparent;
+}
+
 .item-vid-thumb {
-    width:200px;
+    /*width:200px;*/
     padding: 0pt;
     margin: 0pt;
 }
@@ -207,8 +243,8 @@ a:active {
 }
 
 .image-thumbnail {
-    width: 200px;
-    height: 158px;
+    width: 232px;
+    height: 185px;
 }
 
 .header-credit {
@@ -221,8 +257,58 @@ a:active {
 }
 
 .refined-search {
-    background-color: #e7e7e7;
-    padding: 10pt 25pt 0pt 25pt;
+    background-color: rgba(59,94,43,0.15);
+    padding: 10pt 25pt 10pt 25pt;
     border-radius: 5pt;
-    width: 50%;
+    width: 99%;
+    margin: 0 auto;
+}
+
+.hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.article-body, .feature-body{
+    text-align:left;
+    padding: 0pt 0pt 0pt 25pt;
+    margin:10pt;
+   font-family: Helvetica;
+}
+
+.article-body {
+
+}
+
+.ac-dtl-title {
+    background-image: url('../images/24e573457cf62c73b72967042d121570.jpg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.article {
+
+}
+
+#headline {
+    color: rgba(255,0,0,0.8);
+    margin-top: 20pt 0pt 15pt 0pt;
+}
+
+.col-event {
+      padding: 10pt;
+}
+
+.col-event .row {
+      margin: 0pt 5pt 5pt 5pt;
+}
+
+.event-header {
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+}
+
+.event-title {
+  font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
+  font-weight: bold;
 }

@@ -19,7 +19,7 @@ class WhatsUpController extends Controller
 	{
 		if ($request->ajax()) {
             $whatsup = WhatsUp::join('writers', 'writers.id', '=', 'whats_up.writer_id')
-                                ->select('whats_up.id','writers.name', 'writers.title', 'whats_up.headline','whats_up.status','whats_up.created_at','whats_up.updated_at')
+                                ->select('whats_up.id','writers.name as writer', 'writers.title', 'whats_up.headline','whats_up.status','whats_up.type','whats_up.created_at','whats_up.updated_at')
                                 ->get();
 			return Datatables::of($whatsup)->make(true);
         }
@@ -33,9 +33,9 @@ class WhatsUpController extends Controller
     *
     */
     public function edit($id){
-        $whatsup = WhatsUp::find($id);
         $writers = Writer::pluck('name','id')->reverse()->put('', '-----')->reverse();
-        return view('admin.whats-up.edit', compact('whatsup', 'writers') );
+        $whatsup = WhatsUp::with('Writer')->find($id);
+        return view('admin.whats-up.edit', compact('whatsup','writers') );
         // return $whatsup;
     }
 
@@ -52,17 +52,42 @@ class WhatsUpController extends Controller
             'writer' => 'required',
             'headline' => 'required', 
             'content' => 'required',    
-            'status' => 'required'
+            'status' => 'required',
+            'type' => 'required'
         ]);
- 
-        $data = [
-            'writer_id' => $request->input('writer'),
-            'headline' => $request->input('headline'),
-            'content' =>  $request->input('content'),
-            'status' =>  $request->input('status'),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ];
+        
+        if($request->hasFile('article_banner')){
+
+            $path = 'public/images/writers/';
+            $article_banner = $request->file('article_banner');
+            $photoname_banner = md5_file($article_banner->getRealPath() );
+            $ext_banner = $article_banner->guessExtension();
+            $file_banner = $article_banner->storeAs($path, $photoname_banner.'.'.$ext_banner);
+    
+            $data = [
+                'writer_id' => $request->input('writer'),
+                'headline' => $request->input('headline'),
+                'content' =>  $request->input('content'),
+                'status' =>  $request->input('status'),
+                'type' =>  $request->input('type'),
+                // 'image' => $photoname.'.'.$ext,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+                'article_banner' => $photoname_banner.'.'.$ext_banner,
+            ];
+
+        }else {
+            $data = [
+                'writer_id' => $request->input('writer'),
+                'headline' => $request->input('headline'),
+                'content' =>  $request->input('content'),
+                'status' =>  $request->input('status'),
+                'type' =>  $request->input('type'),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ];
+        }
+       
         
         WhatsUp::where('id', '=', $id)->update($data);
 	
@@ -87,34 +112,41 @@ class WhatsUpController extends Controller
     public function store(Request $request){
        
         $this->validate($request, [
+            'image' => 'required',
+            'article_banner' => 'required',
             'writer' => 'required',
             'headline' => 'required', 
             'content' => 'required',    
-            'status' => 'required'
+            'status' => 'required',
+            'type' => 'required'
         ]);
+        
+        $path = 'public/images/writers/';
+        $image = $request->file('image');
+        $photoname = md5_file($image->getRealPath() );
+        $ext = $image->guessExtension();
+        $file = $image->storeAs($path, $photoname.'.'.$ext);
+
+        $article_banner = $request->file('article_banner');
+        $photoname_banner = md5_file($article_banner->getRealPath() );
+        $ext_banner = $article_banner->guessExtension();
+        $file_banner = $article_banner->storeAs($path, $photoname_banner.'.'.$ext);
  
         $data = [
             'writer_id' => $request->input('writer'),
             'headline' => $request->input('headline'),
             'content' =>  $request->input('content'),
             'status' =>  $request->input('status'),
+            'type' =>  $request->input('type'),
+            'image' => $photoname.'.'.$ext,
             'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
+            'updated_at' => Carbon::now(),
+            'article_banner' => $photoname_banner.'.'.$ext_banner,
         ];
 
         WhatsUp::insert($data);
 	
 		return redirect()->route('whats-up.index');
-    }
-
-     /*
-    *  show the selected resource
-    *
-    *
-    */
-    public function show($id){
-        $actor = Actor::find($id);
-        return view('admin.artists.index');
     }
 
     /*

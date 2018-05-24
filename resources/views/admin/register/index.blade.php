@@ -56,6 +56,7 @@
 				serverSide: true,
 				deferRender: true,
 				ajax: '{{ route("register.index") }}',
+				"order": [[ 3, "desc" ]],
 				columnDefs: [
 					{
 						'targets': 0,
@@ -78,17 +79,7 @@
 						'name': 'created_at',
 						
 					},
-					// {
-					// 	'targets': 5,
-					// 	'searchable': false,
-					// 	'sortable': false,
-					// 	'render': function (data, type, row) {
-					// 		return [
-					// 			'<a href="artists/' + row['id'] + '/edit" title="Edit" class="btn btn-primary btn-xs"><i class="glyphicon glyphicon-edit"></i> Edit</a>' + " " +
-					// 			'<button data-id="' + row.id + '" type="button" title="Delete" class="btn btn-danger btn-xs delete-btn"><i class="fa fa-trash"></i> Delete</button>'
-					// 		];
-					// 	},
-					// },
+					
 				]
 			});
 		});

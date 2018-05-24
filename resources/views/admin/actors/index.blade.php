@@ -39,9 +39,10 @@
 							<tr>
 								<th>Name</th>
 								<th>Gender</th>
-								<th>Manager</th>   
+								<th>Management</th>   
 								<th>Contact</th>
 								<th>Email</th>
+								<th>Active (?)</th> 
 								<th></th>
 							</tr>
 						</thead>
@@ -97,6 +98,20 @@
 					},
 					{
 						'targets': 5,
+						'data': 'is_active',
+						'name': 'is_active',
+						 mRender: function ( data, type, row ) {
+							if(data == 0){
+								return data = 'No';
+							}else if(data == 1){
+								return data = 'Yes';
+							}else {
+								
+							}
+						}
+					},
+					{
+						'targets': 6,
 						'searchable': false,
 						'sortable': false,
 						'render': function (data, type, row) {
@@ -132,6 +147,7 @@
 						$.ajax({
 							type: "DELETE",
 							url: url,
+							data: { _token: '{{csrf_token()}}' },
 							success: function (response) {
 
 								dhtmlx.alert({

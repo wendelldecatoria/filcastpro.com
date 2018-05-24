@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Create Article')
+@section('title', 'Filcaspro')
 
 @section('content_header')
 	<h1>Filcaspro<small> Create What's Up Article</small></h1>
 @endsection
 
-@section('ibillboard_css')
+@section('css')
 <!-- Froala Editor -->        
 	
   <link rel="stylesheet" href="{{ asset('vendor/froala/css/froala_editor.min.css')}}">
@@ -41,6 +41,10 @@
                                 <td>Headline:</td>
                                 <td>{{ Form::text('headline', $whatsup->headline ,array('class' => 'form-control','placeholder' => 'Enter Article Headline')) }}</td>
                             </tr>
+                            <!-- <tr>
+                                <td>Title:</td>
+                                <td>{{ Form::text('title', $whatsup->title ,array('class' => 'form-control','placeholder' => 'Enter Article Title')) }}</td>
+                            </tr> -->
                             <tr>
                                 <td>Content:</td>
                                 <td>{{ Form::textarea('content', $whatsup->content ,array('class' => 'form-control','id' => 'froala-editor','placeholder' => 'Enter Article Content')) }}</td>
@@ -48,6 +52,18 @@
                             <tr>
                                 <td>Status:</td>
                                 <td>{{Form::select('status', array( '' => '-----', 1 => 'Yes', 0 => 'No', 2 => 'Archive'), $whatsup->status,['class' => 'form-control'])}}</td>
+                            </tr>
+                            <tr>
+                                <td>Type:</td>
+                                <td>{{Form::select('type', array( '' => '-----', 1 => 'Article', 2 => 'Featured Artist'), $whatsup->type,['class' => 'form-control'])}}</td>
+                            </tr>
+                            <!-- <tr>
+                                <td>Image:</td>
+                                <td> {{ Form::file('image') }}</td>
+                            </tr> -->
+                            <tr>
+                                <td>Article Banner:</td>
+                                <td> {{ Form::file('article_banner') }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -70,7 +86,7 @@
     </div>
 @endsection
 
-@section('ibillboard_js')
+@section('js')
 
 <script src="{{ asset('vendor/dhtmlxSuite/codebase/dhtmlx.js') }}"></script>
 <script src="{{ asset('js/helpers.js') }}"></script>
