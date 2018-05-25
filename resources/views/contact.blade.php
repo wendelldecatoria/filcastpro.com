@@ -23,7 +23,6 @@
                     </ul>
                 </div>
             @endif
-
                
                 {{ Form::hidden('_token', csrf_token() ) }}  
                 <div class="form-group">
