@@ -28,19 +28,19 @@
 				<div class="col-md-12">
                  
                     @include('layouts/error_box') 
-
-                    <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" role="grid" style="width: 80%;">
+                    
+                    <!-- <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" role="grid" style="width: 80%;">
 						<tbody>
                              <tr>
                                 <td> <img class="img-thumbnail img-responsive" src="{{ asset('/storage/images/writers/' . $whatsup->image) }}" /></td>
-                                <!-- <td> {{ Form::file('image') }}</td> -->
+                                <td> {{-- Form::file('image') --}}</td>
                             </tr>
                             <tr>
                                 <td> <img class="img-thumbnail img-responsive" src="{{ asset('/storage/images/writers/' . $whatsup->article_banner) }}" /></td>
-                                <!-- <td> {{ Form::file('article_banner') }}</td> -->
+                                <td> {{-- Form::file('article_banner') --}}</td>
                             </tr>
                         </tbody>
-                    </table>
+                    </table> -->
 
                     {{Form::open(array('route' => array('whats-up.update', $whatsup->id), 'method' => 'PUT', 'class' =>'form-horizontal', 'files' => true))}}
                     {{ csrf_field() }}
