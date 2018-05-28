@@ -96,7 +96,8 @@
 @endsection
 
 @section('js')
-
+<script src="{{ asset('vendor/bootstrap-datetimepicker/moment.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js') }}"></script>
 <script type="text/javascript">
 		 $(document).ready(function(){
             $('#datetimepicker_from').datetimepicker({ format: 'LLL'});

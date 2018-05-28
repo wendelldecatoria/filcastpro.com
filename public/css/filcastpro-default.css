@@ -311,4 +311,5 @@ a:active {
 .event-title {
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
   font-weight: bold;
+  color: rgba(255,0,0,0.8);
 }

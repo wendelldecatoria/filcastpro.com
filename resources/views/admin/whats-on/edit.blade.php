@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Create Article')
+@section('title', 'Filcaspro')
 
 @section('content_header')
-	<h1>Filcaspro<small> Create What's Up Article</small></h1>
+	<h1>Filcaspro<small>Edit What's Up Article</small></h1>
 @endsection
 
 @section('css')
@@ -97,7 +97,8 @@
 @endsection
 
 @section('js')
-
+<script src="{{ asset('vendor/bootstrap-datetimepicker/moment.js') }}"></script>
+<script src="{{ asset('vendor/bootstrap-datetimepicker/bootstrap-datetimepicker.js') }}"></script>
 <script type="text/javascript">
 		 $(document).ready(function(){
             $('#datetimepicker_from').datetimepicker({ format: 'LLL'});
