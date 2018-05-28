@@ -28,6 +28,20 @@
 				<div class="col-md-12">
                  
                     @include('layouts/error_box') 
+
+                    <table class="table table-striped table-bordered table-hover table-sm datatable mdl-data-table dataTable" role="grid" style="width: 80%;">
+						<tbody>
+                             <tr>
+                                <td> <img class="img-thumbnail img-responsive" src="{{ asset('/storage/images/writers/' . $whatsup->image) }}" /></td>
+                                <!-- <td> {{ Form::file('image') }}</td> -->
+                            </tr>
+                            <tr>
+                                <td> <img class="img-thumbnail img-responsive" src="{{ asset('/storage/images/writers/' . $whatsup->article_banner) }}" /></td>
+                                <!-- <td> {{ Form::file('article_banner') }}</td> -->
+                            </tr>
+                        </tbody>
+                    </table>
+
                     {{Form::open(array('route' => array('whats-up.update', $whatsup->id), 'method' => 'PUT', 'class' =>'form-horizontal', 'files' => true))}}
                     {{ csrf_field() }}
                     {{ Form::hidden('id', $whatsup->id) }} 
@@ -61,10 +75,10 @@
                                 <td>Image:</td>
                                 <td> {{ Form::file('image') }}</td>
                             </tr> -->
-                            <tr>
+                            <!-- <tr>
                                 <td>Article Banner:</td>
                                 <td> {{ Form::file('article_banner') }}</td>
-                            </tr>
+                            </tr> -->
                         </tbody>
                     </table>
                     </div>
@@ -87,7 +101,7 @@
 @endsection
 
 @section('js')
-
+<script src="{{ asset('vendor/dropzone/dropzone.js') }}"></script>
 <script src="{{ asset('vendor/dhtmlxSuite/codebase/dhtmlx.js') }}"></script>
 <script src="{{ asset('js/helpers.js') }}"></script>
 <script src="{{ asset('js/ajax-interceptor.js') }}"></script>
