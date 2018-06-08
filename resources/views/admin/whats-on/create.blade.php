@@ -3,7 +3,7 @@
 @section('title', 'Create Article')
 
 @section('content_header')
-	<h1>Filcaspro<small> Create What's Up Article</small></h1>
+	<h1>Filcaspro<small> Create What's On Article</small></h1>
 @endsection
 
 @section('css')
