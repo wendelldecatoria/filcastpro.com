@@ -2,6 +2,7 @@
 
 @section('css')
     <link href="{{ asset('css/filcastpro-default.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 @endsection
 
 @section('content') 
@@ -29,8 +30,16 @@
             <br>
             <p class="text-justify"> {!! htmlspecialchars_decode($article[0]->content) !!} </p>
             <br>
+            <div class="row center">
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">  
+                    {!! htmlspecialchars_decode($article[0]->url) !!}
+                </div>
+            </div>
+            <br><br>
             <a href="{{route('web.whats-up.disclaimer')}}"><button type="button" class="btn btn-danger"><strong>Disclaimer</strong></button></a>
             <br><br>
+            <a class="twitter-share-button fa fa-twitter"  href="https://twitter.com/intent/tweet" data-size="large"></a>
             <div class="fb-like" data-href="{{route('web.whats-up.show', $article[0]->id)}}" data-width="500" data-layout="standard" data-action="like" data-size="large" data-show-faces="true" data-share="true"></div>
             <div class="fb-comments" data-href="{{route('web.whats-up.show', $article[0]->id)}}" data-width="100%" data-numposts="5"></div>
         </div>
