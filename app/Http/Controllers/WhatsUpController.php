@@ -53,7 +53,8 @@ class WhatsUpController extends Controller
             'headline' => 'required', 
             'content' => 'required',    
             'status' => 'required',
-            'type' => 'required'
+            'type' => 'required',
+            'url' => 'required'
         ]);
         
         if($request->hasFile('article_banner')){
@@ -71,9 +72,9 @@ class WhatsUpController extends Controller
                 'status' =>  $request->input('status'),
                 'type' =>  $request->input('type'),
                 // 'image' => $photoname.'.'.$ext,
-                'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
                 'article_banner' => $photoname_banner.'.'.$ext_banner,
+                'url' =>  $request->input('url'),
             ];
 
         }else {
@@ -83,8 +84,8 @@ class WhatsUpController extends Controller
                 'content' =>  $request->input('content'),
                 'status' =>  $request->input('status'),
                 'type' =>  $request->input('type'),
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
+                'updated_at' => Carbon::now(),
+                'url' =>  $request->input('url'),
             ];
         }
        
@@ -118,7 +119,8 @@ class WhatsUpController extends Controller
             'headline' => 'required', 
             'content' => 'required',    
             'status' => 'required',
-            'type' => 'required'
+            'type' => 'required',
+            'url' => 'required'
         ]);
         
         $path = 'public/images/writers/';
@@ -142,6 +144,7 @@ class WhatsUpController extends Controller
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
             'article_banner' => $photoname_banner.'.'.$ext_banner,
+            'url' =>  $request->input('url'),
         ];
 
         WhatsUp::insert($data);

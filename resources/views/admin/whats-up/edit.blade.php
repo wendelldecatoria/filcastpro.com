@@ -79,6 +79,10 @@
                                 <td>Article Banner:</td>
                                 <td> {{ Form::file('article_banner') }}</td>
                             </tr> -->
+                            <tr>
+                                <td>URL:</td>
+                                <td>{{ Form::text('url', $whatsup->url ,array('class' => 'form-control','placeholder' => 'Enter Article URL')) }}</td>
+                            </tr>
                         </tbody>
                     </table>
                     </div>

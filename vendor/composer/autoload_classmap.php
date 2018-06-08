@@ -13,6 +13,7 @@ return array(
     'AddMapUrlToWhatsInTable' => $baseDir . '/database/migrations/2018_05_01_151510_add_map_url_to_whats_in_table.php',
     'AddMusicianToSkillsTable' => $baseDir . '/database/migrations/2018_04_07_102345_add_musician_to_skills_table.php',
     'AddOnlineProfileToCreativesTable' => $baseDir . '/database/migrations/2018_04_11_145349_add_online_profile_to_creatives_table.php',
+    'AddUrlToWhatsUpTable' => $baseDir . '/database/migrations/2018_06_08_102628_add_url_to_whats_up_table.php',
     'AlterTableVideos' => $baseDir . '/database/migrations/2018_04_04_132709_alter_table_videos.php',
     'AlterTableWhatsUp' => $baseDir . '/database/migrations/2018_04_01_091729_alter_table_whats_up.php',
     'App\\Actor' => $baseDir . '/app/Actor.php',
@@ -54,6 +55,7 @@ return array(
     'App\\Http\\Controllers\\WhatsInController' => $baseDir . '/app/Http/Controllers/WhatsInController.php',
     'App\\Http\\Controllers\\WhatsOnController' => $baseDir . '/app/Http/Controllers/WhatsOnController.php',
     'App\\Http\\Controllers\\WhatsUpController' => $baseDir . '/app/Http/Controllers/WhatsUpController.php',
+    'App\\Http\\Controllers\\WriterController' => $baseDir . '/app/Http/Controllers/WriterController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\Admin' => $baseDir . '/app/Http/Middleware/Admin.php',
     'App\\Http\\Middleware\\EncryptCookies' => $baseDir . '/app/Http/Middleware/EncryptCookies.php',
@@ -109,16 +111,9 @@ return array(
     'CreateUsersRolesTable' => $baseDir . '/database/migrations/2017_08_13_142016_create_users_roles_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2018_02_20_234602_create_users_table.php',
     'CreateVideosTable' => $baseDir . '/database/migrations/2018_03_05_144502_create_videos_table.php',
-<<<<<<< HEAD
-<<<<<<< HEAD
-    'CreateWhatsOnTable' => $baseDir . '/database/migrations/2018_03_13_025336_create_whats_on_table.php',
-=======
->>>>>>> b6f7695ca4e21d994aa1eb29f3f396da87c9fad3
-=======
     'CreateWhatsInCategoryTable' => $baseDir . '/database/migrations/2018_04_21_072919_create_whats_in_category_table.php',
     'CreateWhatsInTable' => $baseDir . '/database/migrations/2018_04_21_055930_create_whats_in_table.php',
     'CreateWhatsOnTable' => $baseDir . '/database/migrations/2018_04_04_161154_create_whats_on_table.php',
->>>>>>> dbeedbb0c2721f4126a4c44faeba091aecf52b56
     'CreateWhatsUpTable' => $baseDir . '/database/migrations/2018_03_13_025320_create_whats_up_table.php',
     'CreateWritersTable' => $baseDir . '/database/migrations/2018_03_25_151013_create_writers_table.php',
     'Cron\\AbstractField' => $vendorDir . '/mtdowling/cron-expression/src/Cron/AbstractField.php',
@@ -2343,7 +2338,7 @@ return array(
     'PHPUnit\\Util\\TestDox\\XmlResultPrinter' => $vendorDir . '/phpunit/phpunit/src/Util/TestDox/XmlResultPrinter.php',
     'PHPUnit\\Util\\TextTestListRenderer' => $vendorDir . '/phpunit/phpunit/src/Util/TextTestListRenderer.php',
     'PHPUnit\\Util\\Type' => $vendorDir . '/phpunit/phpunit/src/Util/Type.php',
-    'PHPUnit\\Util\\Xml' => $vendorDir . '/phpunit/phpunit/src/Util/XML.php',
+    'PHPUnit\\Util\\Xml' => $vendorDir . '/phpunit/phpunit/src/Util/Xml.php',
     'PHPUnit\\Util\\XmlTestListRenderer' => $vendorDir . '/phpunit/phpunit/src/Util/XmlTestListRenderer.php',
     'PHPUnit_Framework_MockObject_MockObject' => $vendorDir . '/phpunit/phpunit-mock-objects/src/MockObject.php',
     'PHP_Timer' => $vendorDir . '/phpunit/php-timer/src/Timer.php',

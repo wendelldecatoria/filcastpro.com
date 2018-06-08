@@ -64,6 +64,10 @@
                                 <td>Article Banner:</td>
                                 <td> {{ Form::file('article_banner') }}</td>
                             </tr>
+                            <tr>
+                                <td>URL:</td>
+                                <td>{{ Form::text('url', null ,array('class' => 'form-control','placeholder' => 'Enter Article URL')) }}</td>
+                            </tr>
                         </tbody>
                     </table>
                     </div>

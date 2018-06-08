@@ -312,3 +312,11 @@ a:active {
   font-family: "HelveticaNeue-CondensedBold", "Helvetica Neue";
   font-weight: bold;
 }
+
+.center {
+    text-align: center;
+}
+
+.fb_iframe_widget{
+    top: -3pt;
+}
